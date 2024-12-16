@@ -1,0 +1,71 @@
+import { useEffect } from "react";
+
+import type { AppProps } from "next/app";
+import Head from "next/head";
+
+import { appWithI18Next, useSyncLanguage } from "ni18n";
+import { PersistGate } from "redux-persist/integration/react";
+
+import Font from "@/assets/font/Font";
+import ModalProvider from "@/components/Modal/ModalProvider";
+import CustomToastContainer from "@/components/Toast/CustomToast";
+import useAuth from "@/features/auth/hooks/useAuth";
+import useTokenData from "@/features/market/hooks/useTokenData";
+import { socket } from "@/lib/services/socket";
+import { persistor, storeWrapper } from "@/redux/store";
+
+import { ni18nConfig } from "../../ni18.config";
+
+import "react-toastify/dist/ReactToastify.css";
+import "@/styles/globals.scss";
+
+function App({ Component, pageProps }: AppProps) {
+  const { checkIfJWTTokenExpired } = useAuth();
+  const { updateTokenPairsData, updateTokenPricesData } = useTokenData();
+
+  // Sync language with local storage
+  const locale =
+    (typeof window !== "undefined" &&
+      window.localStorage.getItem("i18nextLng")) ||
+    undefined;
+  useSyncLanguage(locale);
+
+  // Check if JWT token is expired
+  useEffect(() => {
+    checkIfJWTTokenExpired();
+  }, [checkIfJWTTokenExpired]);
+
+  // WEBSOCKET UPDATE TOKEN DATA
+  useEffect(() => {
+    socket.on("tokenPairs", (result) => {
+      updateTokenPairsData(result.data);
+    });
+    socket.on("tokenPrice", (result) => {
+      updateTokenPricesData(result.data);
+    });
+
+    return () => {
+      socket.off("tokenPairs");
+      socket.off("tokenPrice");
+    };
+  }, [updateTokenPairsData, updateTokenPricesData]);
+
+  return (
+    <PersistGate loading={null} persistor={persistor}>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
+        <title>KriptoLab</title>
+        <link rel="icon" href={"/favicon.ico"} />
+      </Head>
+      <Font />
+      <CustomToastContainer />
+      <Component {...pageProps} />
+      <ModalProvider />
+    </PersistGate>
+  );
+}
+
+export default storeWrapper.withRedux(appWithI18Next(App, ni18nConfig));

@@ -1,0 +1,167 @@
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
+import Image from "next/image";
+
+import classNames from "classnames";
+
+import Button from "@/components/Button/Button";
+import CustomErrorMessage from "@/components/Form/CustomErrorMessage";
+import CustomInput from "@/components/Form/CustomInput";
+import { showToast } from "@/components/Toast/CustomToast";
+import useUser from "@/hooks/useUser";
+import { editProfileService } from "@/lib/services";
+import { IProfileUpdate } from "@/types";
+
+import UploadAvatarModal from "./UploadAvatarModal";
+
+const EditProfile = () => {
+  const { user } = useUser();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<any>();
+
+  const [uploadAvatar, setUploadAvatar] = useState(false);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<IProfileUpdate>({
+    criteriaMode: "all",
+    values: {
+      firstName: user.profile.firstName,
+      lastName: user.profile.lastName,
+      address: user.profile.address,
+      phoneNumber: user.profile.phoneNumber,
+    },
+  });
+
+  const submitHandler = async (val: IProfileUpdate) => {
+    try {
+      setIsLoading(true);
+      const response = await editProfileService(val);
+
+      if (response) {
+        showToast.success("Edit profile success!");
+      }
+    } catch (error: any) {
+      setIsError(true);
+      setErrorMessage(error.response.data.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <section className="flex w-full justify-center">
+      <div className="w-full max-w-[900px]">
+        <h2 className="mb-4 w-full text-2xl font-medium sm:text-3xl md:mb-6">
+          Account Settings
+        </h2>
+        <div className="w-full space-y-5 rounded-xl border-2 border-borderColor bg-cardBackground p-4 md:px-6 md:py-5">
+          <div className="space-y-3">
+            <h3 className="md:text-lg">Profile Picture</h3>
+            <Image
+              width={128}
+              height={128}
+              src={user.profile.image}
+              alt="profilepicture"
+              className="size-16 rounded-full md:size-32"
+            />
+            <Button onClick={() => setUploadAvatar(true)}>Upload Avatar</Button>
+          </div>
+
+          <form onSubmit={handleSubmit(submitHandler)} className="space-y-3">
+            {isError && (
+              <CustomErrorMessage
+                onClose={() => setIsError(false)}
+                message={errorMessage}
+              />
+            )}
+
+            <div className="space-y-2">
+              <h3 className="md:text-lg">Email</h3>
+              <div
+                className={classNames(
+                  "w-full rounded border-2 p-3 text-sm lg:text-base",
+                  "border-borderColor bg-borderColor/20 text-textSecondary/80",
+                )}
+              >
+                {user.email}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:gap-5">
+              <CustomInput
+                label="First Name"
+                name="firstName"
+                type="text"
+                placeholder="Your name"
+                errors={errors}
+                register={register}
+                validation={{
+                  required: "First name is required!",
+                }}
+                className="max-w-[600px] p-3"
+              />
+              <CustomInput
+                label="Last Name"
+                name="lastName"
+                type="text"
+                placeholder="Your last name"
+                errors={errors}
+                register={register}
+                validation={{
+                  required: "Last name is required!",
+                }}
+                className="max-w-[600px] p-3"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:gap-5">
+              <CustomInput
+                label="Phone Number"
+                name="phoneNumber"
+                type="text"
+                placeholder="Your phone number"
+                errors={errors}
+                register={register}
+                validation={{ required: "Phone number is required!" }}
+                className="max-w-[600px] p-3"
+              />
+              <CustomInput
+                label="Address"
+                name="address"
+                type="text"
+                placeholder="Your address"
+                errors={errors}
+                register={register}
+                validation={{ required: "Address is required!" }}
+                className="max-w-[600px] p-3"
+              />
+            </div>
+
+            <div className="flex justify-end pt-1">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full md:w-[250px]"
+              >
+                Save Changes
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <UploadAvatarModal
+        open={uploadAvatar}
+        onClose={() => setUploadAvatar(false)}
+        user={user}
+      />
+    </section>
+  );
+};
+
+export default EditProfile;

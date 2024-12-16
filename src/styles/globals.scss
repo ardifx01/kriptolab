@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --toastify-color-success: #31dbb1;
+  --toastify-color-error: #fc4a71;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    @apply bg-gray-700;
+  }
+}
+
+body {
+  @apply bg-background font-inter text-white;
+}
+
+@layer components {
+  // SCROLLER
+  .scroller {
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      @apply bg-transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      @apply bg-SOLID05-808080;
+    }
+
+    &.scroller-mb::-webkit-scrollbar-track {
+      margin-bottom: 20px;
+    }
+
+    &.scroller-my2::-webkit-scrollbar-track {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+  .no-scroller-x::-webkit-scrollbar {
+    height: 0;
+  }
+  .no-scroller-y::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+// SHIMMER LOADER
+.custom_shimmer {
+  overflow: hidden;
+  position: relative;
+  background-color: #191921;
+  mask-image: -webkit-radial-gradient(white, black);
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background: linear-gradient(
+      to right,
+      #191921 0%,
+      #272a31 50%,
+      #191921 100%
+    );
+
+    transform: translateX(-100%);
+    animation-name: shimmer;
+    animation-direction: normal;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
