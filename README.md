@@ -1,1 +1,1 @@
-KriptoLab Frontend - TUGAS AKHIR
+KriptoLab Frontend - TUGAS AKHIR.
