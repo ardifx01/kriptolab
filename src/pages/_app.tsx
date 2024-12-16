@@ -10,8 +10,6 @@ import Font from "@/assets/font/Font";
 import ModalProvider from "@/components/Modal/ModalProvider";
 import CustomToastContainer from "@/components/Toast/CustomToast";
 import useAuth from "@/features/auth/hooks/useAuth";
-import useTokenData from "@/features/market/hooks/useTokenData";
-import { socket } from "@/lib/services/socket";
 import { persistor, storeWrapper } from "@/redux/store";
 
 import { ni18nConfig } from "../../ni18.config";
@@ -21,7 +19,6 @@ import "@/styles/globals.scss";
 
 function App({ Component, pageProps }: AppProps) {
   const { checkIfJWTTokenExpired } = useAuth();
-  const { updateTokenPairsData, updateTokenPricesData } = useTokenData();
 
   // Sync language with local storage
   const locale =
@@ -34,21 +31,6 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     checkIfJWTTokenExpired();
   }, [checkIfJWTTokenExpired]);
-
-  // WEBSOCKET UPDATE TOKEN DATA
-  useEffect(() => {
-    socket.on("tokenPairs", (result) => {
-      updateTokenPairsData(result.data);
-    });
-    socket.on("tokenPrice", (result) => {
-      updateTokenPricesData(result.data);
-    });
-
-    return () => {
-      socket.off("tokenPairs");
-      socket.off("tokenPrice");
-    };
-  }, [updateTokenPairsData, updateTokenPricesData]);
 
   return (
     <PersistGate loading={null} persistor={persistor}>
