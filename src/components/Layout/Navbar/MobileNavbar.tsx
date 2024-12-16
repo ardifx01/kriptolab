@@ -12,9 +12,9 @@ import Drawer from "@/components/Drawer/Drawer";
 import useAuth from "@/features/auth/hooks/useAuth";
 import openPage from "@/lib/helpers/openPage";
 
+import TokenSearchBar from "./TokenSearchBar/TokenSearchBar";
 import ChangeLanguage from "./ChangeLanguage";
 import { NavbarProps } from "./Navbar";
-import TokenSearchBar from "./TokenSearchBar/TokenSearchBar";
 import UserDropdown from "./UserDropdown";
 
 const MobileNavbar = ({}: NavbarProps) => {

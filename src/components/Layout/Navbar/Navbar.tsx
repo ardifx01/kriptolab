@@ -8,8 +8,8 @@ import classNames from "classnames";
 import Button from "@/components/Button/Button";
 import useAuth from "@/features/auth/hooks/useAuth";
 
-import ChangeLanguage from "./ChangeLanguage";
 import TokenSearchBar from "./TokenSearchBar/TokenSearchBar";
+import ChangeLanguage from "./ChangeLanguage";
 import UserBalance from "./UserBalance";
 import UserDropdown from "./UserDropdown";
 
