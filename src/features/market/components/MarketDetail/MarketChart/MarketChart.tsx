@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 import { ColorType, createChart, CrosshairMode } from "lightweight-charts";
 
@@ -24,28 +24,47 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
   const chartRef = useRef<any | null>(null);
   const candlestickSeriesRef = useRef<any | null>(null);
 
-  const { data, isLoading, error } = useInfiniteOHLCData(tokenId, "15");
+  const { data, isLoading, error, lastUpdateTime } = useInfiniteOHLCData(
+    tokenId,
+    "15",
+  );
+
+  const updateChart = useCallback(() => {
+    if (data.length > 0 && candlestickSeriesRef.current) {
+      const formattedData = data.map((item: ITokenOHLC) => ({
+        time: item.Time,
+        open: item.Open,
+        high: item.High,
+        low: item.Low,
+        close: item.Close,
+      }));
+
+      // Use setData for initial load, updateData for subsequent updates
+      if (chartRef.current?.timeScale().getVisibleLogicalRange() === null) {
+        candlestickSeriesRef.current.setData(formattedData);
+      } else {
+        // Append only the most recent candle
+        const lastCandle = formattedData[formattedData.length - 1];
+        candlestickSeriesRef.current.update(lastCandle);
+      }
+    }
+  }, [data]);
 
   useEffect(() => {
     if (!chartContainerRef.current) return;
 
     const removeExistingChart = () => {
       try {
-        if (chartRef.current && typeof chartRef.current.remove === "function") {
-          chartRef.current.remove();
-        }
+        chartRef.current?.remove();
       } catch (error) {
         console.warn("Error removing existing chart:", error);
       }
-
-      // Clear references
       chartRef.current = null;
       candlestickSeriesRef.current = null;
     };
 
     removeExistingChart();
 
-    // Create new chart
     const chart = createChart(chartContainerRef.current, {
       autoSize: true,
       layout: {
@@ -86,7 +105,6 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
       },
     });
 
-    // Create candlestick series
     const candlestickSeries = chart.addCandlestickSeries({
       upColor: colors.candlePositive,
       downColor: colors.candleNegative,
@@ -95,7 +113,6 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
       wickDownColor: colors.candleNegative,
     });
 
-    // Store references
     chartRef.current = chart;
     candlestickSeriesRef.current = candlestickSeries;
 
@@ -110,20 +127,9 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
     colors.candleNegative,
   ]);
 
-  // Process and set chart data when available
   useEffect(() => {
-    if (data.length > 0 && candlestickSeriesRef.current) {
-      const formattedData = data.map((item: ITokenOHLC) => ({
-        time: item.Time,
-        open: item.Open,
-        high: item.High,
-        low: item.Low,
-        close: item.Close,
-      }));
-
-      candlestickSeriesRef.current.setData(formattedData);
-    }
-  }, [data]);
+    updateChart();
+  }, [updateChart, lastUpdateTime]);
 
   return (
     <>

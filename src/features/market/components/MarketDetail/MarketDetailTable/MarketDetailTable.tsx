@@ -52,7 +52,11 @@ const MarketDetailTable = ({ token }: Props) => {
   const { data: trades } = useCustomSWR<ITradeHistory[]>(
     `${INDODAX_URL}/api/trades/${token?.pairDetails.id}`,
     "unauthenticated",
-    { refreshInterval: 1000 },
+    {
+      refreshInterval: 1000 * 15,
+      revalidateOnFocus: true,
+      revalidateIfStale: true,
+    },
   );
 
   // USER TRADES HISTORY

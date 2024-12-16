@@ -25,14 +25,20 @@ const useTokenData = () => {
     error: pairsError,
     isLoading: isPairsLoading,
     mutate: mutatePairs,
-  } = useCustomSWR<ITokenPair[]>(API_PAIRS, "unauthenticated");
+  } = useCustomSWR<ITokenPair[]>(API_PAIRS, "unauthenticated", {
+    refreshInterval: 1000 * 60 * 5,
+  });
 
   const {
     data: priceList,
     error: pricesError,
     isLoading: isPricesLoading,
     mutate: mutatePrices,
-  } = useCustomSWR<ITokenPrice[]>(API_SUMMARIES, "unauthenticated");
+  } = useCustomSWR<ITokenPrice[]>(API_SUMMARIES, "unauthenticated", {
+    refreshInterval: 1000 * 15,
+    revalidateOnFocus: true,
+    revalidateIfStale: true,
+  });
 
   // Redux updates
   const updateTokenPairsData = useCallback(
