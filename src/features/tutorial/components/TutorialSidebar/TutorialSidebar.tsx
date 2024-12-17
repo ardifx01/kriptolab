@@ -12,7 +12,7 @@ const TutorialSidebar = () => {
 
   return (
     <div className="relative">
-      <aside className="sticky top-28 min-w-[300px] space-y-3">
+      <aside className="sticky top-[120px] min-w-[300px] space-y-3">
         {TUTORIAL_MENU.map((menu) => (
           <Link
             href={menu.link}

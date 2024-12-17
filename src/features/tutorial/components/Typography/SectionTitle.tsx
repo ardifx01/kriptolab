@@ -9,7 +9,7 @@ const SectionTitle = ({ id, children, className }: TitleProps) => {
     <h2
       id={id}
       className={classNames(
-        "mb-3 text-2xl font-medium text-textPrimary",
+        "mb-3 flex items-center gap-2 text-2xl font-semibold text-textPrimary",
         className,
       )}
     >
