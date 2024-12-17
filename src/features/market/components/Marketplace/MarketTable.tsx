@@ -62,7 +62,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     {
       key: "assetName",
       label: "Token Name",
-      width: isMobile ? 200 : 260,
+      width: isMobile ? 200 : 280,
       headerClassName: "text-left p-3",
       customRender: (val, rowData: any) => (
         <div className="flex items-center gap-3 p-3">

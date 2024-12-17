@@ -16,14 +16,16 @@ import SearchBar from "./SearchBar";
 
 const Marketplace = () => {
   const { t } = useTranslation();
-  const { watchlistedTokens, trendingCrypto, topGainers } = useTokenData();
+  const { watchlistedTokens, trendingCrypto, topGainers, topLosers } =
+    useTokenData();
   const { isMobile } = useWindowSize();
 
   const [selectedMenu, setSelectedMenu] = useState<MarketMenuType>("Trending");
 
   const marketData: { title: MarketMenuType; data: ITokenDetails[] }[] = [
     { title: "Trending", data: trendingCrypto },
-    { title: "Top Gainers", data: topGainers },
+    { title: "Gainers", data: topGainers },
+    { title: "Losers", data: topLosers },
     { title: "Watchlist", data: watchlistedTokens },
   ];
 

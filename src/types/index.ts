@@ -144,7 +144,8 @@ export type MarketMenuType =
   | "Watchlist"
   | "View All"
   | "Trending"
-  | "Top Gainers";
+  | "Gainers"
+  | "Losers";
 
 export type MarketDetailTableType = "transactions" | "my-trades" | "news";
 

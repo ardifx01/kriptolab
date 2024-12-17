@@ -148,8 +148,33 @@ const useTokenData = () => {
           ),
         };
       })
-      .filter((token) => token.percentage.isPositive)
       .sort((a, b) => b.percentage.percentage - a.percentage.percentage);
+  }, [tokenList]);
+
+  // Top Losers
+  const topLosers = useMemo(() => {
+    if (!tokenList) return [];
+
+    return tokenList
+      .filter((token) => {
+        // Filter out tokens without price or percentage gain data
+        return (
+          token.priceDetails?.last &&
+          token.priceDetails?.price_24h &&
+          !token.pairDetails.is_maintenance &&
+          !token.pairDetails.is_market_suspended
+        );
+      })
+      .map((token) => {
+        return {
+          ...token,
+          percentage: calculatePercentageChange(
+            token?.priceDetails?.last || "0",
+            token?.priceDetails?.price_24h || "0",
+          ),
+        };
+      })
+      .sort((a, b) => a.percentage.percentage - b.percentage.percentage);
   }, [tokenList]);
 
   const watchlistedTokens = useMemo(() => {
@@ -201,6 +226,7 @@ const useTokenData = () => {
     priceList,
     trendingCrypto,
     topGainers,
+    topLosers,
     watchlistedTokens,
 
     // Loading and error states
