@@ -36,9 +36,11 @@ const config: Config = {
 
         textPrimary: "#fffffff2",
         textSecondary: "#b5b7da",
+        caption: "#ced0eb",
         success: "#31dbb1",
         error: "#fc4a71",
         warning: "#ffdc30",
+        offWhite: "#eeeeee",
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
