@@ -18,9 +18,9 @@ const TutorialLayout = ({
   className,
 }: TutorialLayoutProps) => {
   return (
-    <Layout title={title} className={classNames("flex gap-5", className)}>
+    <Layout title={title} className={classNames("flex gap-10", className)}>
       <TutorialSidebar />
-      <div className="px-5 py-3">{children}</div>
+      <div>{children}</div>
     </Layout>
   );
 };
