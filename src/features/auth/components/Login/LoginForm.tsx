@@ -135,7 +135,7 @@ const LoginForm = () => {
           disabled={isLoading}
           className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
         >
-          {isLoading ? "Loading..." : "Login Now"}
+          {isLoading ? "Loading..." : "Login"}
         </Button>
 
         <GoogleLogin disabled={isLoading} />

@@ -89,7 +89,7 @@ const ForgotPasswordForm = () => {
           disabled={isLoading}
           className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
         >
-          {isLoading ? "Loading..." : "Send Request"}
+          {isLoading ? "Loading..." : "Send Reset Link"}
         </Button>
 
         <Link
