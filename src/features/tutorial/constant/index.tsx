@@ -13,8 +13,8 @@ export const TUTORIAL_MENU: TutorialMenu[] = [
     link: "/tutorial/market-overview",
   },
   {
-    title: "Simulation Trading",
-    link: "/tutorial/simulation-trading",
+    title: "Trading Guide",
+    link: "/tutorial/trading-guide",
   },
   {
     title: "Managing Your Portfolio",
