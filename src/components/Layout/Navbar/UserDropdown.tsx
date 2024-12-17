@@ -63,7 +63,7 @@ const UserDropdown = () => {
         },
         {
           label: "Account Settings",
-          to: "/account",
+          to: "/account-settings",
           icon: <SettingsIcon className="size-5" />,
         },
       ],

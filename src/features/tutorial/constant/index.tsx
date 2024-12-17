@@ -18,7 +18,7 @@ export const TUTORIAL_MENU: TutorialMenu[] = [
   },
   {
     title: "Managing Your Portfolio",
-    link: "/tutorial/manage-portfolio",
+    link: "/tutorial/portfolio-management",
   },
   {
     title: "Monitoring Your Transactions",
