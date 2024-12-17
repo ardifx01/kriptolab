@@ -1,9 +1,9 @@
 import React from "react";
 
-import Layout from "@/components/Layout/Layout";
+import TutorialLayout from "@/features/tutorial/components/TutorialLayout/TutorialLayout";
 
 const TutorialPage = () => {
-  return <Layout title="Tutorial">TutorialPage</Layout>;
+  return <TutorialLayout title="Tutorial">Tutorial</TutorialLayout>;
 };
 
 export default TutorialPage;
