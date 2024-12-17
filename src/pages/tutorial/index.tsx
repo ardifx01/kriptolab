@@ -10,153 +10,128 @@ import TutorialLayout from "@/features/tutorial/components/TutorialLayout/Tutori
 import MainTitle from "@/features/tutorial/components/Typography/MainTitle";
 import Paragraph from "@/features/tutorial/components/Typography/Paragraph";
 import SectionTitle from "@/features/tutorial/components/Typography/SectionTitle";
-import SubTitle from "@/features/tutorial/components/Typography/SubTitle";
 
 const GettingStartedPage = () => {
   return (
-    <TutorialLayout title="Tutorial">
+    <TutorialLayout title="Getting Started Guide">
       <MainTitle>
         Welcome to <span className="text-primaryAccent">KriptoLab</span>!
       </MainTitle>
+
       <section id="introduction">
         <Paragraph>
-          KriptoLab is a beginner-friendly <b>Crypto Trading Simulator</b> where
-          you can practice trading risk-free using real market data from{" "}
-          <b>Indodax!</b>
+          KriptoLab is a beginner-friendly <b>Crypto Trading Simulator</b> that
+          allows you to practice trading using real market data from{" "}
+          <b>Indodax</b> without any financial risk.
         </Paragraph>
         <Paragraph>
-          If you’re new to crypto, no worries — this step-by-step guide will
-          help you get started in no time By the end of this page, you’ll:
+          This guide will walk you through setting up your account and getting
+          started. By the end of this tutorial, you'll be able to:
         </Paragraph>
         <UnorderedList>
           <LinkItem link="#create-your-account">Create Your Account</LinkItem>
           <LinkItem link="#login-to-your-account">
-            Log in to the platform
+            Log into the Platform
           </LinkItem>
           <LinkItem link="#explore-kriptolab">
-            Understand what's next and where to go
+            Begin Your Trading Journey
           </LinkItem>
         </UnorderedList>
       </section>
 
       <section id="create-your-account" className="mt-5">
         <SectionTitle>
-          <NotebookPenIcon /> Create Your Account
+          <NotebookPenIcon /> Creating Your Account
         </SectionTitle>
         <Paragraph>
-          Get started by signing up for KriptoLab so you can save your progress
-          and begin trading
+          Start your KriptoLab journey by creating a free account to save your
+          progress and begin trading.
         </Paragraph>
-        <div>
-          <SubTitle className="mt-3">1. Open the Registration Page</SubTitle>
-          <Paragraph>
-            First, let’s navigate to the registration page to create your
-            account
-          </Paragraph>
-          <OrderedList>
-            <ListItem>Go to the KriptoLab website</ListItem>
-            <ListItem>
-              In the top-right corner of the page, click the "Register" button
-            </ListItem>
-          </OrderedList>
-          screenshot
-        </div>
-        <div>
-          <SubTitle>2. Fill Out the Registration Form</SubTitle>
-          <Paragraph>
-            Fill in some basic details so we can set up your KriptoLab account
-          </Paragraph>
-          <OrderedList>
-            <ListItem>Enter your name</ListItem>
-            <ListItem>Enter your email address</ListItem>
-            <ListItem>
-              Choose a secure password (at least 8 characters long - keep it
-              strong nd secure!)
-            </ListItem>
-            <ListItem>Click the "Create account" button</ListItem>
-          </OrderedList>
-          screenshot
-        </div>
-        <div>
-          <SubTitle>3. Sign Up with Google Account (Optional)</SubTitle>
-          <Paragraph>
-            Prefer skipping forms? Use your Google account to sign up in seconds
-          </Paragraph>
-          <OrderedList>
-            <ListItem>
-              On the registration page, click the "Continue with Google" button
-            </ListItem>
-            <ListItem>
-              Follow the prompts to sign in with your Google account
-            </ListItem>
-          </OrderedList>
-          screenshot
-        </div>
+        <OrderedList>
+          <ListItem>
+            Go to the KriptoLab website and locate the <b>Register</b> button in
+            the top-right corner.
+          </ListItem>
+          <ListItem>
+            Fill out the registration form with:
+            <UnorderedList>
+              <ListItem>Your full name</ListItem>
+              <ListItem>A valid email address</ListItem>
+              <ListItem>
+                A secure password (minimum 8 characters, including uppercase,
+                lowercase, numbers, and special characters)
+              </ListItem>
+            </UnorderedList>
+          </ListItem>
+          <ListItem>
+            Click the <b>Create Account</b> button to complete registration.
+          </ListItem>
+        </OrderedList>
+
+        <Paragraph className="mt-3">Alternative Registration Method:</Paragraph>
+        <OrderedList>
+          <ListItem>
+            Click the <b>Continue with Google</b> button.
+          </ListItem>
+          <ListItem>Select the Google account you want to use.</ListItem>
+          <ListItem>
+            Follow the prompted steps to complete your registration.
+          </ListItem>
+        </OrderedList>
       </section>
 
       <section id="login-to-your-account" className="mt-5">
         <SectionTitle>
-          <LockKeyholeOpenIcon /> Log In to Your Account
+          <LockKeyholeOpenIcon /> Logging Into Your Account
         </SectionTitle>
         <Paragraph>
-          Already have an account? Here’s how to log in and start exploring
-          KriptoLab
+          Access your KriptoLab account and start your trading simulation.
         </Paragraph>
-        <div>
-          <SubTitle>1. Open the Login Page</SubTitle>
-          <Paragraph>
-            Log in to access your account and start simulating trades
-          </Paragraph>
-          <OrderedList>
-            <ListItem>
-              In the top-right corner, click the "Login" button
-            </ListItem>
-            <ListItem>
-              Enter the Email and Password you used during registration
-            </ListItem>
-            <ListItem>Click "Login" to access your account</ListItem>
-          </OrderedList>
-          screenshot
-        </div>
+        <OrderedList>
+          <ListItem>
+            Click the <b>Login</b> button in the top-right corner.
+          </ListItem>
+          <ListItem>Enter your registered email and password.</ListItem>
+          <ListItem>
+            Click the <b>Login</b> button to access your account.
+          </ListItem>
+        </OrderedList>
 
-        <div>
-          <SubTitle>2. Forgot Your Password?</SubTitle>
-          <Paragraph>
-            No worries! Reset your password in a few easy steps
-          </Paragraph>
-          <OrderedList>
-            <ListItem>
-              On the login page, click the "Forgot Password?" link
-            </ListItem>
-            <ListItem>
-              Enter your email address and click "Send Reset Link"
-            </ListItem>
-            <ListItem>
-              Check your inbox (don’t forget to check Spam!) and click the reset
-              link
-            </ListItem>
-            <ListItem>
-              Create a new password on the reset page and confirm it
-            </ListItem>
-            <ListItem>Done! Log in with your new password</ListItem>
-          </OrderedList>
-          screenshot
-        </div>
+        <Paragraph className="mt-3">
+          Forgot Your Password? Follow these steps:
+        </Paragraph>
+        <OrderedList>
+          <ListItem>
+            On the login page, click the <b>Forgot Password</b> link.
+          </ListItem>
+          <ListItem>Enter your registered email address.</ListItem>
+          <ListItem>
+            Click <b>Send Reset Link</b>.
+          </ListItem>
+          <ListItem>
+            Check your email inbox (including spam folder) for the reset link.
+          </ListItem>
+          <ListItem>Click the reset link and create a new password.</ListItem>
+        </OrderedList>
       </section>
 
       <section id="explore-kriptolab" className="mt-5">
         <SectionTitle>
-          <RocketIcon /> Explore KriptoLab
+          <RocketIcon /> Start Your Trading Journey
         </SectionTitle>
         <Paragraph>
-          Now that you’re all set up, here’s what you can do next
+          Now that you're set up, explore KriptoLab and begin your crypto
+          trading simulation.
         </Paragraph>
         <UnorderedList>
           <LinkItem link="/tutorial/market-overview">
-            Learn how to use KriptoLab
+            Learn How to Use KriptoLab
           </LinkItem>
           <LinkItem link="/market">
-            Start trading with real market data
+            Start Trading with Real Market Data
+          </LinkItem>
+          <LinkItem link="/tutorial/trading-guide">
+            Explore Trading Guide
           </LinkItem>
         </UnorderedList>
       </section>
