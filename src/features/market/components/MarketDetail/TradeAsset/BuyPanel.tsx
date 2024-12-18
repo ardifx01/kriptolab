@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
@@ -9,6 +10,7 @@ import { buyService } from "@/lib/services";
 import { ITokenDetails, quickAddPercentage } from "@/types";
 
 const BuyPanel = ({ token }: { token: ITokenDetails }) => {
+  const { t } = useTranslation();
   const { idrBalance, refreshBalance } = usePortfolio();
 
   // TOKEN INPUT
@@ -95,21 +97,21 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     // Processing state
     if (loading)
       return {
-        text: "Processing...",
+        text: t("Processing..."),
         disabled: true,
       };
 
     // No input
     if (tokenValue <= 0 || idrValue <= 0)
       return {
-        text: `Enter ${token.pairDetails.traded_currency_unit} Amount`,
+        text: `${t("Enter")} ${token.pairDetails.traded_currency_unit} ${t("Amount")}`,
         disabled: true,
       };
 
     // Insufficient balance
     if (idrValue > idrBalance)
       return {
-        text: "Insufficient IDR Balance",
+        text: t("Insufficient IDR Balance"),
         disabled: true,
       };
 
@@ -122,7 +124,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       };
 
     return {
-      text: `BUY ${token.pairDetails.traded_currency_unit}`,
+      text: `${t("BUY")} ${token.pairDetails.traded_currency_unit}`,
       disabled: false,
     };
   };
@@ -164,7 +166,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       />
 
       <p className="text-start text-sm text-textSecondary">
-        Balance: Rp.{idrBalance.toLocaleString()}
+        {t("Balance")}: Rp.{idrBalance.toLocaleString()}
       </p>
 
       <Button

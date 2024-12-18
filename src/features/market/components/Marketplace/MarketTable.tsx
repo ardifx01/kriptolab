@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { GoStar, GoStarFill } from "react-icons/go";
 
 import Image from "next/image";
@@ -31,6 +32,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
   const { isMobile } = useWindowSize();
   const { filteredTokens, searchToken } = useTokenData();
   const { updateWatchlist, watchlist } = useWatchlist();
+  const { t } = useTranslation();
 
   const marketColumns: ColumnType<IMarketTableType>[] = [
     {
@@ -61,7 +63,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     },
     {
       key: "assetName",
-      label: "Token Name",
+      label: t("Token Name"),
       width: isMobile ? 200 : 280,
       headerClassName: "text-left p-3",
       customRender: (val, rowData: any) => (
@@ -85,7 +87,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     },
     {
       key: "pair",
-      label: "Token Pair",
+      label: t("Token Pair"),
       width: isMobile ? 100 : 160,
       headerClassName: "text-left",
       customRender: (_, rowData: any) => (
@@ -94,7 +96,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     },
     {
       key: "price",
-      label: "Price",
+      label: t("Price"),
       width: 180,
       type: "number",
       headerClassName: "text-right p-4",
@@ -108,7 +110,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     },
     {
       key: "volume_24h",
-      label: "24h Volume",
+      label: t("24h Volume"),
       width: isMobile ? 180 : 220,
       type: "number",
       headerClassName: "text-right p-4",
@@ -117,7 +119,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     },
     {
       key: "change_24h",
-      label: "24h Change",
+      label: t("24h Change"),
       width: isMobile ? 148 : 168,
       type: "number",
       headerClassName: "text-right p-4",
@@ -134,7 +136,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     },
     {
       key: "change_7d",
-      label: "7d Change",
+      label: t("7d Change"),
       width: isMobile ? 150 : 170,
       type: "number",
       headerClassName: "text-right p-4 pr-6",
@@ -193,7 +195,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
         />
         {tableData.length === 0 && (
           <div className="flex h-[200px] w-full items-center justify-center border-b border-borderColor">
-            <span className="mb-4">No Token Data</span>
+            <span className="mb-4">{t("No Token Data")}</span>
           </div>
         )}
       </div>
@@ -206,7 +208,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
           }}
           disabled={currentPage === 1}
         >
-          Previous
+          {t("Previous")}
         </Button>
 
         {totalPagesArray.map((page) => (
@@ -232,7 +234,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
           }}
           disabled={currentPage === totalPages}
         >
-          Next
+          {t("Next")}
         </Button>
       </div>
     </div>

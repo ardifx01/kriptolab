@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import useNumberInput from "@/hooks/useNumberInput";
 import usePortfolio from "@/hooks/usePortfolio";
@@ -25,6 +26,7 @@ const DepositModal = ({ onClose, open }: DepositProps) => {
   const { value, displayValue, handleInputChange, handleInputBlur } =
     useNumberInput(0, 1000000000, 2);
   const { refreshBalance } = usePortfolio();
+  const { t } = useTranslation();
 
   const [loading, setLoading] = useState(false);
 
@@ -74,16 +76,14 @@ const DepositModal = ({ onClose, open }: DepositProps) => {
     >
       <div className="mb-6 mt-4 space-y-4">
         <p className="-mb-1 text-start text-xs text-textSecondary md:text-sm">
-          Disclaimer: This deposit is for simulation purposes only. The funds
-          are virtual and have no real monetary value. Use this feature to
-          practice crypto trading in a risk-free environment.
+          {t("Deposit Disclaimer")}
         </p>
         <div className="space-y-2">
           <CustomNumberInput
             value={displayValue}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            placeholder="Enter deposit amount"
+            placeholder={t("Enter deposit amount")}
             className="p-3"
             suffix="IDR"
           />
@@ -117,7 +117,7 @@ const DepositModal = ({ onClose, open }: DepositProps) => {
             className="h-11 w-full md:mt-2 md:h-12"
             onClick={handleDeposit}
           >
-            {loading ? "Processing..." : "Deposit"}
+            {loading ? t("Processing...") : "Deposit"}
           </Button>
         </div>
       </div>

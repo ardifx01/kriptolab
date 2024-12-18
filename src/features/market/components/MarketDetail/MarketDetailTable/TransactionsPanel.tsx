@@ -8,7 +8,7 @@ import { formatDate } from "@/lib/helpers";
 import { ITradeHistory } from "@/types";
 
 const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const { isMobile } = useWindowSize();
 
   const THEAD: string[] = ["Date", "Type", "Price", "Amount"];
@@ -16,7 +16,7 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
   const marketColumns: ColumnType<ITradeHistory>[] = [
     {
       key: "date",
-      label: "Date",
+      label: t("Date"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -24,18 +24,14 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
           <span
             className={rowData.type === "buy" ? "text-success" : "text-error"}
           >
-            {formatDate(
-              value || "",
-              i18n.language === "id" ? "id-ID" : "en-GB",
-              true,
-            )}
+            {formatDate(value || "", "id-ID", true)}
           </span>
         );
       },
     },
     {
       key: "type",
-      label: "Type",
+      label: t("Type"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor capitalize px-3",
       customRender(value, rowData) {
@@ -43,14 +39,14 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
           <span
             className={rowData.type === "buy" ? "text-success" : "text-error"}
           >
-            {value}
+            {t(value)}
           </span>
         );
       },
     },
     {
       key: "price",
-      label: "Price",
+      label: t("Price"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -65,7 +61,7 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
     },
     {
       key: "amount",
-      label: "Amount",
+      label: t("Amount"),
       width: isMobile ? 200 : "25%",
       className: "px-3 border-r border-transparent",
       customRender(value, rowData) {

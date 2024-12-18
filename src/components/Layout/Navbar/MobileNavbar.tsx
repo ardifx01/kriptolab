@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import classNames from "classnames";
 
-import { DiscordIcon, GithubIcon, TwitterIcon } from "@/assets/icons";
+import { GithubIcon } from "@/assets/icons";
 import Button from "@/components/Button/Button";
 import Drawer from "@/components/Drawer/Drawer";
 import useAuth from "@/features/auth/hooks/useAuth";
@@ -74,7 +74,7 @@ const MobileNavbar = ({}: NavbarProps) => {
           height={200}
           className="mb-5 h-16 w-32"
         />
-        <div className="flex flex-col gap-14 pt-2 text-lg font-semibold uppercase text-textSecondary">
+        <div className="flex flex-col gap-14 pt-2 text-lg font-semibold text-textSecondary">
           <Link href={"/market"} className="hover:text-primaryAccent">
             Market
           </Link>
@@ -89,8 +89,6 @@ const MobileNavbar = ({}: NavbarProps) => {
             className="h-8 w-8 cursor-pointer hover:text-success lg:h-9 lg:w-9"
             onClick={(e) => openPage(e, "https://github.com/yoghantara08")}
           />
-          <TwitterIcon className="h-8 w-8 cursor-pointer hover:text-secondaryAccent lg:h-9 lg:w-9" />
-          <DiscordIcon className="h-8 w-8 cursor-pointer hover:text-primaryAccent lg:h-9 lg:w-9" />
         </div>
       </Drawer>
     </nav>

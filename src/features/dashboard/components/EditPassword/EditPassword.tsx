@@ -38,7 +38,7 @@ const EditPassword = () => {
       if (response) {
         console.log(response);
 
-        setSuccessMessage("Edit password successful!");
+        setSuccessMessage(t("Edit password successful!"));
         setIsError(false);
         reset();
       }
@@ -78,54 +78,54 @@ const EditPassword = () => {
           )}
 
           <CustomInput
-            label="Current Password"
+            label={t("Current Password")}
             name="currentPassword"
             type={show ? "text" : "password"}
-            placeholder="Your current password"
+            placeholder={t("Your current password")}
             errors={errors}
             register={register}
             validation={{
-              required: "Current Password is required!",
+              required: t("Current Password is required!"),
               minLength: {
                 value: 8,
-                message: "Password must be at least 8 characters long",
+                message: t("Password must be at least 8 characters long"),
               },
             }}
             className="p-3"
           />
           <CustomInput
-            label="New Password"
+            label={t("New Password")}
             name="newPassword"
             type={show ? "text" : "password"}
-            placeholder="New Password"
+            placeholder={t("New Password")}
             errors={errors}
             register={register}
             validation={{
-              required: "New Password is required!",
+              required: t("New Password is required!"),
               minLength: {
                 value: 8,
-                message: "Password must be at least 8 characters long",
+                message: t("Password must be at least 8 characters long"),
               },
             }}
             className="p-3"
           />
           <div>
             <CustomInput
-              label="Confirm New Password"
+              label={t("Confirm New Password")}
               name="confirmNewPassword"
               type={show ? "text" : "password"}
-              placeholder="Confirm New Password"
+              placeholder={t("Confirm New Password")}
               errors={errors}
               register={register}
               validation={{
-                required: "Confirm New Password is required!",
+                required: t("Confirm New Password is required!"),
                 minLength: {
                   value: 8,
-                  message: "Password must be at least 8 characters long",
+                  message: t("Password must be at least 8 characters long"),
                 },
                 validate: (value) =>
                   value === getValues("newPassword") ||
-                  "Passwords do not match!",
+                  t("Passwords do not match!"),
               }}
               className="p-3"
             />
@@ -134,7 +134,7 @@ const EditPassword = () => {
                 checked={show}
                 onCheck={setShow}
                 className="mt-0.5"
-                label="Show password"
+                label={t("Show password")}
               />
             </div>
           </div>

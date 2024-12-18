@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import classNames from "classnames";
 import { Area, AreaChart, ResponsiveContainer, Tooltip } from "recharts";
@@ -14,12 +15,13 @@ const PortfolioChart = () => {
   const { formattedAssetIdrValue } = usePortfolio();
   const { chartData, handleRangeChange, selectedRange } = usePortoHistory();
   const { isMobile } = useWindowSize();
+  const { t } = useTranslation();
 
   const [balance, setBalance] = useState(formattedAssetIdrValue || 0);
 
   return (
     <section className="rounded-lg border-2 border-borderColor bg-cardBackground p-4 md:p-5">
-      <h3 className="text-lg md:text-xl">Assets</h3>
+      <h3 className="text-lg md:text-xl">{t("Assets")}</h3>
       <p className="mb-4 mt-2 text-2xl font-semibold md:text-3xl">
         Rp {balance}
       </p>
@@ -75,7 +77,7 @@ const PortfolioChart = () => {
       ) : (
         <div className="my-4 flex h-[200px] items-center justify-center text-gray-500 md:h-[400px]">
           <p className="text-center md:pb-10">
-            No data available for the selected time range
+            {t("No data available for the selected time range")}
           </p>
         </div>
       )}

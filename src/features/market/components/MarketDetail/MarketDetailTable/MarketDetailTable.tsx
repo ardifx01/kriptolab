@@ -81,7 +81,7 @@ const MarketDetailTable = ({ token }: Props) => {
                 "border-borderColor bg-cardBackground px-4 lg:border-2 lg:px-5",
               )}
             >
-              {MARKET_TABS[currentIndex].label}
+              {t(MARKET_TABS[currentIndex].label)}
               <IoChevronDown />
             </MenuButton>
             <MenuItems

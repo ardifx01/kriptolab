@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 
@@ -16,6 +17,7 @@ import { IProfileUpdate } from "@/types";
 import UploadAvatarModal from "./UploadAvatarModal";
 
 const EditProfile = () => {
+  const { t } = useTranslation();
   const { user } = useUser();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -44,7 +46,7 @@ const EditProfile = () => {
       const response = await editProfileService(val);
 
       if (response) {
-        showToast.success("Edit profile success!");
+        showToast.success(t("Edit profile success!"));
       }
     } catch (error: any) {
       setIsError(true);
@@ -58,11 +60,11 @@ const EditProfile = () => {
     <section className="flex w-full justify-center">
       <div className="w-full max-w-[900px]">
         <h2 className="mb-4 w-full text-2xl font-medium sm:text-3xl md:mb-6">
-          Account Settings
+          {t("My Profile")}
         </h2>
         <div className="w-full space-y-5 rounded-xl border-2 border-borderColor bg-cardBackground p-4 md:px-6 md:py-5">
           <div className="space-y-3">
-            <h3 className="md:text-lg">Profile Picture</h3>
+            <h3 className="md:text-lg">{t("Profile Picture")}</h3>
             <Image
               width={128}
               height={128}
@@ -70,7 +72,9 @@ const EditProfile = () => {
               alt="profilepicture"
               className="size-16 rounded-full md:size-32"
             />
-            <Button onClick={() => setUploadAvatar(true)}>Upload Avatar</Button>
+            <Button onClick={() => setUploadAvatar(true)}>
+              {t("Upload Avatar")}
+            </Button>
           </div>
 
           <form onSubmit={handleSubmit(submitHandler)} className="space-y-3">
@@ -95,26 +99,26 @@ const EditProfile = () => {
 
             <div className="grid grid-cols-2 gap-4 md:gap-5">
               <CustomInput
-                label="First Name"
+                label={t("First Name")}
                 name="firstName"
                 type="text"
-                placeholder="Your name"
+                placeholder={t("Your name")}
                 errors={errors}
                 register={register}
                 validation={{
-                  required: "First name is required!",
+                  required: t("First name is required!"),
                 }}
                 className="max-w-[600px] p-3"
               />
               <CustomInput
-                label="Last Name"
+                label={t("Last Name")}
                 name="lastName"
                 type="text"
-                placeholder="Your last name"
+                placeholder={t("Your last name")}
                 errors={errors}
                 register={register}
                 validation={{
-                  required: "Last name is required!",
+                  required: t("Last name is required!"),
                 }}
                 className="max-w-[600px] p-3"
               />
@@ -122,23 +126,23 @@ const EditProfile = () => {
 
             <div className="grid grid-cols-2 gap-4 md:gap-5">
               <CustomInput
-                label="Phone Number"
+                label={t("Phone Number")}
                 name="phoneNumber"
                 type="text"
-                placeholder="Your phone number"
+                placeholder={t("Your phone number")}
                 errors={errors}
                 register={register}
-                validation={{ required: "Phone number is required!" }}
+                validation={{ required: t("Phone number is required!") }}
                 className="max-w-[600px] p-3"
               />
               <CustomInput
-                label="Address"
+                label={t("Address")}
                 name="address"
                 type="text"
-                placeholder="Your address"
+                placeholder={t("Your address")}
                 errors={errors}
                 register={register}
-                validation={{ required: "Address is required!" }}
+                validation={{ required: t("Address is required!") }}
                 className="max-w-[600px] p-3"
               />
             </div>
@@ -149,7 +153,7 @@ const EditProfile = () => {
                 disabled={isLoading}
                 className="w-full md:w-[250px]"
               >
-                Save Changes
+                {t("Save Changes")}
               </Button>
             </div>
           </form>

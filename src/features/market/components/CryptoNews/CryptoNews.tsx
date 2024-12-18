@@ -11,7 +11,7 @@ import { formatDate } from "@/lib/helpers";
 import { INews } from "@/types";
 
 const CryptoNews = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { data, isLoading } = useCustomSWR<INews[]>(
     API_NEWS,
     "unauthenticated",
@@ -22,7 +22,7 @@ const CryptoNews = () => {
 
   return (
     <div className="flex w-full flex-col rounded-xl border border-borderColor bg-cardBackground/40 p-4 lg:max-h-[416px] lg:p-5">
-      <h3 className="font-sora font-semibold lg:text-lg">News</h3>
+      <h3 className="font-sora font-semibold lg:text-lg">{t("News")}</h3>
       <div className="flex h-full flex-col justify-between gap-4 pt-1 lg:gap-3">
         {data &&
           data.length > 0 &&

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
@@ -9,6 +10,8 @@ import { sellService } from "@/lib/services";
 import { ITokenDetails, quickAddPercentage } from "@/types";
 
 const SellPanel = ({ token }: { token: ITokenDetails }) => {
+  const { t } = useTranslation();
+
   // TOKEN INPUT
   const {
     value: tokenValue,
@@ -78,11 +81,11 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
         handleTokenChange("");
         handleIDRChange("");
 
-        showToast.success(`Sell ${tokenValue} ${tokenSymbol} success!`);
+        showToast.success(`${t("Sell")} ${tokenValue} ${tokenSymbol} success!`);
       }
     } catch (error) {
       console.error(error);
-      showToast.error(`Sell ${tokenValue} ${tokenSymbol} failed!`);
+      showToast.error(`${t("Sell")} ${tokenValue} ${tokenSymbol} failed!`);
     } finally {
       setLoading(false);
       await refreshBalance();
@@ -94,21 +97,21 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
     // Processing state
     if (loading)
       return {
-        text: "Processing...",
+        text: t("Processing..."),
         disabled: true,
       };
 
     // No input
     if (tokenValue <= 0 || idrValue <= 0)
       return {
-        text: `Enter ${tokenSymbol} Amount`,
+        text: `${t("Enter")} ${tokenSymbol} ${t("Amount")}`,
         disabled: true,
       };
 
     // Insufficient balance
     if (tokenValue > assetBalance)
       return {
-        text: `"Insufficient ${tokenSymbol} Balance`,
+        text: `${t("Insufficient")} ${tokenSymbol} ${t("Balance")}`,
         disabled: true,
       };
 
@@ -121,7 +124,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       };
 
     return {
-      text: `SELL ${tokenSymbol}`,
+      text: `${t("SELL")} ${tokenSymbol}`,
       disabled: false,
     };
   };
@@ -163,7 +166,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       />
 
       <p className="text-start text-sm text-textSecondary">
-        Balance: {assetBalance.toLocaleString()} {tokenSymbol}
+        {t("Balance")}: {assetBalance.toLocaleString()} {tokenSymbol}
       </p>
 
       <Button

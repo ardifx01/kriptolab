@@ -18,7 +18,7 @@ const MyTradesPanel = ({ trades }: { trades: ITransaction[] }) => {
   const marketColumns: ColumnType<ITransaction>[] = [
     {
       key: "date",
-      label: "Date",
+      label: t("Date"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -37,7 +37,7 @@ const MyTradesPanel = ({ trades }: { trades: ITransaction[] }) => {
     },
     {
       key: "type",
-      label: "Type",
+      label: t("Type"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -48,14 +48,14 @@ const MyTradesPanel = ({ trades }: { trades: ITransaction[] }) => {
               rowData.type === "BUY" ? "text-success" : "text-error",
             )}
           >
-            {value.toLowerCase()}
+            {t(value.toLowerCase())}
           </span>
         );
       },
     },
     {
       key: "price",
-      label: "Price",
+      label: t("Price"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -70,7 +70,7 @@ const MyTradesPanel = ({ trades }: { trades: ITransaction[] }) => {
     },
     {
       key: "traded_amount",
-      label: "Amount",
+      label: t("Amount"),
       width: isMobile ? 200 : "25%",
       className: "px-3 border-r border-transparent",
       customRender(value, rowData) {

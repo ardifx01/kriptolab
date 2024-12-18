@@ -35,7 +35,7 @@ const TransactionHistory = () => {
   const txHistoryColumn: ColumnType<ITransaction>[] = [
     {
       key: "date",
-      label: "Date",
+      label: t("Date"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -58,7 +58,7 @@ const TransactionHistory = () => {
     },
     {
       key: "type",
-      label: "Type",
+      label: t("Type"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -71,14 +71,14 @@ const TransactionHistory = () => {
                 : "text-error",
             )}
           >
-            {value.toLowerCase()}
+            {t(value.toLowerCase())}
           </span>
         );
       },
     },
     {
       key: "price",
-      label: "Price",
+      label: t("Price"),
       width: isMobile ? 200 : "25%",
       className: "border-r border-borderColor px-3",
       customRender(value, rowData) {
@@ -97,7 +97,7 @@ const TransactionHistory = () => {
     },
     {
       key: "traded_amount",
-      label: "Amount",
+      label: t("Amount"),
       width: isMobile ? 200 : "25%",
       className: "px-3 border-r border-transparent",
       customRender(value, rowData) {
@@ -187,7 +187,7 @@ const TransactionHistory = () => {
         />
         {currentTxData.length === 0 && (
           <div className="flex h-[200px] w-full items-center justify-center border-b border-borderColor">
-            <span className="mb-4">No Data</span>
+            <span className="mb-4">{t("No Data")}</span>
           </div>
         )}
       </div>

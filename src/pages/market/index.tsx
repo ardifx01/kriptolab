@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSwipeable } from "react-swipeable";
 
 import classNames from "classnames";
@@ -13,6 +14,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 const MarketPage = () => {
   const { trendingCrypto, topGainers } = useTokenData();
   const { isMobile } = useWindowSize();
+  const { t } = useTranslation();
 
   const [layerIndex, setLayerIndex] = useState(0);
 
@@ -20,13 +22,16 @@ const MarketPage = () => {
     {
       title: "Trending Coins",
       component: (
-        <TopCrypto title="Trending Coins" tokens={trendingCrypto.slice(0, 5)} />
+        <TopCrypto
+          title={t("Trending Coins")}
+          tokens={trendingCrypto.slice(0, 5)}
+        />
       ),
     },
     {
       title: "Top Gainers",
       component: (
-        <TopCrypto title="Top Gainers" tokens={topGainers.slice(0, 5)} />
+        <TopCrypto title={t("Top Gainers")} tokens={topGainers.slice(0, 5)} />
       ),
     },
     {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -19,6 +20,7 @@ const PortfolioAssets = () => {
   const { getTokenById } = useTokenData();
   const { isMobile } = useWindowSize();
   const router = useRouter();
+  const { t } = useTranslation();
 
   const [searchToken, setSearchToken] = useState("");
 
@@ -58,7 +60,7 @@ const PortfolioAssets = () => {
     },
     {
       key: "amount",
-      label: "Amount",
+      label: t("Amount"),
       width: isMobile ? 150 : "35%",
       type: "number",
       headerClassName: "text-right p-4",
@@ -67,7 +69,7 @@ const PortfolioAssets = () => {
     },
     {
       key: "valueIdr",
-      label: "Value (IDR)",
+      label: t("Value (IDR)"),
       width: isMobile ? 250 : "35%",
       type: "number",
       headerClassName: "text-right p-4 px-5",

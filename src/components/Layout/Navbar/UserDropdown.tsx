@@ -1,4 +1,5 @@
 import { Fragment, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -33,7 +34,7 @@ interface MenuItemType {
 const UserDropdown = () => {
   const { user } = useUser();
   const { logout } = useAuth();
-  // const { openDepositModal } = useModal();
+  const { t } = useTranslation();
 
   const menuSections: Array<{
     items: MenuItemType[];
@@ -42,27 +43,22 @@ const UserDropdown = () => {
     {
       items: [
         {
-          label: "Profile",
+          label: t("Profile"),
           to: "/profile",
           icon: <CircleUserRoundIcon className="size-5" />,
         },
-        // {
-        //   label: "Deposit",
-        //   icon: <ArrowDownCircleIcon className="size-5" />,
-        //   onClick: openDepositModal,
-        // },
         {
-          label: "Portfolio",
+          label: t("Portfolio"),
           to: "/portfolio",
           icon: <WalletIcon className="size-5" />,
         },
         {
-          label: "Transactions",
+          label: t("Transactions"),
           to: "/transactions",
           icon: <ArrowLeftRightIcon className="size-5" />,
         },
         {
-          label: "Account Settings",
+          label: t("Account Settings"),
           to: "/account-settings",
           icon: <SettingsIcon className="size-5" />,
         },

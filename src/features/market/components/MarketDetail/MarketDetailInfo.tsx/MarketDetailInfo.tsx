@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FaDollarSign } from "react-icons/fa6";
 import { IoTrendingDown, IoTrendingUp } from "react-icons/io5";
 import { LuBarChart3 } from "react-icons/lu";
@@ -16,6 +17,8 @@ interface Props {
 }
 
 const MarketDetailInfo = ({ token }: Props) => {
+  const { t } = useTranslation();
+
   const tokenPair = token?.pairDetails;
   const tokenPrice = token?.priceDetails;
   const currentPrice = parseFloat(tokenPrice?.last || "0");
@@ -93,7 +96,7 @@ const MarketDetailInfo = ({ token }: Props) => {
         <div className="flex items-end gap-2">
           <div>
             <span className="text-xs text-textSecondary lg:text-sm">
-              Current Price
+              {t("Current Price")}
             </span>
             <h3 className="font-bold lg:text-xl">
               {formatCurrencyValue(
