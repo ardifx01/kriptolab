@@ -27,7 +27,7 @@ const PortfolioAssets = () => {
   const assetColumns: ColumnType<IAssetTableType>[] = [
     {
       key: "name",
-      label: "Name",
+      label: t("Name"),
       width: isMobile ? 200 : "25%",
       headerClassName: "text-left p-3 px-5",
       customRender: (val, rowData: any) => (
@@ -51,7 +51,7 @@ const PortfolioAssets = () => {
     },
     {
       key: "symbol",
-      label: "Symbol",
+      label: t("Symbol"),
       width: isMobile ? 120 : "5%",
       headerClassName: "text-left",
       customRender: (_, rowData: any) => (

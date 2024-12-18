@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { TabPanel } from "@headlessui/react";
 
@@ -20,13 +21,14 @@ const TRADE_TABS: { label: string; value: string }[] = [
 const TradeAsset = ({ token }: Props) => {
   const [tradeTabs, setTradeTabs] = useState(TRADE_TABS[0].value);
   const currentIndex = TRADE_TABS.findIndex((v) => v.value === tradeTabs);
+  const { t } = useTranslation();
 
   if (!token) return <>Loading..</>;
 
   return (
     <div className="min-h-[300px] w-full rounded-xl border border-borderColor">
       <TabCustom
-        tabs={TRADE_TABS.map((v) => v.label)}
+        tabs={TRADE_TABS.map((v) => t(v.label))}
         onChange={(i) => setTradeTabs(TRADE_TABS[i].value)}
         currentIndex={currentIndex}
       >

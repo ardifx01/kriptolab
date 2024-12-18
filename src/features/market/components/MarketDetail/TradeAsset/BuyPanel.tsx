@@ -104,7 +104,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     // No input
     if (tokenValue <= 0 || idrValue <= 0)
       return {
-        text: `${t("Enter")} ${token.pairDetails.traded_currency_unit} ${t("Amount")}`,
+        text: `Enter ${token.pairDetails.traded_currency_unit} Amount`,
         disabled: true,
       };
 

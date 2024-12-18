@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Link from "next/link";
 
@@ -10,6 +11,8 @@ import openPage from "@/lib/helpers/openPage";
 import { footerLinks } from "./footerdata";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="px-5 lg:px-10">
       <section
@@ -31,7 +34,7 @@ const Footer = () => {
           {footerLinks.map((footer) => (
             <div key={footer.title}>
               <h3 className="font-sora font-semibold text-white lg:text-lg">
-                {footer.title}
+                {t(footer.title)}
               </h3>
               <ul className="mt-2 flex flex-col gap-y-1 text-sm lg:text-base">
                 {footer.links.map((item) => (
@@ -40,7 +43,7 @@ const Footer = () => {
                       href={item.href}
                       className="text-textSecondary hover:text-white"
                     >
-                      {item.title}
+                      {t(item.title)}
                     </Link>
                   </li>
                 ))}
@@ -56,7 +59,7 @@ const Footer = () => {
           href={"#"}
           className="cursor-pointer text-sm text-textSecondary hover:text-white"
         >
-          Privacy Policy
+          {t("Privacy Policy")}
         </Link>
       </section>
     </footer>

@@ -60,7 +60,7 @@ const RegisterForm = () => {
           "border-borderColor bg-cardBackground",
         )}
       >
-        <h2 className="mb-2 text-2xl font-bold sm:text-3xl">
+        <h2 className="text-2xl font-bold sm:text-3xl">
           {t("Create an account")}
         </h2>
         {status === "Error" && (
@@ -84,8 +84,8 @@ const RegisterForm = () => {
           errors={errors}
           register={register}
           validation={{
-            required: "Firstname is required!",
-            minLength: { value: 3, message: "Minimum 3 characters long!" },
+            required: t("Firstname is required!"),
+            minLength: { value: 3, message: t("Minimum 3 characters long!") },
           }}
           className="p-3"
         />
@@ -98,7 +98,7 @@ const RegisterForm = () => {
           errors={errors}
           register={register}
           validation={{
-            required: "Email is required!",
+            required: t("Email is required!"),
             pattern: emailPattern,
           }}
           className="p-3"
@@ -113,7 +113,10 @@ const RegisterForm = () => {
             register={register}
             validation={{
               required: "Password is required!",
-              minLength: { value: 6, message: "Minimum 6 characters long!" },
+              minLength: {
+                value: 8,
+                message: t("Password must be at least 8 characters long"),
+              },
             }}
             className="p-3"
           />
@@ -122,7 +125,7 @@ const RegisterForm = () => {
               checked={enabled}
               onCheck={setEnabled}
               className="mt-0.5"
-              label="Show password"
+              label={t("Show password")}
             />
           </div>
         </div>
@@ -132,7 +135,7 @@ const RegisterForm = () => {
           disabled={isLoading}
           className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
         >
-          {isLoading ? "Submitting..." : "Create account"}
+          {isLoading ? t("Submitting...") : t("Create account")}
         </Button>
 
         <GoogleLogin disabled={isLoading} />

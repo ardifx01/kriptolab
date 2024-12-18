@@ -104,7 +104,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
     // No input
     if (tokenValue <= 0 || idrValue <= 0)
       return {
-        text: `${t("Enter")} ${tokenSymbol} ${t("Amount")}`,
+        text: `Enter ${tokenSymbol} Amount`,
         disabled: true,
       };
 

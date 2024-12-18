@@ -85,7 +85,7 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
               key={index}
               className="mb-[1px] flex h-full w-1/4 items-center border-r border-borderColor px-3 text-textSecondary last:border-transparent"
             >
-              {item}
+              {t(item)}
             </div>
           ))}
         </div>

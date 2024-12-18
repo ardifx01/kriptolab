@@ -111,7 +111,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     {
       key: "volume_24h",
       label: t("24h Volume"),
-      width: isMobile ? 180 : 220,
+      width: isMobile ? 180 : 200,
       type: "number",
       headerClassName: "text-right p-4",
       className: "text-right p-4",
@@ -120,7 +120,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     {
       key: "change_24h",
       label: t("24h Change"),
-      width: isMobile ? 148 : 168,
+      width: isMobile ? 158 : 178,
       type: "number",
       headerClassName: "text-right p-4",
       className: "text-right p-4",
@@ -137,7 +137,7 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
     {
       key: "change_7d",
       label: t("7d Change"),
-      width: isMobile ? 150 : 170,
+      width: isMobile ? 160 : 180,
       type: "number",
       headerClassName: "text-right p-4 pr-6",
       className: "text-right p-4 pr-6",

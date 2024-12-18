@@ -42,7 +42,7 @@ const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
         newPassword: val.newPassword,
       });
 
-      setSuccessMessage("Reset password successful!");
+      setSuccessMessage(t("Reset password successful!"));
       setIsError(false);
       reset();
     } catch (error: any) {
@@ -80,31 +80,38 @@ const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
         )}
 
         <CustomInput
-          label="New Password"
+          label={t("New Password")}
           name="newPassword"
           type={show ? "text" : "password"}
-          placeholder="New Password"
+          placeholder={t("New Password")}
           errors={errors}
           register={register}
           validation={{
-            required: "New Password is required!",
-            minLength: 6,
+            required: t("New Password is required!"),
+            minLength: {
+              value: 8,
+              message: t("Password must be at least 8 characters long"),
+            },
           }}
           className="p-3"
         />
         <div>
           <CustomInput
-            label="Confirm New Password"
+            label={t("Confirm New Password")}
             name="confirmNewPassword"
             type={show ? "text" : "password"}
-            placeholder="Confirm New Password"
+            placeholder={t("Confirm New Password")}
             errors={errors}
             register={register}
             validation={{
               required: "Confirm New Password is required!",
-              minLength: 6,
+              minLength: {
+                value: 8,
+                message: t("Password must be at least 8 characters long"),
+              },
               validate: (value) =>
-                value === getValues("newPassword") || "Passwords do not match!",
+                value === getValues("newPassword") ||
+                t("Passwords do not match!"),
             }}
             className="p-3"
           />
@@ -113,7 +120,7 @@ const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
               checked={show}
               onCheck={setShow}
               className="mt-0.5"
-              label="Show password"
+              label={t("Show password")}
             />
           </div>
         </div>
@@ -123,7 +130,7 @@ const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
           disabled={isLoading}
           className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
         >
-          {isLoading ? "Loading..." : "Reset Password"}
+          {isLoading ? "Loading..." : t("Reset Password")}
         </Button>
       </form>
     </div>

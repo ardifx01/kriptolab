@@ -75,8 +75,8 @@ const LoginForm = () => {
           "border-borderColor bg-cardBackground",
         )}
       >
-        <h2 className="mb-2 text-2xl font-bold sm:text-3xl">
-          Login to your account
+        <h2 className="text-2xl font-bold sm:text-3xl">
+          {t("Login to your account")}
         </h2>
         {isError && (
           <CustomErrorMessage
@@ -95,11 +95,11 @@ const LoginForm = () => {
           label="Email"
           name="email"
           type="email"
-          placeholder="youremail@gmail.com"
+          placeholder="example@gmail.com"
           errors={errors}
           register={register}
           validation={{
-            required: "Email is required!",
+            required: t("Email is required!"),
             pattern: emailPattern,
           }}
           className="p-3"
@@ -110,10 +110,12 @@ const LoginForm = () => {
             label="Password"
             name="password"
             type={enabled ? "text" : "password"}
-            placeholder="Enter your password"
+            placeholder={t("Enter your password")}
             errors={errors}
             register={register}
-            validation={{ required: "Password is required!", minLength: 6 }}
+            validation={{
+              required: t("Password is required!"),
+            }}
             className="p-3"
           />
           <div className="mt-3 flex justify-between text-sm text-textSecondary">
@@ -121,11 +123,11 @@ const LoginForm = () => {
               checked={enabled}
               onCheck={setEnabled}
               className="mt-0.5"
-              label="Show password"
+              label={t("Show password")}
             />
 
             <Link href={"/auth/forgot-password"} className="hover:text-white">
-              Forgot password?
+              {t("Forgot password?")}
             </Link>
           </div>
         </div>
@@ -135,7 +137,7 @@ const LoginForm = () => {
           disabled={isLoading}
           className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
         >
-          {isLoading ? "Loading..." : "Login"}
+          {isLoading ? "Loading..." : t("Login")}
         </Button>
 
         <GoogleLogin disabled={isLoading} />

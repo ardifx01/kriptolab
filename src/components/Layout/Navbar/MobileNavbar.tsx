@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { IoMenu } from "react-icons/io5";
 
 import Image from "next/image";
@@ -19,6 +20,7 @@ import UserDropdown from "./UserDropdown";
 
 const MobileNavbar = ({}: NavbarProps) => {
   const { isLoggedIn } = useAuth();
+  const { t } = useTranslation();
 
   const [menu, setMenu] = useState(false);
 
@@ -53,7 +55,7 @@ const MobileNavbar = ({}: NavbarProps) => {
         {!isLoggedIn ? (
           <Link href={"/auth/login"}>
             <Button variant="secondary" className="h-9 pb-0.5 text-sm">
-              Login
+              {t("Login")}
             </Button>
           </Link>
         ) : (

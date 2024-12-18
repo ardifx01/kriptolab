@@ -36,7 +36,7 @@ const ForgotPasswordForm = () => {
     try {
       await forgotPasswordService(val.email);
 
-      setSuccessMessage("Password reset link has been sent to your email!");
+      setSuccessMessage(t("Password reset link has been sent to your email!"));
       setIsError(false);
       reset();
     } catch (error: any) {
@@ -55,7 +55,9 @@ const ForgotPasswordForm = () => {
           "border-borderColor bg-cardBackground",
         )}
       >
-        <h2 className="mb-2 text-2xl font-bold sm:text-3xl">Forgot Password</h2>
+        <h2 className="mb-2 text-2xl font-bold sm:text-3xl">
+          {t("Forgot Password")}
+        </h2>
         {isError && (
           <CustomErrorMessage
             onClose={() => setIsError(false)}
@@ -78,7 +80,7 @@ const ForgotPasswordForm = () => {
           errors={errors}
           register={register}
           validation={{
-            required: "Email is required!",
+            required: t("Email is required!"),
             pattern: emailPattern,
           }}
           className="p-3"
@@ -89,7 +91,7 @@ const ForgotPasswordForm = () => {
           disabled={isLoading}
           className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
         >
-          {isLoading ? "Loading..." : "Send Reset Link"}
+          {isLoading ? "Loading..." : t("Send Reset Link")}
         </Button>
 
         <Link

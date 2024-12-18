@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +20,7 @@ export interface NavbarProps {
 
 const Navbar = ({}: NavbarProps) => {
   const { isLoggedIn } = useAuth();
+  const { t } = useTranslation();
 
   return (
     <nav
@@ -59,12 +61,12 @@ const Navbar = ({}: NavbarProps) => {
           <>
             <Link href={"/auth/login"}>
               <Button variant="secondary" className="min-w-[110px]">
-                Login
+                {t("Login")}
               </Button>
             </Link>
             <Link href={"/auth/register"} className="hidden xl:block">
               <Button variant="primary" className="min-w-[110px]">
-                Register
+                {t("Register")}
               </Button>
             </Link>
           </>
