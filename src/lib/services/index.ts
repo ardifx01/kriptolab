@@ -4,6 +4,7 @@ import {
   API_EDIT_PASSWORD,
   API_FORGOT_PASSWORD,
   API_LOGIN,
+  API_PAIRS,
   API_PROFILE,
   API_REGISTER,
   API_RESET_PASSWORD,
@@ -15,6 +16,8 @@ import {
   IEditPassword,
   IProfileUpdate,
   IResetPassword,
+  ITokenDetails,
+  ITokenPair,
 } from "@/types";
 
 import { AuthenticatedAPI, UnauthenticatedAPI } from "./config";
@@ -78,4 +81,15 @@ export const sellService = async ({
 
 export const withdrawService = async (withdrawAmount: number) => {
   return await AuthenticatedAPI.post(API_WITHDRAW, { amount: withdrawAmount });
+};
+
+// TOKENS ========================================
+export const getPairsService = async () => {
+  return await UnauthenticatedAPI.get<ITokenPair[]>(API_PAIRS);
+};
+
+export const getTokenDetailsService = async (ticker_id: string) => {
+  return await UnauthenticatedAPI.get<ITokenDetails>(
+    `${API_PAIRS}/${ticker_id}`,
+  );
 };

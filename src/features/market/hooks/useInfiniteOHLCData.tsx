@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { INDODAX_URL } from "@/constants";
 import { useCustomSWR } from "@/hooks/useCustomSWR";
@@ -13,7 +13,9 @@ export const useInfiniteOHLCData = (tokenId: string, timeframe: string) => {
     to: Math.floor(Date.now() / 1000),
   });
 
-  const fetchUrl = `${INDODAX_URL}/tradingview/history_v2?from=${timeRange.current.from}&symbol=${tokenId}&tf=${timeframe}&to=${timeRange.current.to}`;
+  const fetchUrl = useMemo(() => {
+    return `${INDODAX_URL}/tradingview/history_v2?from=${timeRange.current.from}&symbol=${tokenId}&tf=${timeframe}&to=${timeRange.current.to}`;
+  }, [timeframe, tokenId]);
 
   const {
     data: fetchedData,
@@ -27,7 +29,7 @@ export const useInfiniteOHLCData = (tokenId: string, timeframe: string) => {
   });
 
   useEffect(() => {
-    if (fetchedData) {
+    if (fetchedData && tokenId) {
       const sortedData = fetchedData.sort((a, b) => a.Time - b.Time);
       setData((prevData) => {
         // Merge new data, avoiding duplicates
@@ -46,7 +48,7 @@ export const useInfiniteOHLCData = (tokenId: string, timeframe: string) => {
       });
       setLastUpdateTime(Date.now());
     }
-  }, [fetchedData]);
+  }, [fetchedData, tokenId]);
 
   return {
     data,
