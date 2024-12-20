@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import {
   ArrowRightLeftIcon,
@@ -16,167 +17,185 @@ import Paragraph from "@/features/tutorial/components/Typography/Paragraph";
 import SectionTitle from "@/features/tutorial/components/Typography/SectionTitle";
 
 const TradingGuidePage = () => {
+  const { t } = useTranslation("tutorial");
+
   return (
     <TutorialLayout title="Trading Guide">
       <MainTitle>
-        How to Start <span className="text-primaryAccent">Trading</span> in
-        KriptoLab
+        <Trans
+          ns="tutorial"
+          i18nKey="tradingGuide.title"
+          components={{
+            span: <span className="text-primaryAccent" />,
+          }}
+        />
       </MainTitle>
+
       <section id="introduction">
         <Paragraph>
-          Learn how to <b>buy and sell cryptocurrencies</b> in KriptoLab using
-          real market data from Indodax. Simulate trades with no risk and
-          experience how fees work in a real-world trading environment!
+          <Trans
+            ns="tutorial"
+            i18nKey="tradingGuide.introduction"
+            components={{ b: <b /> }}
+          />
         </Paragraph>
       </section>
 
       <section id="deposit-idr" className="mt-5">
         <SectionTitle>
-          <DollarSignIcon /> Deposit IDR Amount
+          <DollarSignIcon /> {t("tradingGuide.depositTitle")}
         </SectionTitle>
-        <Paragraph>
-          Before trading, you need to deposit an IDR balance into your simulated
-          wallet. Here’s how:
-        </Paragraph>
+        <Paragraph>{t("tradingGuide.depositDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Click the <b>Balance</b> in the top-right corner of the website or
-            navigate to the <b>Portfolio</b> page.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.depositStep1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Click the <b>Deposit</b> button.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.depositStep2"
+              components={{ b: <b /> }}
+            />
           </ListItem>
+          <ListItem>{t("tradingGuide.depositStep3")}</ListItem>
           <ListItem>
-            Enter the deposit amount you want to add to your balance.
-          </ListItem>
-          <ListItem>
-            Click <b>Confirm Deposit</b>.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.depositStep4"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </OrderedList>
-        <Paragraph>
-          Once done, your IDR balance will be updated, and you’re ready to start
-          trading.
-        </Paragraph>
-        {/* Screenshot placeholder */}
+        <Paragraph>{t("tradingGuide.depositNote")}</Paragraph>
       </section>
 
       <section id="select-pair" className="mt-5">
         <SectionTitle>
-          <LineChartIcon /> Select a Trading Pair
+          <LineChartIcon /> {t("tradingGuide.selectPairTitle")}
         </SectionTitle>
-        <Paragraph>
-          Choose the crypto token you want to buy or sell in the Marketplace.
-        </Paragraph>
+        <Paragraph>{t("tradingGuide.selectPairDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Go to the <b>Marketplace</b> page.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.selectPairStep1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Browse or search for your desired trading pair (e.g., <b>BTC/IDR</b>
-            ).
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.selectPairStep2"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Click on the pair to open the <b>Market Detail Page</b>.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.selectPairStep3"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </OrderedList>
-        {/* Screenshot placeholder */}
       </section>
 
       <section id="buy-token" className="mt-5">
         <SectionTitle>
-          <ArrowRightLeftIcon /> Buy a Token
+          <ArrowRightLeftIcon /> {t("tradingGuide.buyTitle")}
         </SectionTitle>
-        <Paragraph>
-          Follow these steps to buy crypto using your IDR balance.
-        </Paragraph>
+        <Paragraph>{t("tradingGuide.buyDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            On the Market Detail Page, locate the <b>Buy Section</b>.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.buyStep1"
+              components={{ b: <b /> }}
+            />
+          </ListItem>
+          <ListItem>{t("tradingGuide.buyStep2")}</ListItem>
+          <ListItem>
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.buyStep3"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Enter the amount of IDR you want to spend or the token amount to
-            purchase.
-          </ListItem>
-          <ListItem>
-            Use quick percentage options (<b>25%, 50%, 75%, 100%</b>) to
-            auto-calculate the trade.
-          </ListItem>
-          <ListItem>
-            Click <b>Confirm Buy</b> to place the order.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.buyStep4"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </OrderedList>
-        <Paragraph>
-          A small fee will be deducted from your trade to simulate real Indodax
-          fees.
-        </Paragraph>
-        {/* Screenshot placeholder */}
+        <Paragraph>{t("tradingGuide.buyNote")}</Paragraph>
       </section>
 
       <section id="sell-token" className="mt-5">
         <SectionTitle>
-          <ArrowRightLeftIcon /> Sell a Token
+          <ArrowRightLeftIcon /> {t("tradingGuide.sellTitle")}
         </SectionTitle>
-        <Paragraph>Here’s how to sell crypto back to IDR balance:</Paragraph>
+        <Paragraph>{t("tradingGuide.sellDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            On the Market Detail Page, locate the <b>Sell Section</b>.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.sellStep1"
+              components={{ b: <b /> }}
+            />
+          </ListItem>
+          <ListItem>{t("tradingGuide.sellStep2")}</ListItem>
+          <ListItem>
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.sellStep3"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Enter the token amount you want to sell or the amount of IDR you
-            want to receive.
-          </ListItem>
-          <ListItem>
-            Use quick percentage options (<b>25%, 50%, 75%, 100%</b>) to
-            auto-calculate the trade.
-          </ListItem>
-          <ListItem>
-            Click <b>Confirm Sell</b> to place the order.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.sellStep4"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </OrderedList>
-        <Paragraph>
-          Similar to buying, a small fee will be applied to simulate trading
-          costs.
-        </Paragraph>
-        {/* Screenshot placeholder */}
+        <Paragraph>{t("tradingGuide.sellNote")}</Paragraph>
       </section>
 
       <section id="check-portfolio" className="mt-5">
         <SectionTitle>
-          <LineChartIcon /> Track Your Trades in Portfolio
+          <LineChartIcon /> {t("tradingGuide.portfolioTitle")}
         </SectionTitle>
-        <Paragraph>
-          After completing your trades, you can check your updated balance and
-          token holdings.
-        </Paragraph>
+        <Paragraph>{t("tradingGuide.portfolioDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Navigate to the <b>Portfolio</b> page.
+            <Trans
+              ns="tutorial"
+              i18nKey="tradingGuide.portfolioStep1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
-          <ListItem>
-            View your token holdings, total IDR balance, and trade summary.
-          </ListItem>
-          <ListItem>
-            Check transaction history to see all your buy/sell activities.
-          </ListItem>
+          <ListItem>{t("tradingGuide.portfolioStep2")}</ListItem>
+          <ListItem>{t("tradingGuide.portfolioStep3")}</ListItem>
         </OrderedList>
-        {/* Screenshot placeholder */}
       </section>
 
       <section id="summary" className="mt-5">
         <SectionTitle>
-          <ArrowRightLeftIcon /> You’re Ready to Trade!
+          <ArrowRightLeftIcon /> {t("tradingGuide.summaryTitle")}
         </SectionTitle>
-        <Paragraph>
-          That’s it! You’ve learned how to buy, sell, and track your trades in
-          KriptoLab. Start exploring different pairs and practice your trading
-          strategies risk-free.
-        </Paragraph>
+        <Paragraph>{t("tradingGuide.summaryDesc")}</Paragraph>
         <UnorderedList>
           <LinkItem link="/tutorial/market-overview">
-            Review the Market Overview Tutorial
+            {t("tradingGuide.summaryLink1")}
           </LinkItem>
           <LinkItem link="/portfolio">
-            Track your trades in the Portfolio
+            {t("tradingGuide.summaryLink2")}
           </LinkItem>
         </UnorderedList>
       </section>
