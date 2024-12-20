@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from "react";
 
-import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import Layout from "@/components/Layout/Layout";
@@ -11,34 +10,33 @@ import MarketDetailTable from "@/features/market/components/MarketDetail/MarketD
 import TradeAsset from "@/features/market/components/MarketDetail/TradeAsset/TradeAsset";
 import useTokenData from "@/features/market/hooks/useTokenData";
 import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
-import { getPairsService, getTokenDetailsService } from "@/lib/services";
-import { ITokenDetails, ITokenPair } from "@/types";
+import { ITokenDetails } from "@/types";
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await getPairsService();
-  const tokens: ITokenPair[] = res.data;
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const res = await getPairsService();
+//   const tokens: ITokenPair[] = res.data;
 
-  const paths = tokens.map((token) => ({
-    params: { token: token.ticker_id },
-  }));
+//   const paths = tokens.map((token) => ({
+//     params: { token: token.ticker_id },
+//   }));
 
-  return { paths, fallback: false };
-};
+//   return { paths, fallback: false };
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let token: any;
-  if (params) {
-    token = params.token;
-  }
-  const res = await getTokenDetailsService(token);
-  const tokenDetails = res.data;
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   let token: any;
+//   if (params) {
+//     token = params.token;
+//   }
+//   const res = await getTokenDetailsService(token);
+//   const tokenDetails = res.data;
 
-  return {
-    props: { tokenDetails },
-  };
-};
+//   return {
+//     props: { tokenDetails },
+//   };
+// };
 
-const TokenDetailPage = ({ tokenDetails }: { tokenDetails: ITokenDetails }) => {
+const TokenDetailPage = () => {
   const { query } = useRouter();
   const { getTokenById } = useTokenData();
 
@@ -47,7 +45,7 @@ const TokenDetailPage = ({ tokenDetails }: { tokenDetails: ITokenDetails }) => {
     return getTokenById(`${query.token}`);
   }, [getTokenById, query.token]);
 
-  const details = getTokenDetails();
+  const tokenDetails = getTokenDetails();
 
   // PAGE TITLE
   const pageTitle = useMemo(() => {
@@ -61,7 +59,7 @@ const TokenDetailPage = ({ tokenDetails }: { tokenDetails: ITokenDetails }) => {
       )}`;
   }, [tokenDetails]);
 
-  if (!tokenDetails || !details) {
+  if (!tokenDetails) {
     return (
       <Layout>
         <LoadingSpinner />
@@ -77,7 +75,7 @@ const TokenDetailPage = ({ tokenDetails }: { tokenDetails: ITokenDetails }) => {
           <MarketDetailTable token={tokenDetails} />
         </section>
         <section className="order-1 flex w-full flex-col gap-3 lg:order-2 lg:max-w-[450px]">
-          <MarketDetailInfo token={details} />
+          <MarketDetailInfo token={tokenDetails} />
           <TradeAsset token={tokenDetails} />
         </section>
       </div>
