@@ -61,7 +61,7 @@ const TokenDetailPage = ({ tokenDetails }: { tokenDetails: ITokenDetails }) => {
       )}`;
   }, [tokenDetails]);
 
-  if (!tokenDetails) {
+  if (!tokenDetails || !details) {
     return (
       <Layout>
         <LoadingSpinner />
