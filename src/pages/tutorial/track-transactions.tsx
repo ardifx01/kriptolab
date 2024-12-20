@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import {
   ActivityIcon,
@@ -18,149 +19,182 @@ import Paragraph from "@/features/tutorial/components/Typography/Paragraph";
 import SectionTitle from "@/features/tutorial/components/Typography/SectionTitle";
 
 const TransactionsMonitoringPage = () => {
+  const { t } = useTranslation("tutorial");
+
   return (
-    <TutorialLayout title="Transactions Monitoring Guide">
+    <TutorialLayout title={t("transactionsMonitoring.pageTitle")}>
       <MainTitle>
-        Monitor Your <span className="text-primaryAccent">Transactions</span> in
-        KriptoLab
+        <Trans
+          ns="tutorial"
+          i18nKey="transactionsMonitoring.title"
+          components={{
+            span: <span className="text-primaryAccent" />,
+          }}
+        />
       </MainTitle>
 
       <section id="introduction">
         <Paragraph>
-          Learn how to <b>track, analyze, and understand</b> all your financial
-          activities in KriptoLab's comprehensive transaction monitoring system.
+          <Trans
+            ns="tutorial"
+            i18nKey="transactionsMonitoring.introduction"
+            components={{
+              b: <b />,
+            }}
+          />
         </Paragraph>
       </section>
 
       <section id="transaction-types" className="mt-5">
         <SectionTitle>
-          <ListIcon /> Understanding Transaction Types
+          <ListIcon /> {t("transactionsMonitoring.types.title")}
         </SectionTitle>
-        <Paragraph>
-          KriptoLab tracks four primary types of financial transactions:
-        </Paragraph>
+        <Paragraph>{t("transactionsMonitoring.types.description")}</Paragraph>
         <UnorderedList>
           <ListItem>
-            <b>Buy:</b> Purchasing cryptocurrency tokens using your IDR balance
+            <Trans
+              ns="tutorial"
+              i18nKey="transactionsMonitoring.types.type1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            <b>Sell:</b> Converting cryptocurrency tokens back to IDR
+            <Trans
+              ns="tutorial"
+              i18nKey="transactionsMonitoring.types.type2"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            <b>Deposit:</b> Adding funds to your simulated wallet
+            <Trans
+              ns="tutorial"
+              i18nKey="transactionsMonitoring.types.type3"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            <b>Withdrawal:</b> Removing funds from your simulated wallet
+            <Trans
+              ns="tutorial"
+              i18nKey="transactionsMonitoring.types.type4"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </UnorderedList>
-        <Paragraph>
-          Each transaction is recorded with detailed information for complete
-          transparency.
-        </Paragraph>
+        <Paragraph>{t("transactionsMonitoring.types.summary")}</Paragraph>
       </section>
 
       <section id="transaction-table" className="mt-5">
         <SectionTitle>
-          <ClipboardListIcon /> Transaction History Table
+          <ClipboardListIcon /> {t("transactionsMonitoring.table.title")}
         </SectionTitle>
-        <Paragraph>
-          The Transaction History displays a comprehensive log of all your
-          financial activities.
-        </Paragraph>
+        <Paragraph>{t("transactionsMonitoring.table.description")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Navigate to the <b>Transactions</b> page to view your complete
-            transaction history.
+            <Trans
+              ns="tutorial"
+              i18nKey="transactionsMonitoring.table.step1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            The table includes key details for each transaction:
+            {t("transactionsMonitoring.table.step2")}
             <UnorderedList>
               <ListItem>
-                <b>Date:</b> Exact timestamp of the transaction
+                <Trans
+                  ns="tutorial"
+                  i18nKey="transactionsMonitoring.table.field1"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>Type:</b> Buy, Sell, Deposit, or Withdrawal
+                <Trans
+                  ns="tutorial"
+                  i18nKey="transactionsMonitoring.table.field2"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>Price:</b> Value of the transaction at the time
+                <Trans
+                  ns="tutorial"
+                  i18nKey="transactionsMonitoring.table.field3"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>Amount:</b> Quantity of tokens or IDR involved
+                <Trans
+                  ns="tutorial"
+                  i18nKey="transactionsMonitoring.table.field4"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
             </UnorderedList>
           </ListItem>
-          <ListItem>
-            Transactions are typically sorted from most recent to oldest by
-            default.
-          </ListItem>
+          <ListItem>{t("transactionsMonitoring.table.step3")}</ListItem>
         </OrderedList>
       </section>
 
       <section id="filtering" className="mt-5">
         <SectionTitle>
-          <FilterIcon /> Filtering Your Transactions
+          <FilterIcon /> {t("transactionsMonitoring.filtering.title")}
         </SectionTitle>
         <Paragraph>
-          Quickly find specific transactions using advanced filtering options.
+          {t("transactionsMonitoring.filtering.description")}
         </Paragraph>
         <OrderedList>
           <ListItem>
-            Use transaction type filter buttons to view specific transaction
-            categories:
+            {t("transactionsMonitoring.filtering.step1")}
             <UnorderedList>
-              <ListItem>All Transactions</ListItem>
-              <ListItem>Buy</ListItem>
-              <ListItem>Sell</ListItem>
-              <ListItem>Deposit</ListItem>
-              <ListItem>Withdrawal</ListItem>
+              <ListItem>
+                {t("transactionsMonitoring.filtering.filter1")}
+              </ListItem>
+              <ListItem>
+                {t("transactionsMonitoring.filtering.filter2")}
+              </ListItem>
+              <ListItem>
+                {t("transactionsMonitoring.filtering.filter3")}
+              </ListItem>
+              <ListItem>
+                {t("transactionsMonitoring.filtering.filter4")}
+              </ListItem>
+              <ListItem>
+                {t("transactionsMonitoring.filtering.filter5")}
+              </ListItem>
             </UnorderedList>
           </ListItem>
-          <ListItem>
-            Click on the desired filter button to instantly update the
-            transaction view.
-          </ListItem>
-          <ListItem>
-            Combine filters to create precise views of your transaction history.
-          </ListItem>
+          <ListItem>{t("transactionsMonitoring.filtering.step2")}</ListItem>
+          <ListItem>{t("transactionsMonitoring.filtering.step3")}</ListItem>
         </OrderedList>
-        <Paragraph>
-          Filtering helps you understand your trading and financial patterns
-          quickly.
-        </Paragraph>
+        <Paragraph>{t("transactionsMonitoring.filtering.summary")}</Paragraph>
       </section>
 
       <section id="transaction-insights" className="mt-5">
         <SectionTitle>
-          <ActivityIcon /> Gaining Transaction Insights
+          <ActivityIcon /> {t("transactionsMonitoring.insights.title")}
         </SectionTitle>
         <Paragraph>
-          Your transaction history is more than just a log—it's a valuable tool
-          for understanding your financial activity.
+          {t("transactionsMonitoring.insights.description")}
         </Paragraph>
         <UnorderedList>
-          <ListItem>
-            Use transaction data to track your trading performance
-          </ListItem>
-          <ListItem>Analyze spending and investment patterns</ListItem>
-          <ListItem>Understand your portfolio's movement and growth</ListItem>
+          <ListItem>{t("transactionsMonitoring.insights.point1")}</ListItem>
+          <ListItem>{t("transactionsMonitoring.insights.point2")}</ListItem>
+          <ListItem>{t("transactionsMonitoring.insights.point3")}</ListItem>
         </UnorderedList>
       </section>
 
       <section id="summary" className="mt-5">
         <SectionTitle>
-          <SearchIcon /> Explore Your Transaction History!
+          <SearchIcon /> {t("transactionsMonitoring.summary.title")}
         </SectionTitle>
-        <Paragraph>
-          You're now equipped to navigate and understand your transaction
-          history in KriptoLab.
-        </Paragraph>
+        <Paragraph>{t("transactionsMonitoring.summary.description")}</Paragraph>
         <UnorderedList>
-          <LinkItem link="/transactions">View Transaction History</LinkItem>
+          <LinkItem link="/transactions">
+            {t("transactionsMonitoring.summary.link1")}
+          </LinkItem>
           <LinkItem link="/tutorial/portfolio-management">
-            Learn About Portfolio Management
+            {t("transactionsMonitoring.summary.link2")}
           </LinkItem>
           <LinkItem link="/tutorial/trading-guide">
-            Revisit Trading Guide
+            {t("transactionsMonitoring.summary.link3")}
           </LinkItem>
         </UnorderedList>
       </section>

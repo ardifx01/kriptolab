@@ -160,5 +160,57 @@
       "link1": "Revisit Trading Guide",
       "link2": "Explore Crypto Marketplace"
     }
+  },
+  "transactionsMonitoring": {
+    "pageTitle": "Transactions Monitoring Guide",
+    "title": "Monitor Your <span>Transactions</span> in KriptoLab",
+    "introduction": "Learn how to <b>track, analyze, and understand</b> all your financial activities in KriptoLab's comprehensive transaction monitoring system.",
+    "types": {
+      "title": "Understanding Transaction Types",
+      "description": "KriptoLab tracks four primary types of financial transactions:",
+      "type1": "<b>Buy:</b> Purchasing cryptocurrency tokens using your IDR balance",
+      "type2": "<b>Sell:</b> Converting cryptocurrency tokens back to IDR",
+      "type3": "<b>Deposit:</b> Adding funds to your simulated wallet",
+      "type4": "<b>Withdrawal:</b> Removing funds from your simulated wallet",
+      "summary": "Each transaction is recorded with detailed information for complete transparency."
+    },
+    "table": {
+      "title": "Transaction History Table",
+      "description": "The Transaction History displays a comprehensive log of all your financial activities.",
+      "step1": "Navigate to the <b>Transactions</b> page to view your complete transaction history.",
+      "step2": "The table includes key details for each transaction:",
+      "step3": "Transactions are typically sorted from most recent to oldest by default.",
+      "field1": "<b>Date:</b> Exact timestamp of the transaction",
+      "field2": "<b>Type:</b> Buy, Sell, Deposit, or Withdrawal",
+      "field3": "<b>Price:</b> Value of the transaction at the time",
+      "field4": "<b>Amount:</b> Quantity of tokens or IDR involved"
+    },
+    "filtering": {
+      "title": "Filtering Your Transactions",
+      "description": "Quickly find specific transactions using advanced filtering options.",
+      "step1": "Use transaction type filter buttons to view specific transaction categories:",
+      "step2": "Click on the desired filter button to instantly update the transaction view.",
+      "step3": "Combine filters to create precise views of your transaction history.",
+      "filter1": "All Transactions",
+      "filter2": "Buy",
+      "filter3": "Sell",
+      "filter4": "Deposit",
+      "filter5": "Withdrawal",
+      "summary": "Filtering helps you understand your trading and financial patterns quickly."
+    },
+    "insights": {
+      "title": "Gaining Transaction Insights",
+      "description": "Your transaction history is more than just a log—it's a valuable tool for understanding your financial activity.",
+      "point1": "Use transaction data to track your trading performance",
+      "point2": "Analyze spending and investment patterns",
+      "point3": "Understand your portfolio's movement and growth"
+    },
+    "summary": {
+      "title": "Explore Your Transaction History!",
+      "description": "You're now equipped to navigate and understand your transaction history in KriptoLab.",
+      "link1": "View Transaction History",
+      "link2": "Learn About Portfolio Management",
+      "link3": "Revisit Trading Guide"
+    }
   }
 }
