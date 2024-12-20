@@ -118,5 +118,47 @@
     "summaryDesc": "That's it! You've learned how to buy, sell, and track your trades in KriptoLab. Start exploring different pairs and practice your trading strategies risk-free.",
     "summaryLink1": "Review the Market Overview Tutorial",
     "summaryLink2": "Track your trades in the Portfolio"
+  },
+  "portfolioManagement": {
+    "pageTitle": "Portfolio Management Guide",
+    "title": "Manage Your <span>Portfolio</span> in KriptoLab",
+    "introduction": "Learn how to <b>track, manage, and understand</b> your crypto assets in KriptoLab. Monitor your total balance, view asset performance, and make informed trading decisions!",
+    "idrBalance": {
+      "title": "IDR Balance Management",
+      "description": "View and manage your Indonesian Rupiah (IDR) balance in your simulated wallet.",
+      "step1": "Navigate to the <b>Portfolio</b> page to see your current <b>Total IDR Balance</b>.",
+      "step2": "Click the <b>Deposit</b> button to add funds to your simulated wallet.",
+      "step3": "Click the <b>Withdraw</b> button to simulate withdrawing funds.",
+      "step4": "The total balance is prominently displayed at the top of the Portfolio page.",
+      "summary": "Your IDR balance represents the total funds available for trading and investment."
+    },
+    "assetChart": {
+      "title": "Asset Performance Chart",
+      "description": "Visualize your total asset value and track its performance over time.",
+      "step1": "The <b>Asset Chart Section</b> shows your total asset value in IDR.",
+      "step2": "Use timeframe selectors to view performance: <b>1 Day, 1 Week, 1 Month, All Time</b>.",
+      "step3": "The chart dynamically updates to show your asset value changes.",
+      "step4": "Hover over data points to see precise value and date details.",
+      "summary": "Understanding your asset performance helps in making informed trading decisions."
+    },
+    "assetList": {
+      "title": "Crypto Asset List",
+      "description": "Detailed overview of your crypto holdings and their current value.",
+      "step1": "Use the <b>Search</b> feature to quickly find specific tokens.",
+      "step2": "The Asset List displays each token with:",
+      "step3": "Sort columns by clicking on column headers for easy comparison.",
+      "step4": "Click on a specific token to view detailed transaction history.",
+      "field1": "Token Name",
+      "field2": "Token Symbol",
+      "field3": "Amount Held",
+      "field4": "Current Value in IDR",
+      "summary": "Stay informed about your entire crypto portfolio at a glance."
+    },
+    "summary": {
+      "title": "Explore Your Portfolio!",
+      "description": "You're now equipped to manage and track your crypto assets in KriptoLab. Regularly check your portfolio to stay updated on your investments.",
+      "link1": "Revisit Trading Guide",
+      "link2": "Explore Crypto Marketplace"
+    }
   }
 }

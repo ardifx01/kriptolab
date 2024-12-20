@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import {
   BarChartIcon,
@@ -17,126 +18,136 @@ import Paragraph from "@/features/tutorial/components/Typography/Paragraph";
 import SectionTitle from "@/features/tutorial/components/Typography/SectionTitle";
 
 const PortfolioManagementPage = () => {
+  const { t } = useTranslation("tutorial");
+
   return (
-    <TutorialLayout title="Portfolio Management Guide">
+    <TutorialLayout title={t("portfolioManagement.pageTitle")}>
       <MainTitle>
-        Manage Your <span className="text-primaryAccent">Portfolio</span> in
-        KriptoLab
+        <Trans
+          ns="tutorial"
+          i18nKey="portfolioManagement.title"
+          components={{
+            span: <span className="text-primaryAccent" />,
+          }}
+        />
       </MainTitle>
 
       <section id="introduction">
         <Paragraph>
-          Learn how to <b>track, manage, and understand</b> your crypto assets
-          in KriptoLab. Monitor your total balance, view asset performance, and
-          make informed trading decisions!
+          <Trans
+            ns="tutorial"
+            i18nKey="portfolioManagement.introduction"
+            components={{
+              b: <b />,
+            }}
+          />
         </Paragraph>
       </section>
 
       <section id="idr-balance" className="mt-5">
         <SectionTitle>
-          <WalletIcon /> IDR Balance Management
+          <WalletIcon /> {t("portfolioManagement.idrBalance.title")}
         </SectionTitle>
-        <Paragraph>
-          View and manage your Indonesian Rupiah (IDR) balance in your simulated
-          wallet.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.idrBalance.description")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Navigate to the <b>Portfolio</b> page to see your current{" "}
-            <b>Total IDR Balance</b>.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.idrBalance.step1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Click the <b>Deposit</b> button to add funds to your simulated
-            wallet.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.idrBalance.step2"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Click the <b>Withdraw</b> button to simulate withdrawing funds.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.idrBalance.step3"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            The total balance is prominently displayed at the top of the
-            Portfolio page.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.idrBalance.step4"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </OrderedList>
-        <Paragraph>
-          Your IDR balance represents the total funds available for trading and
-          investment.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.idrBalance.summary")}</Paragraph>
       </section>
 
       <section id="asset-chart" className="mt-5">
         <SectionTitle>
-          <ChartLineIcon /> Asset Performance Chart
+          <ChartLineIcon /> {t("portfolioManagement.assetChart.title")}
         </SectionTitle>
-        <Paragraph>
-          Visualize your total asset value and track its performance over time.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.assetChart.description")}</Paragraph>
         <OrderedList>
           <ListItem>
-            The <b>Asset Chart Section</b> shows your total asset value in IDR.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.assetChart.step1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Use timeframe selectors to view performance:
-            <b> 1 Day, 1 Week, 1 Month, All Time</b>.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.assetChart.step2"
+              components={{ b: <b /> }}
+            />
           </ListItem>
-          <ListItem>
-            The chart dynamically updates to show your asset value changes.
-          </ListItem>
-          <ListItem>
-            Hover over data points to see precise value and date details.
-          </ListItem>
+          <ListItem>{t("portfolioManagement.assetChart.step3")}</ListItem>
+          <ListItem>{t("portfolioManagement.assetChart.step4")}</ListItem>
         </OrderedList>
-        <Paragraph>
-          Understanding your asset performance helps in making informed trading
-          decisions.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.assetChart.summary")}</Paragraph>
       </section>
 
       <section id="asset-list" className="mt-5">
         <SectionTitle>
-          <BarChartIcon /> Crypto Asset List
+          <BarChartIcon /> {t("portfolioManagement.assetList.title")}
         </SectionTitle>
-        <Paragraph>
-          Detailed overview of your crypto holdings and their current value.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.assetList.description")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Use the <b>Search</b> feature to quickly find specific tokens.
+            <Trans
+              ns="tutorial"
+              i18nKey="portfolioManagement.assetList.step1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            The Asset List displays each token with:
+            {t("portfolioManagement.assetList.step2")}
             <UnorderedList>
-              <ListItem>Token Name</ListItem>
-              <ListItem>Token Symbol</ListItem>
-              <ListItem>Amount Held</ListItem>
-              <ListItem>Current Value in IDR</ListItem>
+              <ListItem>{t("portfolioManagement.assetList.field1")}</ListItem>
+              <ListItem>{t("portfolioManagement.assetList.field2")}</ListItem>
+              <ListItem>{t("portfolioManagement.assetList.field3")}</ListItem>
+              <ListItem>{t("portfolioManagement.assetList.field4")}</ListItem>
             </UnorderedList>
           </ListItem>
-          <ListItem>
-            Sort columns by clicking on column headers for easy comparison.
-          </ListItem>
-          <ListItem>
-            Click on a specific token to view detailed transaction history.
-          </ListItem>
+          <ListItem>{t("portfolioManagement.assetList.step3")}</ListItem>
+          <ListItem>{t("portfolioManagement.assetList.step4")}</ListItem>
         </OrderedList>
-        <Paragraph>
-          Stay informed about your entire crypto portfolio at a glance.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.assetList.summary")}</Paragraph>
       </section>
 
       <section id="summary" className="mt-5">
         <SectionTitle>
-          <SearchIcon /> Explore Your Portfolio!
+          <SearchIcon /> {t("portfolioManagement.summary.title")}
         </SectionTitle>
-        <Paragraph>
-          You're now equipped to manage and track your crypto assets in
-          KriptoLab. Regularly check your portfolio to stay updated on your
-          investments.
-        </Paragraph>
+        <Paragraph>{t("portfolioManagement.summary.description")}</Paragraph>
         <UnorderedList>
           <LinkItem link="/tutorial/trading-guide">
-            Revisit Trading Guide
+            {t("portfolioManagement.summary.link1")}
           </LinkItem>
-          <LinkItem link="/marketplace">Explore Crypto Marketplace</LinkItem>
+          <LinkItem link="/marketplace">
+            {t("portfolioManagement.summary.link2")}
+          </LinkItem>
         </UnorderedList>
       </section>
     </TutorialLayout>
