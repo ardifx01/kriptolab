@@ -20,7 +20,7 @@ const TradingGuidePage = () => {
   const { t } = useTranslation("tutorial");
 
   return (
-    <TutorialLayout title="Trading Guide">
+    <TutorialLayout title={t("tradingGuide.pageTitle")}>
       <MainTitle>
         <Trans
           ns="tutorial"

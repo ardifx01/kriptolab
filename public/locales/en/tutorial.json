@@ -1,5 +1,6 @@
 {
   "gettingStarted": {
+    "pageTitle": "Getting Started Guide",
     "title": "Welcome to <span className='text-primaryAccent'>KriptoLab</span>!",
     "introduction1": "KriptoLab is a beginner-friendly <b>Crypto Trading Simulator</b> that allows you to practice trading using real market data from <b>Indodax</b> without any financial risk.",
     "introduction2": "This guide will walk you through setting up your account and getting started. By the end of this tutorial, you'll be able to:",
@@ -33,6 +34,7 @@
     "exploreLink3": "Explore Trading Guide"
   },
   "marketOverview": {
+    "pageTitle": "Market Overview Guide",
     "title": "Explore the <span className='text-primaryAccent'>Market Overview</span>",
     "introduction1": "The Market Overview is the central hub of KriptoLab, providing live cryptocurrency prices, trending assets, and comprehensive market insights to help you make informed trading decisions.",
     "introduction2": "In this tutorial, you'll learn how to:",
@@ -81,6 +83,7 @@
     "nextStepsLink3": "Understand Transaction Monitoring"
   },
   "tradingGuide": {
+    "pageTitle": "Trading Guide",
     "title": "How to Start <span className='text-primaryAccent'>Trading</span> in KriptoLab",
     "introduction": "Learn how to <b>buy and sell cryptocurrencies</b> in KriptoLab using real market data from Indodax. Simulate trades with no risk and experience how fees work in a real-world trading environment!",
     "depositTitle": "Deposit IDR Amount",

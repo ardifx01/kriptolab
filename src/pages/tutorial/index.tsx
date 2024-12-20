@@ -16,7 +16,7 @@ const GettingStartedPage = () => {
   const { t } = useTranslation("tutorial");
 
   return (
-    <TutorialLayout title="Getting Started Guide">
+    <TutorialLayout title={t("gettingStarted.pageTitle")}>
       <MainTitle>
         <Trans
           ns="tutorial"
