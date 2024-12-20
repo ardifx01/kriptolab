@@ -212,5 +212,50 @@
       "link2": "Learn About Portfolio Management",
       "link3": "Revisit Trading Guide"
     }
+  },
+  "profileCustomization": {
+    "pageTitle": "Profile Customization Guide",
+    "title": "Personalize Your <span>Profile</span> in KriptoLab",
+    "introduction": "Learn how to <b>customize your profile</b> and make KriptoLab truly yours. Personalize your account with a unique avatar and update your personal information.",
+    "avatar": {
+      "title": "Changing Your Profile Picture",
+      "description": "Personalize your profile by uploading a custom avatar.",
+      "step1": "Navigate to the <b>Profile Settings</b> page.",
+      "step2": "Locate the <b>Profile Picture</b> section.",
+      "step3": "Click the <b>Upload Avatar</b> button.",
+      "step4": "Select an image from your device (recommended: square format, max 5MB).",
+      "step5": "Click <b>Save Changes</b> to update your profile picture.",
+      "summary": "Your new avatar will be displayed across the KriptoLab platform."
+    },
+    "personal": {
+      "title": "Editing Personal Details",
+      "description": "Keep your personal information up-to-date in your profile settings.",
+      "step1": "Go to the <b>Profile Settings</b> page.",
+      "step2": "Find the <b>Personal Information</b> section.",
+      "step3": "You can edit the following details:",
+      "step4": "Edit the fields you wish to update.",
+      "step5": "Note: <b>Email</b> is read-only and cannot be changed.",
+      "step6": "Click the <b>Save Changes</b> button to update your profile.",
+      "field1": "<b>First Name</b>",
+      "field2": "<b>Last Name</b>",
+      "field3": "<b>Phone Number</b>",
+      "field4": "<b>Address</b>",
+      "summary": "Keeping your profile accurate helps with account security and personalization."
+    },
+    "tips": {
+      "title": "Profile Customization Tips",
+      "description": "Maximize your KriptoLab profile experience with these recommendations:",
+      "tip1": "Use a clear, recognizable profile picture",
+      "tip2": "Keep your contact information current",
+      "tip3": "Ensure your phone number is accurate for account recovery",
+      "tip4": "Review and update your profile periodically"
+    },
+    "summary": {
+      "title": "Your Profile, Your Identity",
+      "description": "You're now equipped to personalize and manage your KriptoLab profile.",
+      "link1": "Go to Profile Settings",
+      "link2": "Learn About Account Management",
+      "link3": "Explore Portfolio Management"
+    }
   }
 }
