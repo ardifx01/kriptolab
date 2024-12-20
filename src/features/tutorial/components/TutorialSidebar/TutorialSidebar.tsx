@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,6 +10,7 @@ import { TUTORIAL_MENU } from "../../constant";
 
 const TutorialSidebar = () => {
   const { pathname } = useRouter();
+  const { t } = useTranslation();
 
   return (
     <div className="relative">
@@ -24,7 +26,7 @@ const TutorialSidebar = () => {
                 : "text-textSecondary",
             )}
           >
-            {menu.title}
+            {t(menu.title)}
           </Link>
         ))}
       </aside>
