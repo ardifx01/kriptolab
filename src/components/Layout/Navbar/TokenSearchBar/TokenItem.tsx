@@ -1,8 +1,6 @@
 import React from "react";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { Bitcoin } from "lucide-react";
 
@@ -19,13 +17,10 @@ interface TokenItemProps {
 }
 
 const TokenItem = ({ token }: TokenItemProps) => {
-  const { reload } = useRouter();
-
   return (
-    <Link
+    <a
       href={`/market/${token.pairDetails.ticker_id}`}
       className="flex items-center gap-2 px-4 py-2 hover:bg-cardBackground"
-      onClick={reload}
     >
       {token.pairDetails.url_logo ? (
         <Image
@@ -68,7 +63,7 @@ const TokenItem = ({ token }: TokenItemProps) => {
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 
