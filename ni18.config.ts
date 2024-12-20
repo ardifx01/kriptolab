@@ -2,7 +2,7 @@ import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import { Ni18nOptions } from "ni18n";
 
 const supportedLngs = ["en", "id"];
-const namespaces = ["general"];
+const namespaces = ["general", "tutorial"];
 
 export const ni18nConfig: Ni18nOptions = {
   use: [I18nextBrowserLanguageDetector],
