@@ -257,5 +257,45 @@
       "link2": "Learn About Account Management",
       "link3": "Explore Portfolio Management"
     }
+  },
+  "accountManagement": {
+    "pageTitle": "Account Management Guide",
+    "title": "Manage and <span>Secure</span> Your Account in KriptoLab",
+    "introduction": "Learn how to <b>manage and secure</b> your KriptoLab account by changing your password and maintaining account safety.",
+    "passwordChange": {
+      "title": "Changing Your Password",
+      "description": "Regularly updating your password helps protect your account from unauthorized access.",
+      "step1": "Navigate to the <b>Account Settings</b> page.",
+      "step2": "Locate the <b>Change Password</b> section.",
+      "step3": "Fill in the following fields:",
+      "currentPassword": "<b>Current Password:</b> Enter your existing password",
+      "newPassword": "<b>New Password:</b> Choose a strong, unique password",
+      "confirmPassword": "<b>Confirm New Password:</b> Re-enter the new password",
+      "step4": "Click the <b>Edit Password</b> button to update your password."
+    },
+    "passwordGuidelines": {
+      "title": "Password Security Tips",
+      "description": "Create a strong password to protect your KriptoLab account:",
+      "tip1": "Use at least 12 characters",
+      "tip2": "Combine uppercase and lowercase letters",
+      "tip3": "Include numbers and special characters",
+      "tip4": "Avoid using personal information or common words",
+      "tip5": "Use a unique password not used on other platforms"
+    },
+    "securityWarnings": {
+      "title": "Important Security Reminders",
+      "description": "Protect your account with these crucial security practices:",
+      "tip1": "Never share your password with anyone",
+      "tip2": "Be cautious of phishing attempts",
+      "tip3": "Use two-factor authentication if available",
+      "tip4": "Log out from shared or public devices"
+    },
+    "summary": {
+      "title": "Secure Your Digital Journey",
+      "description": "You're now equipped to manage and secure your KriptoLab account.",
+      "link1": "Go to Account Settings",
+      "link2": "Customize Your Profile",
+      "link3": "Manage Your Portfolio"
+    }
   }
 }

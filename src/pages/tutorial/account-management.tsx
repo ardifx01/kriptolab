@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import { AlertTriangleIcon, KeyIcon, LockIcon, ShieldIcon } from "lucide-react";
 
@@ -11,101 +12,133 @@ import MainTitle from "@/features/tutorial/components/Typography/MainTitle";
 import Paragraph from "@/features/tutorial/components/Typography/Paragraph";
 import SectionTitle from "@/features/tutorial/components/Typography/SectionTitle";
 
-const AccountManagementPage = () => {
+const AccountManagementPage: React.FC = () => {
+  const { t } = useTranslation("tutorial");
+
   return (
-    <TutorialLayout title="Account Management Guide">
+    <TutorialLayout title={t("accountManagement.pageTitle")}>
       <MainTitle>
-        Secure Your <span className="text-primaryAccent">Account</span> in
-        KriptoLab
+        <Trans
+          ns="tutorial"
+          i18nKey="accountManagement.title"
+          components={{ span: <span className="text-primaryAccent" /> }}
+        />
       </MainTitle>
 
       <section id="introduction">
         <Paragraph>
-          Learn how to <b>manage and secure</b> your KriptoLab account by
-          changing your password and maintaining account safety.
+          <Trans
+            ns="tutorial"
+            i18nKey="accountManagement.introduction"
+            components={{ b: <b /> }}
+          />
         </Paragraph>
       </section>
 
       <section id="password-change" className="mt-5">
         <SectionTitle>
-          <KeyIcon /> Changing Your Password
+          <KeyIcon /> {t("accountManagement.passwordChange.title")}
         </SectionTitle>
         <Paragraph>
-          Regularly updating your password helps protect your account from
-          unauthorized access.
+          {t("accountManagement.passwordChange.description")}
         </Paragraph>
         <OrderedList>
           <ListItem>
-            Navigate to the <b>Account Settings</b> page.
+            <Trans
+              ns="tutorial"
+              i18nKey="accountManagement.passwordChange.step1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Locate the <b>Change Password</b> section.
+            {" "}
+            <Trans
+              ns="tutorial"
+              i18nKey="accountManagement.passwordChange.step2"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Fill in the following fields:
+            {t("accountManagement.passwordChange.step3")}
             <UnorderedList>
               <ListItem>
-                <b>Current Password:</b> Enter your existing password
+                <Trans
+                  ns="tutorial"
+                  i18nKey="accountManagement.passwordChange.currentPassword"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>New Password:</b> Choose a strong, unique password
+                <Trans
+                  ns="tutorial"
+                  i18nKey="accountManagement.passwordChange.newPassword"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>Confirm New Password:</b> Re-enter the new password
+                <Trans
+                  ns="tutorial"
+                  i18nKey="accountManagement.passwordChange.confirmPassword"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>
-            Click the <b>Edit Password</b> button to update your password.
+            <Trans
+              ns="tutorial"
+              i18nKey="accountManagement.passwordChange.step4"
+              components={{ b: <b /> }}
+            />
           </ListItem>
         </OrderedList>
       </section>
 
       <section id="password-guidelines" className="mt-5">
         <SectionTitle>
-          <ShieldIcon /> Password Security Tips
+          <ShieldIcon /> {t("accountManagement.passwordGuidelines.title")}
         </SectionTitle>
         <Paragraph>
-          Create a strong password to protect your KriptoLab account:
+          {t("accountManagement.passwordGuidelines.description")}
         </Paragraph>
         <UnorderedList>
-          <ListItem>Use at least 12 characters</ListItem>
-          <ListItem>Combine uppercase and lowercase letters</ListItem>
-          <ListItem>Include numbers and special characters</ListItem>
-          <ListItem>Avoid using personal information or common words</ListItem>
-          <ListItem>Use a unique password not used on other platforms</ListItem>
+          <ListItem>{t("accountManagement.passwordGuidelines.tip1")}</ListItem>
+          <ListItem>{t("accountManagement.passwordGuidelines.tip2")}</ListItem>
+          <ListItem>{t("accountManagement.passwordGuidelines.tip3")}</ListItem>
+          <ListItem>{t("accountManagement.passwordGuidelines.tip4")}</ListItem>
+          <ListItem>{t("accountManagement.passwordGuidelines.tip5")}</ListItem>
         </UnorderedList>
       </section>
 
       <section id="security-warnings" className="mt-5">
         <SectionTitle>
-          <AlertTriangleIcon /> Important Security Reminders
+          <AlertTriangleIcon /> {t("accountManagement.securityWarnings.title")}
         </SectionTitle>
         <Paragraph>
-          Protect your account with these crucial security practices:
+          {t("accountManagement.securityWarnings.description")}
         </Paragraph>
         <UnorderedList>
-          <ListItem>Never share your password with anyone</ListItem>
-          <ListItem>Be cautious of phishing attempts</ListItem>
-          <ListItem>Use two-factor authentication if available</ListItem>
-          <ListItem>Log out from shared or public devices</ListItem>
+          <ListItem>{t("accountManagement.securityWarnings.tip1")}</ListItem>
+          <ListItem>{t("accountManagement.securityWarnings.tip2")}</ListItem>
+          <ListItem>{t("accountManagement.securityWarnings.tip3")}</ListItem>
+          <ListItem>{t("accountManagement.securityWarnings.tip4")}</ListItem>
         </UnorderedList>
       </section>
 
       <section id="summary" className="mt-5">
         <SectionTitle>
-          <LockIcon /> Secure Your Digital Journey
+          <LockIcon /> {t("accountManagement.summary.title")}
         </SectionTitle>
-        <Paragraph>
-          You're now equipped to manage and secure your KriptoLab account.
-        </Paragraph>
+        <Paragraph>{t("accountManagement.summary.description")}</Paragraph>
         <UnorderedList>
-          <LinkItem link="/account-settings">Go to Account Settings</LinkItem>
+          <LinkItem link="/account-settings">
+            {t("accountManagement.summary.link1")}
+          </LinkItem>
           <LinkItem link="/tutorial/customize-profile">
-            Customize Your Profile
+            {t("accountManagement.summary.link2")}
           </LinkItem>
           <LinkItem link="/tutorial/portfolio-management">
-            Manage Your Portfolio
+            {t("accountManagement.summary.link3")}
           </LinkItem>
         </UnorderedList>
       </section>
