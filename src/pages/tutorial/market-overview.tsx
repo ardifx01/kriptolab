@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 import { BarChart2Icon, TrendingUpIcon, WalletIcon } from "lucide-react";
 
@@ -12,64 +13,93 @@ import Paragraph from "@/features/tutorial/components/Typography/Paragraph";
 import SectionTitle from "@/features/tutorial/components/Typography/SectionTitle";
 
 const MarketOverviewPage = () => {
+  const { t } = useTranslation("tutorial");
+
   return (
     <TutorialLayout title="Market Overview Guide">
       <MainTitle>
-        Explore the <span className="text-primaryAccent">Market Overview</span>
+        <Trans
+          ns="tutorial"
+          i18nKey="marketOverview.title"
+          components={{
+            span: <span className="text-primaryAccent" />,
+          }}
+        />
       </MainTitle>
 
       <section id="introduction">
-        <Paragraph>
-          The Market Overview is the central hub of KriptoLab, providing live
-          cryptocurrency prices, trending assets, and comprehensive market
-          insights to help you make informed trading decisions.
-        </Paragraph>
-        <Paragraph>In this tutorial, you'll learn how to:</Paragraph>
+        <Paragraph>{t("marketOverview.introduction1")}</Paragraph>
+        <Paragraph>{t("marketOverview.introduction2")}</Paragraph>
         <UnorderedList>
-          <LinkItem link="#market-listings">View Live Market Listings</LinkItem>
+          <LinkItem link="#market-listings">
+            {t("marketOverview.marketListingsLink")}
+          </LinkItem>
           <LinkItem link="#market-filters">
-            Filter and Search Crypto Assets
+            {t("marketOverview.marketFiltersLink")}
           </LinkItem>
           <LinkItem link="#market-details">
-            Navigate the Market Detail Page
+            {t("marketOverview.marketDetailsLink")}
           </LinkItem>
         </UnorderedList>
       </section>
 
       <section id="market-listings" className="mt-5">
         <SectionTitle>
-          <BarChart2Icon /> Live Market Listings
+          <BarChart2Icon /> {t("marketOverview.listingsTitle")}
         </SectionTitle>
-        <Paragraph>
-          The Market Listings table provides comprehensive real-time data for
-          all supported cryptocurrency assets.
-        </Paragraph>
+        <Paragraph>{t("marketOverview.listingsDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Navigate to the <b>Market</b> page from the main navigation menu.
+            <Trans
+              ns="tutorial"
+              i18nKey="marketOverview.listingsStep1"
+              components={{ b: <b /> }}
+            />
           </ListItem>
           <ListItem>
-            Explore the Market Listings Table with key information about crypto
-            assets:
+            {t("marketOverview.listingsStep2")}
             <UnorderedList>
               <ListItem>
-                <b>Token Name:</b> Cryptocurrency name (e.g., Bitcoin, Ethereum)
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.listingsField1"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>Token Pair:</b> Available trading pairs (e.g., BTC/IDR,
-                ETH/IDR)
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.listingsField2"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>Price:</b> Current market price
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.listingsField3"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>24h Volume:</b> Total trading volume in last 24 hours
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.listingsField4"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>24h Change:</b> Price percentage change in 24 hours
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.listingsField5"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>7d Change:</b> Price percentage change in 7 days
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.listingsField6"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
             </UnorderedList>
           </ListItem>
@@ -78,28 +108,31 @@ const MarketOverviewPage = () => {
 
       <section id="market-filters" className="mt-5">
         <SectionTitle>
-          <TrendingUpIcon /> Finding Your Crypto Assets
+          <TrendingUpIcon /> {t("marketOverview.filtersTitle")}
         </SectionTitle>
-        <Paragraph>
-          Easily locate and explore cryptocurrencies using KriptoLab's advanced
-          filtering tools.
-        </Paragraph>
+        <Paragraph>{t("marketOverview.filtersDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Use the <b>Search Bar</b> to find specific cryptocurrencies:
+            <Trans
+              ns="tutorial"
+              i18nKey="marketOverview.filtersStep1"
+              components={{ b: <b /> }}
+            />
             <UnorderedList>
-              <ListItem>
-                Located at the top of the Market Listings Table
-              </ListItem>
-              <ListItem>Enter a token name or ticker (e.g., BTC)</ListItem>
-              <ListItem>Table updates to show matching results</ListItem>
+              <ListItem>{t("marketOverview.filtersField1")}</ListItem>
+              <ListItem>{t("marketOverview.filtersField2")}</ListItem>
+              <ListItem>{t("marketOverview.filtersField3")}</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>
-            Utilize the <b>Trending</b> filter:
+            <Trans
+              ns="tutorial"
+              i18nKey="marketOverview.filtersStep2"
+              components={{ b: <b /> }}
+            />
             <UnorderedList>
-              <ListItem>Click the "Trending" button above the table</ListItem>
-              <ListItem>View top-performing and most popular assets</ListItem>
+              <ListItem>{t("marketOverview.filtersField4")}</ListItem>
+              <ListItem>{t("marketOverview.filtersField5")}</ListItem>
             </UnorderedList>
           </ListItem>
         </OrderedList>
@@ -107,52 +140,55 @@ const MarketOverviewPage = () => {
 
       <section id="market-details" className="mt-5">
         <SectionTitle>
-          <WalletIcon /> Exploring the Market Detail Page
+          <WalletIcon /> {t("marketOverview.detailsTitle")}
         </SectionTitle>
-        <Paragraph>
-          The Market Detail Page offers in-depth analysis and trading simulation
-          for each cryptocurrency.
-        </Paragraph>
+        <Paragraph>{t("marketOverview.detailsDesc")}</Paragraph>
         <OrderedList>
           <ListItem>
-            Open the Market Detail Page:
+            {t("marketOverview.detailsStep1")}
             <UnorderedList>
-              <ListItem>
-                Click on any cryptocurrency in the Market Listings Table
-              </ListItem>
-              <ListItem>
-                Access comprehensive information for the selected asset
-              </ListItem>
+              <ListItem>{t("marketOverview.detailsField1")}</ListItem>
+              <ListItem>{t("marketOverview.detailsField2")}</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>
-            Analyze TradingView Price Charts:
+            {t("marketOverview.detailsStep2")}
             <UnorderedList>
-              <ListItem>Zoom in/out to examine different timeframes</ListItem>
-              <ListItem>
-                Hover over chart points for precise price details
-              </ListItem>
+              <ListItem>{t("marketOverview.detailsField3")}</ListItem>
+              <ListItem>{t("marketOverview.detailsField4")}</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>
-            Use the Buy/Sell Panel:
+            {t("marketOverview.detailsStep3")}
             <UnorderedList>
-              <ListItem>Select Buy or Sell action</ListItem>
-              <ListItem>Enter trade amount or price</ListItem>
-              <ListItem>Confirm simulated trade</ListItem>
+              <ListItem>{t("marketOverview.detailsField5")}</ListItem>
+              <ListItem>{t("marketOverview.detailsField6")}</ListItem>
+              <ListItem>{t("marketOverview.detailsField7")}</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>
-            Explore Additional Market Information:
+            {t("marketOverview.detailsStep4")}
             <UnorderedList>
               <ListItem>
-                <b>Transactions:</b> Live trading history from Indodax
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.detailsField8"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>My Trades:</b> Your personal trading history
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.detailsField9"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
               <ListItem>
-                <b>News:</b> Latest cryptocurrency-related updates
+                <Trans
+                  ns="tutorial"
+                  i18nKey="marketOverview.detailsField10"
+                  components={{ b: <b /> }}
+                />
               </ListItem>
             </UnorderedList>
           </ListItem>
@@ -160,19 +196,17 @@ const MarketOverviewPage = () => {
       </section>
 
       <section id="what-next" className="mt-5">
-        <SectionTitle>Next Steps in Your Trading Journey</SectionTitle>
-        <Paragraph>
-          You've now mastered the Market Overview! Continue exploring KriptoLab:
-        </Paragraph>
+        <SectionTitle>{t("marketOverview.nextStepsTitle")}</SectionTitle>
+        <Paragraph>{t("marketOverview.nextStepsDesc")}</Paragraph>
         <UnorderedList>
           <LinkItem link="/tutorial/trading-guide">
-            Learn How to Simulate Trades
+            {t("marketOverview.nextStepsLink1")}
           </LinkItem>
           <LinkItem link="/portfolio">
-            Track Your Portfolio Performance
+            {t("marketOverview.nextStepsLink2")}
           </LinkItem>
           <LinkItem link="/tutorial/track-transactions">
-            Understand Transaction Monitoring
+            {t("marketOverview.nextStepsLink3")}
           </LinkItem>
         </UnorderedList>
       </section>
