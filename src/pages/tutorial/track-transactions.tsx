@@ -145,9 +145,6 @@ const TransactionsMonitoringPage = () => {
             {t("transactionsMonitoring.filtering.step1")}
             <UnorderedList>
               <ListItem>
-                {t("transactionsMonitoring.filtering.filter1")}
-              </ListItem>
-              <ListItem>
                 {t("transactionsMonitoring.filtering.filter2")}
               </ListItem>
               <ListItem>
