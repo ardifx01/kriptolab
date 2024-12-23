@@ -9,6 +9,8 @@ import usePortfolio from "@/hooks/usePortfolio";
 import { sellService } from "@/lib/services";
 import { ITokenDetails, quickAddPercentage } from "@/types";
 
+import ConfirmationModal from "./ConfirmationModal";
+
 const SellPanel = ({ token }: { token: ITokenDetails }) => {
   const { t } = useTranslation();
 
@@ -32,6 +34,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
   const assetBalance = getAssetBalance(tokenSymbol);
 
   const [loading, setLoading] = useState(false);
+  const [openConfirmation, setOpenConfirmation] = useState(false);
 
   // HANDLE TOKEN INPUT
   const handleTokenInput = (value: string) => {
@@ -70,11 +73,13 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       setLoading(true);
 
       const tokenprice = parseFloat(token.priceDetails.last);
+      const tradingFee = token.pairDetails.trade_fee_percent;
 
       const response = await sellService({
         amount: tokenValue || 0,
         price: tokenprice || 0,
         symbol: tokenSymbol || "",
+        fee: tradingFee,
       });
 
       if (response) {
@@ -88,6 +93,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       showToast.error(`${t("Sell")} ${tokenValue} ${tokenSymbol} failed!`);
     } finally {
       setLoading(false);
+      setOpenConfirmation(false);
       await refreshBalance();
     }
   };
@@ -172,10 +178,21 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       <Button
         disabled={buttonState.disabled}
         className="w-full lg:h-12"
-        onClick={handleSell}
+        onClick={() => setOpenConfirmation(true)}
       >
         {buttonState.text}
       </Button>
+
+      <ConfirmationModal
+        isOpen={openConfirmation}
+        token={token}
+        totalIdr={idrValue}
+        totalCrypto={tokenValue}
+        loading={loading}
+        type="Sell"
+        onClose={() => setOpenConfirmation(false)}
+        onConfirm={handleSell}
+      />
     </div>
   );
 };

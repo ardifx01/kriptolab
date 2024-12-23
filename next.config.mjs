@@ -24,6 +24,11 @@ const nextConfig = {
         hostname: "kriptolab-backend.vercel.app",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "indodax.com",
+        pathname: "**",
+      },
     ],
   },
 };

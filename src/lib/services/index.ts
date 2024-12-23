@@ -27,6 +27,7 @@ type TradeServiceParams = {
   symbol: string;
   amount: number;
   price: number;
+  fee: number;
 };
 
 // AUTH ========================================
@@ -67,16 +68,18 @@ export const buyService = async ({
   symbol,
   amount,
   price,
+  fee,
 }: TradeServiceParams) => {
-  return await AuthenticatedAPI.post(API_BUY, { symbol, amount, price });
+  return await AuthenticatedAPI.post(API_BUY, { symbol, amount, price, fee });
 };
 
 export const sellService = async ({
   symbol,
   amount,
   price,
+  fee,
 }: TradeServiceParams) => {
-  return await AuthenticatedAPI.post(API_SELL, { symbol, amount, price });
+  return await AuthenticatedAPI.post(API_SELL, { symbol, amount, price, fee });
 };
 
 export const withdrawService = async (withdrawAmount: number) => {

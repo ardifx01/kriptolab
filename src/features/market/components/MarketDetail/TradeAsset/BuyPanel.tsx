@@ -9,6 +9,8 @@ import usePortfolio from "@/hooks/usePortfolio";
 import { buyService } from "@/lib/services";
 import { ITokenDetails, quickAddPercentage } from "@/types";
 
+import ConfirmationModal from "./ConfirmationModal";
+
 const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   const { t } = useTranslation();
   const { idrBalance, refreshBalance } = usePortfolio();
@@ -29,6 +31,9 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   } = useNumberInput();
 
   const [loading, setLoading] = useState(false);
+  const [openConfirmation, setOpenConfirmation] = useState(false);
+
+  const feePercentage = token.pairDetails.trade_fee_percent;
 
   // HANDLE TOKEN INPUT
   const handleTokenInput = (value: string) => {
@@ -43,8 +48,13 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   const handleIdrInput = (value: string) => {
     handleIDRChange(value);
     if (token.priceDetails) {
-      const tokenAmount =
-        parseFloat(value) / parseFloat(token.priceDetails.last);
+      const price = parseFloat(token.priceDetails.last);
+      const feePercentage = token.pairDetails.trade_fee_percent;
+
+      // Calculate token amount considering fees
+      const idrAmount = parseFloat(value);
+      const tokenAmount = calculateMaxAmount(idrAmount, price, feePercentage);
+
       handleTokenChange(tokenAmount.toFixed(9).toString());
     }
   };
@@ -52,12 +62,30 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   // QUICK ADD OPTIONS
   const handleQuickAdd = (percentage: number) => {
     if (token.priceDetails) {
-      const totalIdr = (idrBalance * percentage) / 100;
-      const tokenAmount = totalIdr / parseFloat(token.priceDetails.last) || 0;
+      const price = parseFloat(token.priceDetails.last);
+
+      const maxPossibleAmount = calculateMaxAmount(
+        idrBalance,
+        price,
+        feePercentage,
+      );
+
+      const requestedPercentage = percentage / 100;
+      const tokenAmount = maxPossibleAmount * requestedPercentage;
+
+      const totalIdr = tokenAmount * price;
 
       handleTokenChange(tokenAmount.toString());
       handleIDRChange(totalIdr.toString());
     }
+  };
+
+  const calculateMaxAmount = (
+    balance: number,
+    price: number,
+    feePercentage: number,
+  ) => {
+    return balance / (price * (1 + feePercentage / 100));
   };
 
   // HANDLE BUY CRYPTO
@@ -73,6 +101,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
         amount: tokenValue || 0,
         price: tokenprice || 0,
         symbol: tokenSymbol || "",
+        fee: feePercentage,
       });
 
       if (response) {
@@ -88,6 +117,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       );
     } finally {
       setLoading(false);
+      setOpenConfirmation(false);
       await refreshBalance();
     }
   };
@@ -109,7 +139,9 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       };
 
     // Insufficient balance
-    if (idrValue > idrBalance)
+    const totalWithFee =
+      idrValue * (1 + token.pairDetails.trade_fee_percent / 100);
+    if (totalWithFee > idrBalance)
       return {
         text: t("Insufficient IDR Balance"),
         disabled: true,
@@ -172,10 +204,21 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       <Button
         disabled={buttonState.disabled}
         className="lg:h-12"
-        onClick={handleBuy}
+        onClick={() => setOpenConfirmation(true)}
       >
         {buttonState.text}
       </Button>
+
+      <ConfirmationModal
+        isOpen={openConfirmation}
+        token={token}
+        totalIdr={idrValue}
+        totalCrypto={tokenValue}
+        loading={loading}
+        type="Buy"
+        onClose={() => setOpenConfirmation(false)}
+        onConfirm={handleBuy}
+      />
     </div>
   );
 };
