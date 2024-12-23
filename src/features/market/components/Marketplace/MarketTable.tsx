@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import classNames from "classnames";
 
 import Button from "@/components/Button/Button";
+import Shimmer from "@/components/Loader/Shimmer";
 import CustomTable from "@/components/Table/TableCustom";
 import { ColumnType } from "@/components/Table/types";
 import usePagination from "@/hooks/usePagination";
@@ -23,11 +24,12 @@ import useWatchlist from "../../hooks/useWatchlist";
 
 export interface MarketTableProps {
   tokenList: ITokenDetails[];
+  isLoading: boolean;
 }
 
 const itemsPerPage = 50;
 
-const MarketTable = ({ tokenList }: MarketTableProps) => {
+const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
   const router = useRouter();
   const { isMobile } = useWindowSize();
   const { filteredTokens, searchToken } = useTokenData();
@@ -193,7 +195,22 @@ const MarketTable = ({ tokenList }: MarketTableProps) => {
           rowHeight={64}
           onRowClick={(row) => router.push(`/market/${row.pair}`)}
         />
-        {tableData.length === 0 && (
+        {isLoading && (
+          <div className="w-full border-b border-borderColor px-4">
+            {[...Array(5)].map((_, index) => (
+              <div key={index} className="flex gap-3">
+                <Shimmer className="my-4 h-9 w-[3%] rounded-md" />
+                <Shimmer className="my-4 h-9 w-[3%] rounded-md" />
+                <Shimmer className="my-4 h-9 w-[25%] rounded-md" />
+                <Shimmer className="my-4 h-9 w-[14%] rounded-md" />
+                <Shimmer className="my-4 h-9 w-[20%] rounded-md" />
+                <Shimmer className="my-4 h-9 w-[18%] rounded-md" />
+                <Shimmer className="my-4 h-9 w-[17%] rounded-md" />
+              </div>
+            ))}
+          </div>
+        )}
+        {tableData.length === 0 && !isLoading && (
           <div className="flex h-[200px] w-full items-center justify-center border-b border-borderColor">
             <span className="mb-4">{t("No Token Data")}</span>
           </div>

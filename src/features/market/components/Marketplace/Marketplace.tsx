@@ -16,8 +16,13 @@ import SearchBar from "./SearchBar";
 
 const Marketplace = () => {
   const { t } = useTranslation();
-  const { watchlistedTokens, trendingCrypto, topGainers, topLosers } =
-    useTokenData();
+  const {
+    watchlistedTokens,
+    trendingCrypto,
+    topGainers,
+    topLosers,
+    isLoading,
+  } = useTokenData();
   const { isMobile } = useWindowSize();
 
   const [selectedMenu, setSelectedMenu] = useState<MarketMenuType>("Trending");
@@ -91,7 +96,7 @@ const Marketplace = () => {
         <SearchBar />
       </div>
 
-      <MarketTable tokenList={currentMarketData} />
+      <MarketTable tokenList={currentMarketData} isLoading={isLoading} />
     </div>
   );
 };
