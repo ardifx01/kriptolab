@@ -13,7 +13,7 @@ import userReducer from "./reducers/userSlice";
 const persistConfig = {
   key: "KriptoLab_state",
   storage: localforage,
-  blacklist: ["cryptoToken", "portfolio", "modal"],
+  blacklist: ["portfolio", "modal"],
 };
 
 const rootReducer = combineReducers({
