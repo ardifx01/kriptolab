@@ -18,7 +18,10 @@ const TutorialLayout = ({
   className,
 }: TutorialLayoutProps) => {
   return (
-    <Layout title={title} className={classNames("flex gap-10", className)}>
+    <Layout
+      title={title}
+      className={classNames("gap-10 px-1 md:flex", className)}
+    >
       <TutorialSidebar />
       <div>{children}</div>
     </Layout>
