@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from "react";
 
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import Layout from "@/components/Layout/Layout";
@@ -10,33 +11,34 @@ import MarketDetailTable from "@/features/market/components/MarketDetail/MarketD
 import TradeAsset from "@/features/market/components/MarketDetail/TradeAsset/TradeAsset";
 import useTokenData from "@/features/market/hooks/useTokenData";
 import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
-import { ITokenDetails } from "@/types";
+import { getPairsService, getTokenDetailsService } from "@/lib/services";
+import { ITokenDetails, ITokenPair } from "@/types";
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const res = await getPairsService();
-//   const tokens: ITokenPair[] = res.data;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await getPairsService();
+  const tokens: ITokenPair[] = res.data;
 
-//   const paths = tokens.map((token) => ({
-//     params: { token: token.ticker_id },
-//   }));
+  const paths = tokens.map((token) => ({
+    params: { token: token.ticker_id },
+  }));
 
-//   return { paths, fallback: false };
-// };
+  return { paths, fallback: false };
+};
 
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   let token: any;
-//   if (params) {
-//     token = params.token;
-//   }
-//   const res = await getTokenDetailsService(token);
-//   const tokenDetails = res.data;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  let token: any;
+  if (params) {
+    token = params.token;
+  }
+  const res = await getTokenDetailsService(token);
+  const tokenDetails = res.data;
 
-//   return {
-//     props: { tokenDetails },
-//   };
-// };
+  return {
+    props: { staticData: tokenDetails },
+  };
+};
 
-const TokenDetailPage = () => {
+const TokenDetailPage = ({ staticData }: { staticData: ITokenDetails }) => {
   const { query } = useRouter();
   const { getTokenById } = useTokenData();
 
@@ -59,7 +61,7 @@ const TokenDetailPage = () => {
       )}`;
   }, [tokenDetails]);
 
-  if (!tokenDetails) {
+  if (!tokenDetails || !staticData) {
     return (
       <Layout>
         <LoadingSpinner />
