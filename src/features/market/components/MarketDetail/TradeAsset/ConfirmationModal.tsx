@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 
@@ -28,6 +29,8 @@ const ConfirmationModal = ({
   onClose,
   onConfirm,
 }: ConfirmationModalProps) => {
+  const { t } = useTranslation();
+
   const feePercentage = token.pairDetails.trade_fee_percent;
   const feeAmount = (totalIdr * feePercentage) / 100;
   const totalCost =
@@ -41,7 +44,7 @@ const ConfirmationModal = ({
 
   return (
     <Modal
-      title="Confirm Transaction"
+      title={t("Confirm Transaction")}
       isOpen={isOpen}
       onClose={!loading ? onClose : () => {}}
       className="max-w-[600px]"
@@ -58,9 +61,11 @@ const ConfirmationModal = ({
           <p className="mb-2 text-xl font-bold">
             {totalCrypto.toFixed(5)} {token.pairDetails.traded_currency_unit}
           </p>
-          <section className="w-full space-y-2 rounded-xl bg-background/40 p-4 font-medium">
+          <section className="w-full space-y-2 rounded-xl bg-background/50 p-4 font-medium">
             <div className="flex justify-between gap-4">
-              <span className="text-textSecondary">Total Amount (IDR):</span>
+              <span className="text-textSecondary">
+                {t("Total Amount")} (IDR):
+              </span>
               <span className="text-lg">{formattedTotalIdr}</span>
             </div>
 
@@ -79,7 +84,9 @@ const ConfirmationModal = ({
             </div>
 
             <div className="flex justify-between gap-4 pt-1">
-              <span className="text-textSecondary">Total After Fee:</span>
+              <span className="text-textSecondary">
+                {t("Total After")} Fee:
+              </span>
               <span className="text-lg">{formattedTotalCost}</span>
             </div>
           </section>
@@ -90,10 +97,10 @@ const ConfirmationModal = ({
           onClick={onConfirm}
         >
           {loading
-            ? "Processing..."
+            ? t("Processing...")
             : type === "Buy"
-              ? "Confirm Buy"
-              : "Confirm Sell"}
+              ? t("Confirm Buy")
+              : t("Confirm Sell")}
         </Button>
       </div>
     </Modal>

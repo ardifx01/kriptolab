@@ -103,5 +103,10 @@
   "Account Management": "Pengelolaan Akun",
   "Forgot Password": "Lupa Password",
   "Total Assets": "Total Aset",
-  "Transaction History": "Riwayat Transaksi"
+  "Transaction History": "Riwayat Transaksi",
+  "Confirm Transaction": "Konfirmasi Transaksi",
+  "Total Amount": "Jumlah Total",
+  "Total After": "Total Setelah",
+  "Confirm Buy": "Konfirmasi Beli",
+  "Confirm Sell": "Konfirmasi Jual"
 }

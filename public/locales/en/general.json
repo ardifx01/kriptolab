@@ -103,5 +103,10 @@
   "Account Management": "Account Management",
   "Forgot Password": "Forgot Password",
   "Total Assets": "Total Assets",
-  "Transaction History": "Transaction History"
+  "Transaction History": "Transaction History",
+  "Confirm Transaction": "Confirm Transaction",
+  "Total Amount": "Total Amount",
+  "Total After": "Total After",
+  "Confirm Buy": "Confirm Buy",
+  "Confirm Sell": "Confirm Sell"
 }
