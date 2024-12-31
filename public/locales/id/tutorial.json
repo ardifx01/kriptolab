@@ -257,12 +257,12 @@
       "title": "Profil Anda, Identitas Anda",
       "description": "Anda sekarang dilengkapi untuk mempersonalisasi dan mengelola profil KriptoLab Anda.",
       "link1": "Pergi ke Pengaturan Profil",
-      "link2": "Pelajari Tentang Pengelolaan Akun",
+      "link2": "Pelajari Tentang Pengaturan Akun",
       "link3": "Jelajahi Pengelolaan Portfolio"
     }
   },
   "accountManagement": {
-    "pageTitle": "Panduan Pengelolaan Akun",
+    "pageTitle": "Panduan Pengaturan Akun",
     "title": "Kelola dan <span>Amankan</span> Akun Anda di KriptoLab",
     "introduction": "Pelajari cara <b>mengelola dan mengamankan</b> akun KriptoLab Anda dengan mengubah kata sandi dan menjaga keamanan akun.",
     "passwordChange": {
