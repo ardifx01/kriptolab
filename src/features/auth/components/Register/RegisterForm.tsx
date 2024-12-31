@@ -94,7 +94,7 @@ const RegisterForm = () => {
           label="Email"
           name="email"
           type="email"
-          placeholder="example@gmail.com"
+          placeholder="email@gmail.com"
           errors={errors}
           register={register}
           validation={{

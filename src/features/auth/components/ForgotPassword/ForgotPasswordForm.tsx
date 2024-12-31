@@ -76,7 +76,7 @@ const ForgotPasswordForm = () => {
           label="Email"
           name="email"
           type="email"
-          placeholder="youremail@gmail.com"
+          placeholder="email@gmail.com"
           errors={errors}
           register={register}
           validation={{

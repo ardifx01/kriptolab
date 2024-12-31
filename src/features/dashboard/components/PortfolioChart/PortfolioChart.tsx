@@ -21,7 +21,7 @@ const PortfolioChart = () => {
 
   return (
     <section className="rounded-lg border-2 border-borderColor bg-cardBackground p-4 md:p-5">
-      <h3 className="text-lg md:text-xl">{t("Assets")}</h3>
+      <h3 className="text-lg md:text-xl">{t("Total Assets")}</h3>
       <p className="mb-4 mt-2 text-2xl font-semibold md:text-3xl">
         Rp {balance}
       </p>
