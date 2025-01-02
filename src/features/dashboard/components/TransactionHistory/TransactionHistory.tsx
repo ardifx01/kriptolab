@@ -71,7 +71,12 @@ const TransactionHistory = () => {
                 : "text-error",
             )}
           >
-            {t(value.toLowerCase())}
+            {t(value.toLowerCase())}{" "}
+            {rowData.type === "DEPOSIT" || rowData.type === "WITHDRAWAL"
+              ? ""
+              : rowData.type === "BUY"
+                ? rowData.traded_currency
+                : rowData.base_currency}
           </span>
         );
       },
