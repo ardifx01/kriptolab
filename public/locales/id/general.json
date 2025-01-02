@@ -120,5 +120,6 @@
   "Upload image success!": "Berhasil mengunggah gambar!",
   "Error uploading image": "Error mengunggah gambar",
   "Uploading...": "Mengunggah...",
-  "Save": "Simpan"
+  "Save": "Simpan",
+  "No changes detected!": "Tidak ada perubahan yang disimpan!"
 }

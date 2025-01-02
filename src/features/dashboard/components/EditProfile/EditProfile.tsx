@@ -11,6 +11,7 @@ import CustomErrorMessage from "@/components/Form/CustomErrorMessage";
 import CustomInput from "@/components/Form/CustomInput";
 import { showToast } from "@/components/Toast/CustomToast";
 import useUser from "@/hooks/useUser";
+import { numberPattern } from "@/lib/helpers/validation-pattern";
 import { editProfileService } from "@/lib/services";
 import { IProfileUpdate } from "@/types";
 
@@ -28,6 +29,7 @@ const EditProfile = () => {
 
   const {
     register,
+    getValues,
     formState: { errors },
     handleSubmit,
   } = useForm<IProfileUpdate>({
@@ -43,6 +45,18 @@ const EditProfile = () => {
   const submitHandler = async (val: IProfileUpdate) => {
     try {
       setIsLoading(true);
+      const values = getValues();
+
+      if (
+        values.firstName === user.profile.firstName &&
+        values.lastName === user.profile.lastName &&
+        values.address === user.profile.address &&
+        values.phoneNumber === user.profile.phoneNumber
+      ) {
+        showToast.error(t("No changes detected!"));
+        return;
+      }
+
       const response = await editProfileService(val);
 
       if (response) {
@@ -117,9 +131,6 @@ const EditProfile = () => {
                 placeholder={t("Your last name")}
                 errors={errors}
                 register={register}
-                validation={{
-                  required: t("Last name is required!"),
-                }}
                 className="max-w-[600px] p-3"
               />
             </div>
@@ -132,7 +143,9 @@ const EditProfile = () => {
                 placeholder={t("Your phone number")}
                 errors={errors}
                 register={register}
-                validation={{ required: t("Phone number is required!") }}
+                validation={{
+                  pattern: numberPattern,
+                }}
                 className="max-w-[600px] p-3"
               />
               <CustomInput
@@ -142,7 +155,6 @@ const EditProfile = () => {
                 placeholder={t("Your address")}
                 errors={errors}
                 register={register}
-                validation={{ required: t("Address is required!") }}
                 className="max-w-[600px] p-3"
               />
             </div>
