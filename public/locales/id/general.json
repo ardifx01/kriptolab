@@ -116,5 +116,9 @@
   "Email address is already registered with a different provider": "Alamat email sudah terdaftar dengan penyedia yang berbeda",
   "Google login cancelled": "Login Google dibatalkan",
   "Invalid reset password link": "Tautan reset kata sandi tidak valid",
-  "Insufficient Token Balance": "Saldo {{Token}} Tidak Cukup"
+  "Insufficient Token Balance": "Saldo {{Token}} Tidak Cukup",
+  "Upload image success!": "Berhasil mengunggah gambar!",
+  "Error uploading image": "Error mengunggah gambar",
+  "Uploading...": "Mengunggah...",
+  "Save": "Simpan"
 }

@@ -116,5 +116,9 @@
   "Google login cancelled": "Google login cancelled",
   "User not found": "User not found",
   "Invalid reset password link": "Invalid reset password link",
-  "Insufficient Token Balance": "Insufficient {{Token}} Balance"
+  "Insufficient Token Balance": "Insufficient {{Token}} Balance",
+  "Upload image success!": "Upload image success!",
+  "Error uploading image": "Error uploading image",
+  "Uploading...": "Uploading...",
+  "Save": "Save"
 }

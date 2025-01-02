@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 
@@ -26,6 +27,7 @@ const UploadAvatarModal = ({ onClose, open, user }: UploadAvatarProps) => {
     uploadImage,
     selectedFile,
   } = useUploadImage();
+  const { t } = useTranslation();
 
   const [loading, setLoading] = useState(false);
 
@@ -38,13 +40,13 @@ const UploadAvatarModal = ({ onClose, open, user }: UploadAvatarProps) => {
         const response = await editProfilePictureService(url);
 
         if (response) {
-          showToast.success("Upload image success!");
+          showToast.success(t("Upload image success!"));
           onClose();
         }
       }
     } catch (error) {
       console.error(error);
-      showToast.error("Error uploading image");
+      showToast.error(t("Error uploading image"));
     } finally {
       setLoading(false);
     }
@@ -81,7 +83,7 @@ const UploadAvatarModal = ({ onClose, open, user }: UploadAvatarProps) => {
           className="w-full"
           onClick={handleUploadImage}
         >
-          {loading ? "Uploading..." : "Save"}
+          {loading ? t("Uploading...") : t("Save")}
         </Button>
       </div>
     </Modal>
