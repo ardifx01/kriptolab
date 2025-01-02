@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
@@ -15,7 +16,8 @@ interface WithdrawalModalProps {
 }
 
 const WithdrawalModal = ({ open, onClose }: WithdrawalModalProps) => {
-  const { idrBalance, refreshBalance } = usePortfolio();
+  const { idrBalance, refreshBalance, formattedBalance } = usePortfolio();
+  const { t } = useTranslation();
 
   const { value, displayValue, handleInputChange, handleInputBlur } =
     useNumberInput(0, idrBalance);
@@ -51,17 +53,20 @@ const WithdrawalModal = ({ open, onClose }: WithdrawalModalProps) => {
 
   return (
     <Modal
-      title="Withdrawal"
+      title={t("Withdrawal")}
       isOpen={open}
       onClose={onClose}
       className="max-w-[600px]"
     >
       <div className="mb-6 mt-4 space-y-4">
+        <p className="text-start text-xs text-textSecondary md:text-sm">
+          {t("Balance")}: Rp.{formattedBalance}
+        </p>
         <CustomNumberInput
           value={displayValue}
           onChange={handleInputChange}
           onBlur={handleInputBlur}
-          placeholder="Enter withdrawal amount"
+          placeholder={t("Enter withdrawal amount")}
           className="p-3"
           suffix="IDR"
         />
@@ -85,7 +90,7 @@ const WithdrawalModal = ({ open, onClose }: WithdrawalModalProps) => {
             className="h-11 w-full md:mt-2 md:h-12"
             onClick={handleWithdrawal}
           >
-            {loading ? "Processing..." : "Withdraw"}
+            {loading ? t("Processing...") : t("Withdraw")}
           </Button>
         </div>
       </div>

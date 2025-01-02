@@ -121,5 +121,8 @@
   "Error uploading image": "Error mengunggah gambar",
   "Uploading...": "Mengunggah...",
   "Save": "Simpan",
-  "No changes detected!": "Tidak ada perubahan yang disimpan!"
+  "No changes detected!": "Tidak ada perubahan yang disimpan!",
+  "Enter withdrawal amount": "Masukkan jumlah penarikan",
+  "Withdrawal": "Penarikan",
+  "Withdraw": "Tarik"
 }

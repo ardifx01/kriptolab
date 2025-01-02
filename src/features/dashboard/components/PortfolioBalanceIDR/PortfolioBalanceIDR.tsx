@@ -25,7 +25,7 @@ const PortfolioBalanceIDR = () => {
           className="w-[130px]"
           onClick={openWithdrawModal}
         >
-          Withdraw
+          {t("Withdrawal")}
         </Button>
       </div>
     </div>
