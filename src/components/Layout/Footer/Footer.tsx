@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import classNames from "classnames";
 
-import { DiscordIcon, GithubIcon, TwitterIcon } from "@/assets/icons";
+import { GithubIcon } from "@/assets/icons";
 import openPage from "@/lib/helpers/openPage";
 
 import { footerLinks } from "./footerdata";
@@ -26,8 +26,8 @@ const Footer = () => {
             className="h-8 w-8 cursor-pointer hover:text-success lg:h-9 lg:w-9"
             onClick={(e) => openPage(e, "https://github.com/yoghantara08")}
           />
-          <TwitterIcon className="h-8 w-8 cursor-pointer hover:text-secondaryAccent lg:h-9 lg:w-9" />
-          <DiscordIcon className="h-8 w-8 cursor-pointer hover:text-primaryAccent lg:h-9 lg:w-9" />
+          {/* <TwitterIcon className="h-8 w-8 cursor-pointer hover:text-secondaryAccent lg:h-9 lg:w-9" />
+          <DiscordIcon className="h-8 w-8 cursor-pointer hover:text-primaryAccent lg:h-9 lg:w-9" /> */}
         </div>
 
         <div className="order-1 grid grid-cols-2 gap-4 lg:order-2 lg:flex lg:gap-16">
