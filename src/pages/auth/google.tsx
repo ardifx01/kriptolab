@@ -16,6 +16,7 @@ const GoogleLoginCallback = () => {
 
   const token = search.get("token");
   const error = search.get("error");
+  const notFound = search.get("notFound");
 
   useEffect(() => {
     if (token) {
@@ -25,7 +26,11 @@ const GoogleLoginCallback = () => {
     if (error) {
       push(`/auth/login?error=${error}`);
     }
-  }, [error, push, token, updateJwttoken]);
+
+    if (notFound) {
+      push(`/auth/login?notFound=${notFound}`);
+    }
+  }, [error, notFound, push, token, updateJwttoken]);
 
   return (
     <AuthPage>

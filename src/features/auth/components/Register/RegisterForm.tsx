@@ -86,6 +86,7 @@ const RegisterForm = () => {
           validation={{
             required: t("Firstname is required!"),
             minLength: { value: 3, message: t("Minimum 3 characters long!") },
+            maxLength: { value: 20, message: t("Maximum 20 characters long!") },
           }}
           className="p-3"
         />
@@ -112,7 +113,7 @@ const RegisterForm = () => {
             errors={errors}
             register={register}
             validation={{
-              required: "Password is required!",
+              required: t("Password is required!"),
               minLength: {
                 value: 8,
                 message: t("Password must be at least 8 characters long"),

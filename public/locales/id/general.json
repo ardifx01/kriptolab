@@ -108,5 +108,10 @@
   "Total Amount": "Jumlah Total",
   "Total After": "Total Setelah",
   "Confirm Buy": "Konfirmasi Beli",
-  "Confirm Sell": "Konfirmasi Jual"
+  "Confirm Sell": "Konfirmasi Jual",
+  "Password is required!": "Password diperlukan!",
+  "Maximum 20 characters long!": "Maksimum 20 karakter!",
+  "User not found!": "Akun tidak ditemukan!",
+  "Email address is already registered with a different provider": "Alamat email sudah terdaftar dengan penyedia yang berbeda",
+  "Google login cancelled": "Login Google dibatalkan"
 }

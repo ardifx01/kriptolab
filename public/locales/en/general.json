@@ -108,5 +108,10 @@
   "Total Amount": "Total Amount",
   "Total After": "Total After",
   "Confirm Buy": "Confirm Buy",
-  "Confirm Sell": "Confirm Sell"
+  "Confirm Sell": "Confirm Sell",
+  "Password is required!": "Password is required!",
+  "Maximum 20 characters long!": "Maximum 20 characters long!",
+  "User not found!": "User not found!",
+  "Email address is already registered with a different provider": "Email address is already registered with a different provider",
+  "Google login cancelled": "Google login cancelled"
 }

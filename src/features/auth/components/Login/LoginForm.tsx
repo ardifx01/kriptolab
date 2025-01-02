@@ -26,6 +26,7 @@ const LoginForm = () => {
   const { updateJwttoken } = useAuth();
 
   const googleError = search.get("error");
+  const googleCancel = search.get("notFound");
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
@@ -36,9 +37,15 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (googleError) {
-      setGoogleErrorMsg(googleError);
+      setGoogleErrorMsg(t(googleError));
     }
-  }, [googleError]);
+  }, [googleError, t]);
+
+  useEffect(() => {
+    if (googleCancel) {
+      setGoogleErrorMsg(t("Google login cancelled"));
+    }
+  }, [googleCancel, t]);
 
   const {
     register,
@@ -60,7 +67,7 @@ const LoginForm = () => {
       }
     } catch (error: any) {
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setErrorMessage(t(error.response.data.message));
     } finally {
       setIsLoading(false);
     }
