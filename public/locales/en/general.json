@@ -113,5 +113,7 @@
   "Maximum 20 characters long!": "Maximum 20 characters long!",
   "User not found!": "User not found!",
   "Email address is already registered with a different provider": "Email address is already registered with a different provider",
-  "Google login cancelled": "Google login cancelled"
+  "Google login cancelled": "Google login cancelled",
+  "User not found": "User not found",
+  "Invalid reset password link": "Invalid reset password link"
 }

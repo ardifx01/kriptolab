@@ -47,7 +47,7 @@ const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
       reset();
     } catch (error: any) {
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setErrorMessage(t(error.response.data.message));
     } finally {
       setIsLoading(false);
     }
@@ -104,7 +104,7 @@ const ResetPasswordForm = ({ token }: ResetPasswordFormProps) => {
             errors={errors}
             register={register}
             validation={{
-              required: "Confirm New Password is required!",
+              required: t("Confirm New Password is required!"),
               minLength: {
                 value: 8,
                 message: t("Password must be at least 8 characters long"),

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { IoChevronBack } from "react-icons/io5";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import classNames from "classnames";
 
@@ -17,6 +18,9 @@ import { IForgotPassword } from "@/types";
 
 const ForgotPasswordForm = () => {
   const { t } = useTranslation();
+  const search = useSearchParams();
+
+  const tokenError = search.get("error");
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
@@ -41,10 +45,17 @@ const ForgotPasswordForm = () => {
       reset();
     } catch (error: any) {
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setErrorMessage(t(error.response.data.message));
     }
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    if (tokenError) {
+      setIsError(true);
+      setErrorMessage(t("Invalid reset password link"));
+    }
+  }, [t, tokenError]);
 
   return (
     <div className="flex flex-col items-center">
