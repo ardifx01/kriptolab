@@ -125,5 +125,7 @@
   "Enter withdrawal amount": "Enter withdrawal amount",
   "Withdrawal": "Withdrawal",
   "withdrawal": "Withdrawal",
-  "Withdraw": "Withdraw"
+  "Withdraw": "Withdraw",
+  "New password must be different from the current password": "New password must be different from the current password",
+  "Current password is incorrect": "Current password is incorrect"
 }

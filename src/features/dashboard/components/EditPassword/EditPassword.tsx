@@ -44,7 +44,7 @@ const EditPassword = () => {
       }
     } catch (error: any) {
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setErrorMessage(t(error.response.data.message));
     } finally {
       setIsLoading(false);
     }
@@ -141,7 +141,7 @@ const EditPassword = () => {
 
           <Button
             type="submit"
-            disabled={isLoading}
+            disabled={isLoading || Object.keys(errors).length > 0}
             className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
           >
             {isLoading ? "Loading..." : "Edit Password"}
