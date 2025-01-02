@@ -117,7 +117,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
     // Insufficient balance
     if (tokenValue > assetBalance)
       return {
-        text: `${t("Insufficient")} ${tokenSymbol} ${t("Balance")}`,
+        text: t("Insufficient Token Balance", { Token: tokenSymbol }),
         disabled: true,
       };
 

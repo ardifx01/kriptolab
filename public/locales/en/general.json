@@ -115,5 +115,6 @@
   "Email address is already registered with a different provider": "Email address is already registered with a different provider",
   "Google login cancelled": "Google login cancelled",
   "User not found": "User not found",
-  "Invalid reset password link": "Invalid reset password link"
+  "Invalid reset password link": "Invalid reset password link",
+  "Insufficient Token Balance": "Insufficient {{Token}} Balance"
 }
