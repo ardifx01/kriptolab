@@ -127,5 +127,7 @@
   "withdrawal": "Penarikan",
   "Withdraw": "Tarik",
   "New password must be different from the current password": "Kata sandi baru harus berbeda dari kata sandi saat ini",
-  "Current password is incorrect": "Kata sandi saat ini salah"
+  "Current password is incorrect": "Kata sandi saat ini salah",
+  "1M": "1JT",
+  "5M": "5JT"
 }
