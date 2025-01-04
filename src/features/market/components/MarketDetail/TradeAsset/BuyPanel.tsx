@@ -181,7 +181,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
             key={v}
             onClick={() => handleQuickAdd(v)}
             variant="secondary"
-            className="w-full bg-transparent px-0"
+            className="w-full px-0"
           >
             {v}%
           </Button>

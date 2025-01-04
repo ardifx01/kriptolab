@@ -99,7 +99,7 @@ const DepositModal = ({ onClose, open }: DepositProps) => {
             <Button
               variant="secondary"
               key={option}
-              className="h-8 w-full bg-transparent text-xs md:text-sm"
+              className="h-8 w-full text-xs md:text-sm"
               onClick={() => handleQuickDeposit(option)}
             >
               +{option}
