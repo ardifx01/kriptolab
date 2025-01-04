@@ -75,7 +75,7 @@ const DepositModal = ({ onClose, open }: DepositProps) => {
       className="max-w-[600px]"
     >
       <div className="mb-6 mt-4 space-y-4">
-        <p className="-mb-1 text-start text-xs text-textSecondary md:text-sm">
+        <p className="text- -mb-1 rounded-lg bg-warning/20 p-3 text-start text-xs text-warning md:text-sm">
           {t("Deposit Disclaimer")}
         </p>
         <div className="space-y-2">
@@ -88,7 +88,7 @@ const DepositModal = ({ onClose, open }: DepositProps) => {
             suffix="IDR"
           />
 
-          <p className="text-start text-xs text-textSecondary md:text-sm">
+          <p className="ml-[1px] text-start text-xs text-textSecondary md:text-sm">
             Min Rp.{MIN_DEPOSIT.toLocaleString()} - Max Rp.
             {MAX_DEPOSIT.toLocaleString()}
           </p>

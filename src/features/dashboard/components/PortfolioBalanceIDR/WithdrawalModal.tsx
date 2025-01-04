@@ -59,7 +59,10 @@ const WithdrawalModal = ({ open, onClose }: WithdrawalModalProps) => {
       className="max-w-[600px]"
     >
       <div className="mb-6 mt-4 space-y-4">
-        <p className="text-start text-xs text-textSecondary md:text-sm">
+        <p className="text- -mb-1 rounded-lg bg-warning/20 p-3 text-start text-xs text-warning md:text-sm">
+          {t("Withdrawal Disclaimer")}
+        </p>
+        <p className="ml-[1px] text-start text-sm text-textSecondary md:text-base">
           {t("Balance")}: Rp.{formattedBalance}
         </p>
         <CustomNumberInput
