@@ -22,6 +22,8 @@ const Marketplace = () => {
     topGainers,
     topLosers,
     isLoading,
+    filteredTokens,
+    searchToken,
   } = useTokenData();
   const { isMobile } = useWindowSize();
 
@@ -96,7 +98,10 @@ const Marketplace = () => {
         <SearchBar />
       </div>
 
-      <MarketTable tokenList={currentMarketData} isLoading={isLoading} />
+      <MarketTable
+        tokenList={filteredTokens(currentMarketData, searchToken)}
+        isLoading={isLoading}
+      />
     </div>
   );
 };

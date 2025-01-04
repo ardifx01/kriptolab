@@ -18,7 +18,6 @@ import { scrollToTop } from "@/lib/helpers/scrollTop";
 import { ITokenDetails } from "@/types";
 import { IMarketTableType } from "@/types/tableDataTypes";
 
-import useTokenData from "../../hooks/useTokenData";
 import useWatchlist from "../../hooks/useWatchlist";
 
 import Pagination from "./Pagination";
@@ -31,7 +30,7 @@ export interface MarketTableProps {
 const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
   const router = useRouter();
   const { isMobile } = useWindowSize();
-  const { filteredTokens, searchToken } = useTokenData();
+
   const { updateWatchlist, watchlist } = useWatchlist();
   const { t } = useTranslation();
 
@@ -159,7 +158,7 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
   const { currentItems, currentPage, totalPages, handlePageChange } =
     usePagination({
       itemsPerPage,
-      data: filteredTokens(tokenList, searchToken),
+      data: tokenList,
     });
 
   const tableData = currentItems.map((token, index) => ({

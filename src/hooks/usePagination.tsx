@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import useTokenData from "@/features/market/hooks/useTokenData";
 
 interface PaginationProps<T> {
   itemsPerPage: number;
@@ -6,6 +8,8 @@ interface PaginationProps<T> {
 }
 
 const usePagination = <T,>({ itemsPerPage, data }: PaginationProps<T>) => {
+  const { searchToken } = useTokenData();
+
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate the indices of the first and last items
@@ -22,6 +26,12 @@ const usePagination = <T,>({ itemsPerPage, data }: PaginationProps<T>) => {
       setCurrentPage(page);
     }
   };
+
+  useEffect(() => {
+    if (searchToken) {
+      handlePageChange(1);
+    }
+  }, [searchToken]);
 
   return {
     currentItems,
