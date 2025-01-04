@@ -72,7 +72,7 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
         <div className="flex items-center gap-3 p-3">
           <Image
             src={rowData.pairDetails.url_logo || ""}
-            alt={rowData.priceDetails?.name || "Crypto"}
+            alt={rowData.pairDetails.id || "Crypto"}
             className={classNames(
               "h-6 w-6 rounded-full",
               (rowData.pairDetails.traded_currency === "omg" ||

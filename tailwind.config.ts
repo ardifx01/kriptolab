@@ -24,16 +24,9 @@ const config: Config = {
       colors: {
         background: "#0b0d14",
         cardBackground: "#12141e",
-        primaryAccent: "#7970ea",
+        primaryAccent: "#6A60E8",
         secondaryAccent: "#579cf0",
         borderColor: "#1f2236",
-
-        // background: "",
-        // cardBackground: "",
-        // primaryAccent: "",
-        // secondaryAccent: "",
-        // borderColor: "",
-
         textPrimary: "#fffffff2",
         textSecondary: "#b5b7da",
         caption: "#ced0eb",

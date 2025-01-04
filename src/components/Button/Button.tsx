@@ -29,13 +29,13 @@ const Button = ({
         "flex h-10 items-center justify-center rounded-lg border px-5 text-sm font-medium md:h-12 md:text-base",
         {
           // Primary variant styles
-          "border-transparent bg-primaryAccent/90 text-white hover:brightness-125":
+          "border-transparent bg-primaryAccent text-white hover:brightness-125":
             variant === "primary" && !disabled,
           "cursor-not-allowed border-transparent bg-primaryAccent/40 text-gray-300":
             variant === "primary" && disabled,
 
           // Secondary variant styles
-          "border-primaryAccent bg-primaryAccent/20 text-primaryAccent hover:bg-primaryAccent/30":
+          "border-primaryAccent bg-primaryAccent/20 text-gray-50 hover:bg-primaryAccent/30":
             variant === "secondary" && !disabled,
           "cursor-not-allowed border-primaryAccent/70 bg-primaryAccent/10 text-gray-400":
             variant === "secondary" && disabled,

@@ -38,7 +38,7 @@ const ChangeLanguage = () => {
         <div className="flex items-center gap-2 md:w-[55px] lg:mr-1">
           <Image
             src={localizations[currentLang].image}
-            alt={localizations[currentLang].alias}
+            alt={localizations[currentLang].title}
             className="h-5 w-5 cursor-pointer lg:h-6 lg:w-6"
             width={32}
             height={32}
