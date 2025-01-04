@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 import classNames from "classnames";
 
-import Button from "@/components/Button/Button";
 import Shimmer from "@/components/Loader/Shimmer";
 import CustomTable from "@/components/Table/TableCustom";
 import { ColumnType } from "@/components/Table/types";
@@ -22,12 +21,12 @@ import { IMarketTableType } from "@/types/tableDataTypes";
 import useTokenData from "../../hooks/useTokenData";
 import useWatchlist from "../../hooks/useWatchlist";
 
+import Pagination from "./Pagination";
+
 export interface MarketTableProps {
   tokenList: ITokenDetails[];
   isLoading: boolean;
 }
-
-const itemsPerPage = 50;
 
 const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
   const router = useRouter();
@@ -35,6 +34,8 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
   const { filteredTokens, searchToken } = useTokenData();
   const { updateWatchlist, watchlist } = useWatchlist();
   const { t } = useTranslation();
+
+  const itemsPerPage = isMobile ? 15 : 30;
 
   const marketColumns: ColumnType<IMarketTableType>[] = [
     {
@@ -155,16 +156,11 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
     },
   ];
 
-  const {
-    currentItems,
-    currentPage,
-    totalPages,
-    totalPagesArray,
-    handlePageChange,
-  } = usePagination({
-    itemsPerPage,
-    data: filteredTokens(tokenList, searchToken),
-  });
+  const { currentItems, currentPage, totalPages, handlePageChange } =
+    usePagination({
+      itemsPerPage,
+      data: filteredTokens(tokenList, searchToken),
+    });
 
   const tableData = currentItems.map((token, index) => ({
     ...token,
@@ -217,43 +213,14 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
         )}
       </div>
 
-      <div className="md::gap-4 mt-6 flex flex-wrap gap-2 md:justify-center">
-        <Button
-          onClick={() => {
-            handlePageChange(currentPage - 1);
-            scrollToTop();
-          }}
-          disabled={currentPage === 1}
-        >
-          {t("Previous")}
-        </Button>
-
-        {totalPagesArray.map((page) => (
-          <Button
-            key={page}
-            variant={currentPage === page ? "primary" : "secondary"}
-            onClick={() => {
-              handlePageChange(page);
-              scrollToTop();
-            }}
-            className={classNames(
-              "flex h-10 w-10 items-center justify-center sm:w-auto",
-              currentPage !== page && "bg-transparent",
-            )}
-          >
-            {page}
-          </Button>
-        ))}
-        <Button
-          onClick={() => {
-            handlePageChange(currentPage + 1);
-            scrollToTop();
-          }}
-          disabled={currentPage === totalPages}
-        >
-          {t("Next")}
-        </Button>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={(page) => {
+          handlePageChange(page);
+          scrollToTop();
+        }}
+      />
     </div>
   );
 };
