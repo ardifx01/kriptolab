@@ -23,7 +23,11 @@ const PortfolioChart = () => {
     <section className="rounded-lg border-2 border-borderColor bg-cardBackground p-4 md:p-5">
       <h3 className="text-lg md:text-xl">{t("Total Assets")}</h3>
       <p className="mb-4 mt-2 text-2xl font-semibold md:text-3xl">
-        Rp {balance}
+        Rp{" "}
+        {balance.toLocaleString("id-ID", {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        })}
       </p>
 
       <div className="flex gap-3">
@@ -51,21 +55,35 @@ const PortfolioChart = () => {
           <AreaChart data={chartData[selectedRange]}>
             <Tooltip
               content={({ active, payload }) => {
-                const value = payload?.length && payload?.[0].value;
+                if (!payload?.length) return;
+
+                const value = payload[0].value;
+                const timestamp = payload[0].payload.timestamp;
+
                 if (active && value) {
-                  setBalance(
-                    value.toLocaleString("id-ID", {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 0,
-                    }),
-                  );
+                  setBalance(Number(value));
                 } else {
-                  setBalance(formattedAssetIdrValue || 0);
+                  const zero = 0;
+                  setBalance(zero);
                 }
-                return <></>;
+                return (
+                  <div className="rounded-lg border-2 border-borderColor bg-cardBackground p-3 px-4 text-sm md:text-base">
+                    <p className="text-white">
+                      Rp{" "}
+                      {Number(value).toLocaleString("id-ID", {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                      })}
+                    </p>
+                    <p className="text-white">
+                      {new Date(timestamp).toLocaleString()}
+                    </p>
+                  </div>
+                );
               }}
               cursor={{ stroke: "#b5b7da" }}
             />
+
             <Area
               dataKey={"totalInIDR"}
               strokeWidth={2}
