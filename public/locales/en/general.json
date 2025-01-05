@@ -131,5 +131,6 @@
   "Current password is incorrect": "Current password is incorrect",
   "1M": "1M",
   "5M": "5M",
-  "Logged out successfully": "Logged out successfully"
+  "Logged out successfully": "Logged out successfully",
+  "You are logged in using Google. Please edit your password in your Google account.": "You are logged in using Google. Please edit your password in your Google account."
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -9,16 +9,21 @@ import CheckboxCustom from "@/components/Checkbox/Checkbox";
 import CustomErrorMessage from "@/components/Form/CustomErrorMessage";
 import CustomInput from "@/components/Form/CustomInput";
 import CustomSuccessMessage from "@/components/Form/CustomSuccessMessage";
+import CustomWarningMessage from "@/components/Form/CustomWarningMessage";
+import useUser from "@/hooks/useUser";
 import { editPasswordService } from "@/lib/services";
 import { IEditPassword } from "@/types";
 
 const EditPassword = () => {
   const { t } = useTranslation();
+  const { user } = useUser();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<any>();
   const [successMessage, setSuccessMessage] = useState("");
+  const [isWarning, setIsWarning] = useState(false);
+  const [warningMessage, setWarningMessage] = useState("");
   const [show, setShow] = useState(false);
 
   const {
@@ -50,6 +55,17 @@ const EditPassword = () => {
     }
   };
 
+  useEffect(() => {
+    if (user.provider === "GOOGLE") {
+      setWarningMessage(
+        t(
+          "You are logged in using Google. Please edit your password in your Google account.",
+        ),
+      );
+      setIsWarning(true);
+    }
+  }, [t, user.provider]);
+
   return (
     <section className="flex w-full justify-center">
       <div className="w-full max-w-xl">
@@ -67,6 +83,12 @@ const EditPassword = () => {
             <CustomErrorMessage
               onClose={() => setIsError(false)}
               message={errorMessage}
+            />
+          )}
+          {isWarning && (
+            <CustomWarningMessage
+              onClose={() => setIsWarning(false)}
+              message={warningMessage}
             />
           )}
 
@@ -141,7 +163,11 @@ const EditPassword = () => {
 
           <Button
             type="submit"
-            disabled={isLoading || Object.keys(errors).length > 0}
+            disabled={
+              isLoading ||
+              Object.keys(errors).length > 0 ||
+              user.provider === "GOOGLE"
+            }
             className="mt-3 h-12 w-full rounded-md disabled:cursor-not-allowed"
           >
             {isLoading ? "Loading..." : "Edit Password"}
