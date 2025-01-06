@@ -32,7 +32,7 @@ const MobileNavbar = ({}: NavbarProps) => {
       )}
     >
       <div className="flex items-center gap-3">
-        <Link href={"/market"} className="h-8 w-8">
+        <Link href={"/"} className="h-8 w-8">
           <Image
             alt="KriptoLab"
             src={"/images/logo/kriptolab.svg"}

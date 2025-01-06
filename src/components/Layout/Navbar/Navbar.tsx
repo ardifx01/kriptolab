@@ -30,7 +30,7 @@ const Navbar = ({}: NavbarProps) => {
       )}
     >
       <div className="flex gap-6">
-        <Link href={"/market"} className="h-14 w-36">
+        <Link href={"/"} className="h-14 w-36">
           <Image
             alt="KriptoLab"
             src={"/images/logo/kriptolab-full.svg"}
