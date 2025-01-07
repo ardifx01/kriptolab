@@ -181,7 +181,7 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
 
   return (
     <div>
-      <div className="rounded-xl rounded-b-none border border-b-0 border-borderColor">
+      <div className="rounded-xl border border-borderColor">
         <CustomTable
           columns={marketColumns}
           data={tableData ?? []}
