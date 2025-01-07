@@ -177,6 +177,7 @@ const useTokenData = () => {
       .sort((a, b) => a.percentage.percentage - b.percentage.percentage);
   }, [tokenList]);
 
+  // Watchlisted Tokens
   const watchlistedTokens = useMemo(() => {
     if (!tokenList) return [];
 
@@ -184,6 +185,17 @@ const useTokenData = () => {
       watchlist.includes(token.pairDetails.ticker_id),
     );
   }, [tokenList, watchlist]);
+
+  // Landing Page Tokens
+  const landingPageTokens = useMemo(() => {
+    if (!tokenList) return [];
+
+    return tokenList.filter((token) =>
+      ["btc_idr", "eth_idr", "bnb_idr", "sol_idr", "icp_idr"].includes(
+        token.pairDetails.ticker_id,
+      ),
+    );
+  }, [tokenList]);
 
   // Search functionality
   const filteredTokens = (tokens: ITokenDetails[], search: string) => {
@@ -228,6 +240,7 @@ const useTokenData = () => {
     topGainers,
     topLosers,
     watchlistedTokens,
+    landingPageTokens,
 
     // Loading and error states
     isLoading: isPairsLoading || isPricesLoading,
