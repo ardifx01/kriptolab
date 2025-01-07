@@ -42,7 +42,7 @@ const CustomTable = <T extends Record<string, any>>({
             <thead>
               <tr
                 className={classNames(
-                  "rounded-t-xl bg-cardBackground font-medium text-gray-300",
+                  "font-medium text-gray-300",
                   trHeaderClassName,
                 )}
                 style={{ height: headerHeight }}
@@ -54,7 +54,10 @@ const CustomTable = <T extends Record<string, any>>({
                       label={label}
                       style={{ minWidth: width, fontWeight: 500 }}
                       {...rest}
-                      className={classNames(headerClassName)}
+                      className={classNames(
+                        "bg-cardBackground first:rounded-tl-xl last:rounded-tr-xl",
+                        headerClassName,
+                      )}
                     />
                   ),
                 )}
@@ -68,7 +71,7 @@ const CustomTable = <T extends Record<string, any>>({
                   onClick={() => onRowClick && onRowClick(row)}
                   key={getRowKey(row)}
                   style={{ height: rowHeight }}
-                  className="cursor-pointer border-b border-borderColor hover:bg-cardBackground/40"
+                  className="cursor-pointer border-b border-borderColor last:border-b-0 hover:bg-cardBackground/40"
                 >
                   {columns.map(({ key, width, className, customRender }) => (
                     <td
