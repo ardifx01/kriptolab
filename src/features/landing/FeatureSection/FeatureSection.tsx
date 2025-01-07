@@ -43,7 +43,7 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section className="mt-20 grid w-full justify-center space-y-20">
+    <section className="mt-12 grid w-full justify-center space-y-12 md:mt-20 md:space-y-20">
       {features.map((feature) => (
         <Feature key={feature.title} {...feature} />
       ))}

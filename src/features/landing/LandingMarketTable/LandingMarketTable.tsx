@@ -131,7 +131,7 @@ const LandingMarketTable = () => {
     ),
   }));
   return (
-    <section className="mt-[80px] rounded-xl border border-borderColor">
+    <section className="mt-12 rounded-xl border border-borderColor md:mt-[80px]">
       <CustomTable
         columns={marketColumns}
         data={tableData ?? []}

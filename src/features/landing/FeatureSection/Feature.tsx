@@ -25,11 +25,24 @@ const Feature = ({
   title,
 }: FeatureProps) => {
   return (
-    <div className="md:flex md:gap-[60px]">
+    <div className="space-y-7 md:flex md:gap-[60px] md:space-y-0">
+      <div
+        className={classNames(
+          "flex flex-col gap-1 md:mt-10 md:w-[500px] md:gap-4",
+          side === "left" ? "md:order-2" : "md:order-1",
+        )}
+      >
+        <h2 className="font-sora text-2xl font-medium md:text-4xl">{title}</h2>
+        <p className="text-sm text-textSecondary">{description}</p>
+        <Link href={link}>
+          <Button className="mt-3 md:mt-1">{linkText}</Button>
+        </Link>
+      </div>
+
       <div
         className={classNames(
           "rounded-lg border-2 border-borderColor md:w-[450px]",
-          side === "left" ? "order-1" : "order-2",
+          side === "left" ? "md:order-1" : "md:order-2",
         )}
       >
         <Image
@@ -39,18 +52,6 @@ const Feature = ({
           height={355}
           className="h-full w-full rounded-lg shadow-sm"
         />
-      </div>
-      <div
-        className={classNames(
-          "mt-10 flex flex-col gap-4 md:w-[500px]",
-          side === "left" ? "order-2" : "order-1",
-        )}
-      >
-        <h2 className="font-sora text-4xl font-medium">{title}</h2>
-        <p className="text-sm text-textSecondary">{description}</p>
-        <Link href={link}>
-          <Button className="mt-1">{linkText}</Button>
-        </Link>
       </div>
     </div>
   );
