@@ -130,6 +130,7 @@ const LandingMarketTable = () => {
       token.priceDetails?.price_7d ?? 0,
     ),
   }));
+
   return (
     <section className="mt-12 rounded-xl border border-borderColor md:mt-[80px]">
       <CustomTable
