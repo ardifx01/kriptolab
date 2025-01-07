@@ -180,7 +180,7 @@ const TransactionHistory = () => {
         </Menu>
       )}
 
-      <div className="mt-4 rounded-xl rounded-b-none border border-b-0 border-borderColor md:mt-5">
+      <div className="mt-4 rounded-xl border border-borderColor md:mt-5">
         <CustomTable
           rowKey="_id"
           columns={txHistoryColumn}
