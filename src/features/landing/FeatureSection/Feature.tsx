@@ -5,9 +5,9 @@ import Link from "next/link";
 
 import classNames from "classnames";
 
-import Button from "../Button/Button";
+import Button from "@/components/Button/Button";
 
-export interface FeatureSectionProps {
+export interface FeatureProps {
   side: "left" | "right";
   image: string;
   title: string;
@@ -16,19 +16,19 @@ export interface FeatureSectionProps {
   linkText: string;
 }
 
-const FeatureSection = ({
+const Feature = ({
   description,
   image,
   link,
   linkText,
   side,
   title,
-}: FeatureSectionProps) => {
+}: FeatureProps) => {
   return (
-    <div className="flex gap-[60px]">
+    <div className="md:flex md:gap-[60px]">
       <div
         className={classNames(
-          "w-[450px] rounded-lg border-2 border-borderColor",
+          "rounded-lg border-2 border-borderColor md:w-[450px]",
           side === "left" ? "order-1" : "order-2",
         )}
       >
@@ -42,11 +42,11 @@ const FeatureSection = ({
       </div>
       <div
         className={classNames(
-          "mt-10 flex w-[500px] flex-col gap-4",
+          "mt-10 flex flex-col gap-4 md:w-[500px]",
           side === "left" ? "order-2" : "order-1",
         )}
       >
-        <h2 className="font-sora text-4xl font-semibold">{title}</h2>
+        <h2 className="font-sora text-4xl font-medium">{title}</h2>
         <p className="text-sm text-textSecondary">{description}</p>
         <Link href={link}>
           <Button className="mt-1">{linkText}</Button>
@@ -56,4 +56,4 @@ const FeatureSection = ({
   );
 };
 
-export default FeatureSection;
+export default Feature;
