@@ -49,8 +49,9 @@ const Feature = ({
           src={image}
           alt={title}
           width={450}
-          height={355}
+          height={400}
           className="h-full w-full rounded-lg shadow-sm"
+          loading="lazy"
         />
       </div>
     </div>
