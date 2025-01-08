@@ -34,9 +34,9 @@ const HeroBanner = () => {
         <div className="mt-5 h-fit w-full overflow-hidden rounded-lg shadow-sm">
           <iframe
             loading="lazy"
-            key={""}
+            key={"CucOSUAECFU"}
             className="aspect-video w-full"
-            src={`https://www.youtube.com/embed/`}
+            src={`https://www.youtube.com/embed/CucOSUAECFU`}
             title="YouTube video player"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen={true}
