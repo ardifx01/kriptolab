@@ -24,7 +24,7 @@ const HeroBanner = () => {
           <Button className="mt-4 md:mt-5">Daftar Sekarang</Button>
         </Link>
       </div>
-      <div className="h-[400px] w-full max-w-[650px] rounded-lg border-2 border-borderColor bg-cardBackground p-5">
+      <div className="h-[400px] w-full rounded-lg border-2 border-borderColor bg-cardBackground p-5 md:max-w-[650px]">
         <div className="flex gap-3">
           {["bg-error", "bg-warning", "bg-success"].map((v) => (
             <div key={v} className={classNames("size-4 rounded-full", v)} />

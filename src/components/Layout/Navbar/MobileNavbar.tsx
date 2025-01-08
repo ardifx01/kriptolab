@@ -69,19 +69,29 @@ const MobileNavbar = ({}: NavbarProps) => {
         position="left"
         containerClassName="!rounded-none w-[70%]"
       >
-        <Image
-          alt="KriptoLab"
-          src={"/images/logo/kriptolab-full.svg"}
-          width={200}
-          height={200}
-          className="mb-5 h-16 w-32"
-        />
+        <Link href={"/"}>
+          <Image
+            alt="KriptoLab"
+            src={"/images/logo/kriptolab-full.svg"}
+            width={200}
+            height={200}
+            className="mb-5 h-20 w-40"
+          />
+        </Link>
         <div className="flex flex-col gap-14 pt-2 text-lg font-semibold text-textSecondary">
-          <Link href={"/market"} className="hover:text-primaryAccent">
+          <Link
+            href={"/market"}
+            // onClick={() => setMenu(false)}
+            className="hover:text-primaryAccent"
+          >
             Market
           </Link>
 
-          <Link href={"/tutorial"} className="hover:text-primaryAccent">
+          <Link
+            href={"/tutorial"}
+            // onClick={() => setMenu(false)}
+            className="hover:text-primaryAccent"
+          >
             Tutorial
           </Link>
         </div>
