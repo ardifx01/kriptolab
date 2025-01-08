@@ -12,12 +12,12 @@ const HeroBanner = () => {
 
   return (
     <section className="space-y-6 md:mt-10 md:flex md:justify-between md:gap-8 md:space-y-0">
-      <div className="md:mt-14">
-        <div className="w-full space-y-1 md:space-y-3">
-          <h1 className="max-w-[600px] font-sora text-3xl font-semibold md:text-5xl">
+      <div className="w-full md:mt-14">
+        <div className="space-y-1 md:space-y-3">
+          <h1 className="font-sora text-3xl font-semibold md:max-w-[600px] md:text-5xl">
             {t("heroBanner.title")}
           </h1>
-          <p className="max-w-[550px] text-sm text-textSecondary md:text-base">
+          <p className="text-sm text-textSecondary md:max-w-[550px] md:text-base">
             {t("heroBanner.description")}
           </p>
         </div>
@@ -25,11 +25,22 @@ const HeroBanner = () => {
           <Button className="mt-4 md:mt-5">{t("heroBanner.button")}</Button>
         </Link>
       </div>
-      <div className="h-[400px] w-full rounded-lg border-2 border-borderColor bg-cardBackground p-5 md:max-w-[650px]">
+      <div className="w-full rounded-lg border-2 border-borderColor bg-cardBackground p-5 lg:max-w-[650px]">
         <div className="flex gap-3">
           {["bg-error", "bg-warning", "bg-success"].map((v) => (
             <div key={v} className={classNames("size-4 rounded-full", v)} />
           ))}
+        </div>
+        <div className="mt-5 h-fit w-full overflow-hidden rounded-lg shadow-sm">
+          <iframe
+            loading="lazy"
+            key={""}
+            className="aspect-video w-full"
+            src={`https://www.youtube.com/embed/`}
+            title="YouTube video player"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen={true}
+          ></iframe>
         </div>
       </div>
     </section>
