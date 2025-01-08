@@ -141,7 +141,7 @@ const LandingMarketTable = () => {
         rowHeight={64}
         onRowClick={(row) => router.push(`/market/${row.pair}`)}
       />
-      {isLoading && (
+      {tableData.length === 0 && isLoading && (
         <div className="w-full border-b border-borderColor px-4">
           {[...Array(5)].map((_, index) => (
             <div key={index} className="flex gap-3">
