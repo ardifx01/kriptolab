@@ -34,7 +34,7 @@ const Feature = ({
       >
         <h2 className="font-sora text-2xl font-medium md:text-4xl">{title}</h2>
         <p className="text-sm text-textSecondary">{description}</p>
-        <Link href={link}>
+        <Link href={link} className="block w-fit">
           <Button className="mt-3 md:mt-1">{linkText}</Button>
         </Link>
       </div>

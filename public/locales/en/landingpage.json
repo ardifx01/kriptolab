@@ -1,0 +1,30 @@
+{
+  "heroBanner": {
+    "title": "Learn Trading Easily and Safely.",
+    "description": "A simulation environment specially designed for beginners. Without the risk of losing real money, you can understand the crypto market more deeply and professionally.",
+    "button": "Start Your Journey"
+  },
+  "feature": {
+    "1": {
+      "title": "Monitor the Crypto Market in Real-Time",
+      "description": "Explore various crypto asset pairs with live price data, volume, and trends. Equipped with interactive charts to help you analyze the market easily.",
+      "linkText": "View Market"
+    },
+    "2": {
+      "title": "Learn Trading Without Risk",
+      "description": "Practice buying and selling crypto assets without any risk. This feature helps you understand trading mechanics while learning to make investment decisions.",
+      "linkText": "Start Trading"
+    },
+    "3": {
+      "title": "Track Your Transaction History",
+      "description": "Keep a complete record of all your trading activities. View transaction history, analyze past trades, and make better decisions for future investments.",
+      "linkText": "View History"
+    },
+    "4": {
+      "title": "View and Monitor Your Portfolio",
+      "description": "Learn how to read your portfolio with complete charts and asset data. This simulation is designed to help you understand the outcomes of your trading decisions.",
+      "linkText": "View Portfolio"
+    }
+  },
+  "Latest News": "Latest News"
+}

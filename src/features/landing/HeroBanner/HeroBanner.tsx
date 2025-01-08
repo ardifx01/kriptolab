@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Link from "next/link";
 
@@ -7,21 +8,21 @@ import classNames from "classnames";
 import Button from "@/components/Button/Button";
 
 const HeroBanner = () => {
+  const { t } = useTranslation("landingpage");
+
   return (
     <section className="space-y-6 md:mt-10 md:flex md:justify-between md:gap-8 md:space-y-0">
       <div className="md:mt-14">
         <div className="w-full space-y-1 md:space-y-3">
           <h1 className="max-w-[600px] font-sora text-3xl font-semibold md:text-5xl">
-            Belajar Trading Praktis dan Aman.
+            {t("heroBanner.title")}
           </h1>
           <p className="max-w-[550px] text-sm text-textSecondary md:text-base">
-            Lingkungan simulasi yang dirancang khusus untuk pemula. Tanpa risiko
-            kehilangan uang sungguhan, Anda dapat memahami pasar kripto dengan
-            lebih mendalam dan profesional.
+            {t("heroBanner.description")}
           </p>
         </div>
-        <Link href="/auth/register">
-          <Button className="mt-4 md:mt-5">Daftar Sekarang</Button>
+        <Link href="/auth/register" className="block w-fit">
+          <Button className="mt-4 md:mt-5">{t("heroBanner.button")}</Button>
         </Link>
       </div>
       <div className="h-[400px] w-full rounded-lg border-2 border-borderColor bg-cardBackground p-5 md:max-w-[650px]">

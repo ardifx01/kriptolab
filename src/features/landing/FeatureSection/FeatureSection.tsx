@@ -1,43 +1,42 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import Feature, { FeatureProps } from "./Feature";
 
 const FeatureSection = () => {
+  const { t } = useTranslation("landingpage");
+
   const features: FeatureProps[] = [
     {
-      title: "Pantau Pasar Kripto Secara Real-Time",
-      description:
-        "Jelajahi berbagai pasangan aset kripto dengan data harga langsung, volume, dan tren. Dilengkapi chart interaktif untuk membantu Anda menganalisis pasar dengan mudah.",
+      title: t("feature.1.title"),
+      description: t("feature.1.description"),
       image: "/images/features/feature_market.png",
       link: "/market",
-      linkText: "Lihat Pasar",
+      linkText: t("feature.1.linkText"),
       side: "left",
     },
     {
-      title: "Belajar Trading Tanpa Risiko",
-      description:
-        "Praktikkan pembelian dan penjualan aset kripto tanpa risiko. Fitur ini membantu Anda memahami mekanisme trading sambil belajar membuat keputusan investasi.",
+      title: t("feature.2.title"),
+      description: t("feature.2.description"),
       image: "/images/features/feature_trading.png",
       link: "/auth/register",
-      linkText: "Mulai Trading",
+      linkText: t("feature.2.linkText"),
       side: "right",
     },
     {
-      title: "Pantau Riwayat Transaksi Anda",
-      description:
-        "Simpan catatan lengkap dari semua aktivitas trading Anda. Lihat riwayat transaksi, analisis perdagangan sebelumnya, dan buat keputusan yang lebih baik untuk investasi di masa depan.",
+      title: t("feature.3.title"),
+      description: t("feature.3.description"),
       image: "/images/features/feature_transactions.png",
       link: "/transactions",
-      linkText: "Lihat Riwayat",
+      linkText: t("feature.3.linkText"),
       side: "left",
     },
     {
-      title: "Lihat dan Pantau Portofolio Anda",
-      description:
-        "Pelajari cara membaca portofolio dengan grafik dan data aset yang lengkap. Simulasi ini dirancang untuk membantu Anda memahami hasil keputusan trading Anda.",
+      title: t("feature.4.title"),
+      description: t("feature.4.description"),
       image: "/images/features/feature_portfolio.png",
       link: "/portfolio",
-      linkText: "Lihat Portofolio",
+      linkText: t("feature.4.linkText"),
       side: "right",
     },
   ];
