@@ -19,11 +19,14 @@ const useAuth = () => {
     dispatch(setJwtToken(token));
   };
 
-  const logout = useCallback(() => {
-    if (!jwttoken) return;
-    dispatch(setJwtToken(null));
-    showToast.success(t("Logged out successfully"));
-  }, [dispatch, jwttoken, t]);
+  const logout = useCallback(
+    (message?: string) => {
+      if (!jwttoken) return;
+      dispatch(setJwtToken(null));
+      showToast.success(message ? message : t("Logged out successfully"));
+    },
+    [dispatch, jwttoken, t],
+  );
 
   const checkIfJWTTokenExpired = useCallback(() => {
     try {

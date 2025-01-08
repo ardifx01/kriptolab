@@ -8,8 +8,8 @@ import Button from "@/components/Button/Button";
 import CheckboxCustom from "@/components/Checkbox/Checkbox";
 import CustomErrorMessage from "@/components/Form/CustomErrorMessage";
 import CustomInput from "@/components/Form/CustomInput";
-import CustomSuccessMessage from "@/components/Form/CustomSuccessMessage";
 import CustomWarningMessage from "@/components/Form/CustomWarningMessage";
+import useAuth from "@/features/auth/hooks/useAuth";
 import useUser from "@/hooks/useUser";
 import { editPasswordService } from "@/lib/services";
 import { IEditPassword } from "@/types";
@@ -17,11 +17,11 @@ import { IEditPassword } from "@/types";
 const EditPassword = () => {
   const { t } = useTranslation();
   const { user } = useUser();
+  const { logout } = useAuth();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<any>();
-  const [successMessage, setSuccessMessage] = useState("");
   const [isWarning, setIsWarning] = useState(false);
   const [warningMessage, setWarningMessage] = useState("");
   const [show, setShow] = useState(false);
@@ -41,9 +41,7 @@ const EditPassword = () => {
       const response = await editPasswordService(formData);
 
       if (response) {
-        console.log(response);
-
-        setSuccessMessage(t("Edit password successful!"));
+        logout(t("Edit password successful!"));
         setIsError(false);
         reset();
       }
@@ -89,13 +87,6 @@ const EditPassword = () => {
             <CustomWarningMessage
               onClose={() => setIsWarning(false)}
               message={warningMessage}
-            />
-          )}
-
-          {successMessage && (
-            <CustomSuccessMessage
-              message={successMessage}
-              onClose={() => setSuccessMessage("")}
             />
           )}
 
