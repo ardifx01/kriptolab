@@ -19,7 +19,7 @@ const AuthPage: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push("/profile");
+      router.push("/");
     } else {
       setIsLoading(false);
     }
