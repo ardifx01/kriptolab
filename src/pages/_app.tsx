@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
+import { Analytics } from "@vercel/analytics/react";
 import { appWithI18Next, useSyncLanguage } from "ni18n";
 import { PersistGate } from "redux-persist/integration/react";
 
@@ -46,6 +47,7 @@ function App({ Component, pageProps }: AppProps) {
       <CustomToastContainer />
       <Component {...pageProps} />
       <ModalProvider />
+      <Analytics />
     </PersistGate>
   );
 }
