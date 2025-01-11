@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import classNames from "classnames";
+
 import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
 import { showToast } from "@/components/Toast/CustomToast";
@@ -151,14 +153,17 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       />
       <div className="mb-1 flex gap-3">
         {quickAddPercentage.map((v) => (
-          <Button
+          <button
             key={v}
             onClick={() => handleQuickAdd(v)}
-            variant="secondary"
-            className="w-full px-0"
+            className={classNames(
+              "flex flex-1 items-center justify-center rounded-lg border",
+              "border-primaryAccent bg-primaryAccent/20 py-2 text-sm text-gray-50",
+              "hover:bg-primaryAccent/30 md:text-base",
+            )}
           >
             {v}%
-          </Button>
+          </button>
         ))}
       </div>
 
