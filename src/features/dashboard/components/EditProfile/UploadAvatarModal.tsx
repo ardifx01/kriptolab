@@ -7,6 +7,7 @@ import Button from "@/components/Button/Button";
 import CustomFileInput from "@/components/Form/CustomFileInput";
 import Modal from "@/components/Modal/Modal";
 import { showToast } from "@/components/Toast/CustomToast";
+import useUser from "@/hooks/useUser";
 import { editProfilePictureService } from "@/lib/services";
 import { IUser } from "@/types";
 
@@ -28,6 +29,7 @@ const UploadAvatarModal = ({ onClose, open, user }: UploadAvatarProps) => {
     selectedFile,
   } = useUploadImage();
   const { t } = useTranslation();
+  const { updateUser } = useUser();
 
   const [loading, setLoading] = useState(false);
 
@@ -37,6 +39,7 @@ const UploadAvatarModal = ({ onClose, open, user }: UploadAvatarProps) => {
       const url = await uploadImage();
 
       if (url) {
+        updateUser({ ...user, profile: { ...user.profile, image: url } });
         const response = await editProfilePictureService(url);
 
         if (response) {
