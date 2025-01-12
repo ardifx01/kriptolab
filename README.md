@@ -8,8 +8,8 @@
   <img src="https://amethyst-wrong-bobolink-547.mypinata.cloud/ipfs/bafybeiaxcsgcc5sb6gddbioqgxpk5kr4bdyumsb6wn4wr246xrf6rre52q" width="100%">
 </p>
 
-
 ## 🚀 Features
+
 - **Login dan Register**: Daftar akun baru atau masuk dengan mudah, termasuk menggunakan akun Google.
 - **Real-Time Data**: Lihat harga kripto yang selalu diperbarui secara langsung dari pasar.
 - **Indodax Crypto List**: Tampilkan semua aset kripto yang tersedia di Indodax dengan lengkap.
@@ -23,16 +23,9 @@
 - **Edit Password**: Ubah kata sandi kamu kapan pun langsung di aplikasi.
 - **Step-by-Step Tutorials**: Panduan yang jelas dan sederhana untuk membantu kamu memahami cara menggunakan aplikasi.
 
-## 💻 Technology Stack
-
-### Core Technologies
+## 💻 Frontend Technologies
 - **TypeScript**
-- **Node.js**
-- **Express.js**
 - **Next.js**
-  
-### Frontend Technologies
-- **React.js**
 - **Tailwind CSS**
 - **Redux**
 - **SWR**
@@ -45,7 +38,8 @@
 - **Floating UI**
 - **React Hook Form**
 
-### Backend Technologies
+## test
+## 🔧 Backend Technologies
 - **Node.js**
 - **Express.js**
 - **Socket.io**
@@ -57,7 +51,7 @@
 - **Nodemailer**
 - **Passport Google OAuth2**
 
-### Integrations & Utilities
+## ⚡ Integrations & Utilities
 - **API Indodax**: Real-time crypto market data.
 - **Pinata Web3**: IPFS for decentralized storage.
 - **i18n**: Internationalization and translation support.
