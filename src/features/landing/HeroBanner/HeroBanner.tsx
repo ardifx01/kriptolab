@@ -6,9 +6,11 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import Button from "@/components/Button/Button";
+import useAuth from "@/features/auth/hooks/useAuth";
 
 const HeroBanner = () => {
   const { t } = useTranslation("landingpage");
+  const { isLoggedIn } = useAuth();
 
   return (
     <section className="space-y-6 md:mt-10 md:flex md:justify-between md:gap-8 md:space-y-0">
@@ -21,7 +23,10 @@ const HeroBanner = () => {
             {t("heroBanner.description")}
           </p>
         </div>
-        <Link href="/auth/register" className="block w-fit">
+        <Link
+          href={isLoggedIn ? "market" : "/auth/register"}
+          className="block w-fit"
+        >
           <Button className="mt-4 md:mt-5">{t("heroBanner.button")}</Button>
         </Link>
       </div>

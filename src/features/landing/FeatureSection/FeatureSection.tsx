@@ -19,7 +19,7 @@ const FeatureSection = () => {
       title: t("feature.2.title"),
       description: t("feature.2.description"),
       image: "/images/features/feature_trading.png",
-      link: "/auth/register",
+      link: "/market",
       linkText: t("feature.2.linkText"),
       side: "right",
     },
