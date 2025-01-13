@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/helpers";
 import { INews } from "@/types";
 
 const LandingNews = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation("landingpage");
 
   const { data, isLoading } = useCustomSWR<INews[]>(
     API_NEWS,
@@ -26,7 +26,7 @@ const LandingNews = () => {
 
   return (
     <section className="mt-[60px] grid w-full rounded-xl bg-cardBackground px-6 py-5">
-      <h2 className="text-2xl font-medium">Berita Terkini</h2>
+      <h2 className="text-2xl font-medium">{t("Latest News")}</h2>
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {news.map((news, index) => (
           <a
