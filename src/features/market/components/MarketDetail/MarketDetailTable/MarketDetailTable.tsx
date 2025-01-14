@@ -48,6 +48,8 @@ const MarketDetailTable = ({ token }: Props) => {
   const currentIndex = MARKET_TABS.findIndex((v) => v.value === marketTabs);
   const API_URL = `${API_TOKEN_TRANSACTION_HISTORY}?pair_id=${token?.priceDetails?.pair_id}`;
 
+  const tokenSymbol = token?.pairDetails.traded_currency_unit;
+
   // INDODAX TRADES HISTORY
   const { data: trades } = useCustomSWR<ITradeHistory[]>(
     `${INDODAX_URL}/api/trades/${token?.pairDetails.id}`,
@@ -107,8 +109,18 @@ const MarketDetailTable = ({ token }: Props) => {
             </MenuItems>
           </Menu>
           <div className="relative h-[300px] max-h-[300px] overflow-hidden overflow-y-auto rounded-xl border border-borderColor">
-            {currentIndex === 0 && <TransactionsPanel trades={trades ?? []} />}
-            {currentIndex === 1 && <MyTradesPanel trades={myTrades ?? []} />}
+            {currentIndex === 0 && (
+              <TransactionsPanel
+                trades={trades ?? []}
+                symbol={tokenSymbol || ""}
+              />
+            )}
+            {currentIndex === 1 && (
+              <MyTradesPanel
+                trades={myTrades ?? []}
+                symbol={tokenSymbol || ""}
+              />
+            )}
             {currentIndex === 2 && <NewsPanel />}
           </div>
         </>
@@ -126,10 +138,16 @@ const MarketDetailTable = ({ token }: Props) => {
           >
             <div className="relative h-[400px] max-h-[400px] overflow-y-auto">
               <TabPanel>
-                <TransactionsPanel trades={trades ?? []} />
+                <TransactionsPanel
+                  trades={trades ?? []}
+                  symbol={tokenSymbol || ""}
+                />
               </TabPanel>
               <TabPanel>
-                <MyTradesPanel trades={myTrades ?? []} />
+                <MyTradesPanel
+                  trades={myTrades ?? []}
+                  symbol={tokenSymbol || ""}
+                />
               </TabPanel>
               <TabPanel>
                 <NewsPanel />

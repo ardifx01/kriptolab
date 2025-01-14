@@ -5,9 +5,16 @@ import CustomTable from "@/components/Table/TableCustom";
 import { ColumnType } from "@/components/Table/types";
 import useWindowSize from "@/hooks/useWindowSize";
 import { formatDate } from "@/lib/helpers";
+import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
 import { ITradeHistory } from "@/types";
 
-const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
+const TransactionsPanel = ({
+  trades,
+  symbol,
+}: {
+  trades: ITradeHistory[];
+  symbol: string;
+}) => {
   const { t } = useTranslation();
   const { isMobile } = useWindowSize();
 
@@ -54,7 +61,7 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
           <span
             className={rowData.type === "buy" ? "text-success" : "text-error"}
           >
-            {value}
+            {formatCurrencyValue(parseFloat(value || "0"), "IDR", true) ?? 1}
           </span>
         );
       },
@@ -69,7 +76,7 @@ const TransactionsPanel = ({ trades }: { trades: ITradeHistory[] }) => {
           <span
             className={rowData.type === "buy" ? "text-success" : "text-error"}
           >
-            {value}
+            {value} {symbol}
           </span>
         );
       },
