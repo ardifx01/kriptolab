@@ -24,6 +24,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     handleInputChange: handleTokenChange,
     handleInputBlur: handleTokenBlur,
   } = useNumberInput();
+
   // IDR INPUT
   const {
     value: idrValue,
@@ -42,6 +43,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     handleTokenChange(value);
     if (token.priceDetails) {
       const totalIdr = parseFloat(value) * parseFloat(token.priceDetails.last);
+
       handleIDRChange(totalIdr.toString());
     }
   };
@@ -51,11 +53,8 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     handleIDRChange(value);
     if (token.priceDetails) {
       const price = parseFloat(token.priceDetails.last);
-      const feePercentage = token.pairDetails.trade_fee_percent;
-
-      // Calculate token amount considering fees
       const idrAmount = parseFloat(value);
-      const tokenAmount = calculateMaxAmount(idrAmount, price, feePercentage);
+      const tokenAmount = idrAmount / price;
 
       handleTokenChange(tokenAmount.toFixed(9).toString());
     }
@@ -66,19 +65,26 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     if (token.priceDetails) {
       const price = parseFloat(token.priceDetails.last);
 
-      const maxPossibleAmount = calculateMaxAmount(
-        idrBalance,
-        price,
-        feePercentage,
-      );
+      if (percentage === 100) {
+        const maxPossibleAmount = calculateMaxAmount(
+          idrBalance,
+          price,
+          feePercentage,
+        );
+
+        const roundedMaxAmount = Math.floor(maxPossibleAmount * 1e8) / 1e8;
+        const totalIdr = roundedMaxAmount * price;
+
+        const roundedTotalIdr = Math.floor(totalIdr * 100) / 100;
+
+        handleIdrInput(roundedTotalIdr.toString());
+        return;
+      }
 
       const requestedPercentage = percentage / 100;
-      const tokenAmount = maxPossibleAmount * requestedPercentage;
+      const totalIdr = Math.floor(idrBalance * requestedPercentage * 100) / 100;
 
-      const totalIdr = tokenAmount * price;
-
-      handleTokenChange(tokenAmount.toString());
-      handleIDRChange(totalIdr.toString());
+      handleIdrInput(totalIdr.toString());
     }
   };
 
@@ -87,7 +93,9 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     price: number,
     feePercentage: number,
   ) => {
-    return balance / (price * (1 + feePercentage / 100));
+    const feeMultiplier = 1 + feePercentage / 100;
+    const rawAmount = balance / (price * feeMultiplier);
+    return Math.floor(rawAmount * 1e8) / 1e8;
   };
 
   // HANDLE BUY CRYPTO
@@ -109,7 +117,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       if (response) {
         handleTokenChange("");
         handleIDRChange("");
-
+        await refreshBalance();
         showToast.success(`Buy ${tokenValue} ${tokenSymbol} success!`);
       }
     } catch (error) {
@@ -120,7 +128,6 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     } finally {
       setLoading(false);
       setOpenConfirmation(false);
-      await refreshBalance();
     }
   };
 
@@ -192,15 +199,6 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
           </button>
         ))}
       </div>
-      {/* 
-      <Button
-        key={v}
-        onClick={() => handleQuickAdd(v)}
-        variant="secondary"
-        className="w-full px-0"
-      >
-        {v}%
-      </Button> */}
 
       <CustomNumberInput
         value={idrDisplay}

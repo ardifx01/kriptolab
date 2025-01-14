@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import Button from "@/components/Button/Button";
 import Modal from "@/components/Modal/Modal";
+import usePortfolio from "@/hooks/usePortfolio";
 import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
 import { ITokenDetails } from "@/types";
 
@@ -30,6 +31,7 @@ const ConfirmationModal = ({
   onConfirm,
 }: ConfirmationModalProps) => {
   const { t } = useTranslation();
+  const { idrBalance } = usePortfolio();
 
   const feePercentage = token.pairDetails.trade_fee_percent;
   const feeAmount = (totalIdr * feePercentage) / 100;
@@ -59,7 +61,7 @@ const ConfirmationModal = ({
             className="size-16 rounded-full"
           />
           <p className="mb-2 text-xl font-bold">
-            {totalCrypto.toFixed(5)} {token.pairDetails.traded_currency_unit}
+            {totalCrypto.toFixed(9)} {token.pairDetails.traded_currency_unit}
           </p>
           <section className="w-full space-y-2 rounded-xl bg-background/50 p-4 font-medium">
             <div className="flex justify-between gap-4">
@@ -92,7 +94,7 @@ const ConfirmationModal = ({
           </section>
         </div>
         <Button
-          disabled={loading}
+          disabled={loading || (type === "Buy" && totalCost > idrBalance)}
           className="mt-6 w-full lg:h-12"
           onClick={onConfirm}
         >
