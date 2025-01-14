@@ -10,6 +10,7 @@ import { ColumnType } from "@/components/Table/types";
 import useTxHistory from "@/hooks/useTxHistory";
 import useWindowSize from "@/hooks/useWindowSize";
 import { formatDate } from "@/lib/helpers";
+import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
 import { ITransaction, TransactionType } from "@/types";
 
 const TransactionHistory = () => {
@@ -95,14 +96,17 @@ const TransactionHistory = () => {
                 : "text-error"
             }
           >
-            {value ?? 1}
+            {formatCurrencyValue(parseFloat(value || "0"), "IDR", true) ?? 1}
           </span>
         );
       },
     },
     {
       key: "traded_amount",
-      label: t("Amount"),
+      label:
+        selectedTxType === "DEPOSIT" || selectedTxType === "WITHDRAWAL"
+          ? t("Amount")
+          : t("Token Amount"),
       width: isMobile ? 200 : "25%",
       className: "px-3 border-r border-transparent",
       customRender(value, rowData) {
@@ -114,7 +118,9 @@ const TransactionHistory = () => {
                 : "text-error"
             }
           >
-            {value}
+            {rowData.type === "DEPOSIT" || rowData.type === "WITHDRAWAL"
+              ? formatCurrencyValue(parseFloat(value || "0"), "IDR", true)
+              : value}
           </span>
         );
       },
