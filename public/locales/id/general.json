@@ -132,5 +132,6 @@
   "1M": "1JT",
   "5M": "5JT",
   "Logged out successfully": "Logout berhasil",
-  "You are logged in using Google. Please edit your password in your Google account.": "Anda masuk menggunakan Google. Silakan edit kata sandi Anda di akun Google Anda."
+  "You are logged in using Google. Please edit your password in your Google account.": "Anda masuk menggunakan Google. Silakan edit kata sandi Anda di akun Google Anda.",
+  "Token Amount": "Jumlah Token"
 }
