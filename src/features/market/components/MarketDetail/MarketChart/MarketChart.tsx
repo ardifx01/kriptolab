@@ -18,16 +18,42 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
     candleNegative: "#fc4a71",
     text: "#b5b7da",
     crosshair: "#7970ea",
+    movingAverage50: "#9B59B6",
+    movingAverage200: "#FFDC30",
   };
 
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<any | null>(null);
   const candlestickSeriesRef = useRef<any | null>(null);
+  const ma50SeriesRef = useRef<any | null>(null);
+  const ma200SeriesRef = useRef<any | null>(null);
 
   const { data, isLoading, error, lastUpdateTime } = useInfiniteOHLCData(
     tokenId,
     "15",
   );
+
+  const calculateSMA = (data: ITokenOHLC[], period: number) => {
+    const smaData = data.map((item, index) => {
+      if (index < period - 1) {
+        return null; // Return null for periods where we don't have enough data
+      }
+
+      const sum = data
+        .slice(index - period + 1, index + 1)
+        .reduce((acc, curr) => acc + curr.Close, 0);
+
+      return {
+        time: item.Time,
+        value: sum / period,
+      };
+    });
+
+    // Filter out null values
+    return smaData.filter(
+      (item): item is { time: number; value: number } => item !== null,
+    );
+  };
 
   const updateChart = useCallback(() => {
     if (data.length > 0 && candlestickSeriesRef.current) {
@@ -39,13 +65,28 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
         close: item.Close,
       }));
 
-      // Use setData for initial load, updateData for subsequent updates
+      const smaData50 = calculateSMA(data, 50);
+      const smaData200 = calculateSMA(data, 200);
+
+      // Update candlestick data
       if (chartRef.current?.timeScale().getVisibleLogicalRange() === null) {
         candlestickSeriesRef.current.setData(formattedData);
+        ma50SeriesRef.current?.setData(smaData50);
+        ma200SeriesRef.current?.setData(smaData200);
       } else {
         // Append only the most recent candle
         const lastCandle = formattedData[formattedData.length - 1];
         candlestickSeriesRef.current.update(lastCandle);
+
+        // Only update MA if we have enough data points
+        if (smaData50.length > 0) {
+          const lastSMA = smaData50[smaData50.length - 1];
+          ma50SeriesRef.current?.update(lastSMA);
+        }
+        if (smaData200.length > 0) {
+          const lastSMA = smaData200[smaData200.length - 1];
+          ma200SeriesRef.current?.update(lastSMA);
+        }
       }
     }
   }, [data]);
@@ -61,6 +102,8 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
       }
       chartRef.current = null;
       candlestickSeriesRef.current = null;
+      ma50SeriesRef.current = null;
+      ma200SeriesRef.current = null;
     };
 
     removeExistingChart();
@@ -113,8 +156,24 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
       wickDownColor: colors.candleNegative,
     });
 
+    // Moving Average series
+    const ma50Series = chart.addLineSeries({
+      color: colors.movingAverage50,
+      lineWidth: 1,
+      priceLineVisible: false,
+      title: "50 SMA",
+    });
+    const ma200Series = chart.addLineSeries({
+      color: colors.movingAverage200,
+      lineWidth: 1,
+      priceLineVisible: false,
+      title: "200 SMA",
+    });
+
     chartRef.current = chart;
     candlestickSeriesRef.current = candlestickSeries;
+    ma50SeriesRef.current = ma50Series;
+    ma200SeriesRef.current = ma200Series;
 
     return () => {
       removeExistingChart();
@@ -125,6 +184,8 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
     colors.crosshair,
     colors.candlePositive,
     colors.candleNegative,
+    colors.movingAverage50,
+    colors.movingAverage200,
   ]);
 
   useEffect(() => {
