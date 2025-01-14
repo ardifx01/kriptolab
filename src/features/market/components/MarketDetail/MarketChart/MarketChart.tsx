@@ -161,13 +161,11 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
       color: colors.movingAverage50,
       lineWidth: 1,
       priceLineVisible: false,
-      title: "50 SMA",
     });
     const ma200Series = chart.addLineSeries({
       color: colors.movingAverage200,
       lineWidth: 1,
       priceLineVisible: false,
-      title: "200 SMA",
     });
 
     chartRef.current = chart;
@@ -193,11 +191,33 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
   }, [updateChart, lastUpdateTime]);
 
   return (
-    <>
+    <div className="relative">
+      <div className="absolute left-4 top-4 z-10 flex items-center gap-4 bg-background/80 p-2 text-sm backdrop-blur">
+        <div className="flex items-center gap-2">
+          <span className="text-textPrimary">
+            {token.pairDetails.description}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div
+            className="h-0.5 w-4"
+            style={{ backgroundColor: colors.movingAverage50 }}
+          />
+          <span className="text-textSecondary">MA50</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div
+            className="h-0.5 w-4"
+            style={{ backgroundColor: colors.movingAverage200 }}
+          />
+          <span className="text-textSecondary">MA200</span>
+        </div>
+      </div>
+
       <div
         ref={chartContainerRef}
         id="chart-container"
-        className="relative h-[600px] w-full overflow-hidden rounded-xl border border-borderColor"
+        className="relative h-[450px] w-full overflow-hidden rounded-xl border border-borderColor md:h-[600px]"
       >
         {data.length === 0 && !isLoading && !error && (
           <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 transform text-textSecondary">
@@ -216,7 +236,7 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
           Failed to load chart data
         </div>
       )}
-    </>
+    </div>
   );
 };
 
