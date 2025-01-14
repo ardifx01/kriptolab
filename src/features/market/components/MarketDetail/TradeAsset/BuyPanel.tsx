@@ -24,6 +24,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     handleInputChange: handleTokenChange,
     handleInputBlur: handleTokenBlur,
   } = useNumberInput();
+
   // IDR INPUT
   const {
     value: idrValue,
@@ -42,6 +43,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     handleTokenChange(value);
     if (token.priceDetails) {
       const totalIdr = parseFloat(value) * parseFloat(token.priceDetails.last);
+
       handleIDRChange(totalIdr.toString());
     }
   };
@@ -51,11 +53,8 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
     handleIDRChange(value);
     if (token.priceDetails) {
       const price = parseFloat(token.priceDetails.last);
-      const feePercentage = token.pairDetails.trade_fee_percent;
-
-      // Calculate token amount considering fees
       const idrAmount = parseFloat(value);
-      const tokenAmount = calculateMaxAmount(idrAmount, price, feePercentage);
+      const tokenAmount = idrAmount / price;
 
       handleTokenChange(tokenAmount.toFixed(9).toString());
     }
@@ -65,20 +64,20 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   const handleQuickAdd = (percentage: number) => {
     if (token.priceDetails) {
       const price = parseFloat(token.priceDetails.last);
-
-      const maxPossibleAmount = calculateMaxAmount(
-        idrBalance,
-        price,
-        feePercentage,
-      );
-
       const requestedPercentage = percentage / 100;
-      const tokenAmount = maxPossibleAmount * requestedPercentage;
+      let totalIdr = idrBalance * requestedPercentage;
 
-      const totalIdr = tokenAmount * price;
+      if (percentage === 100) {
+        const maxPossibleAmount = calculateMaxAmount(
+          idrBalance,
+          price,
+          feePercentage,
+        );
 
-      handleTokenChange(tokenAmount.toString());
-      handleIDRChange(totalIdr.toString());
+        totalIdr = maxPossibleAmount * price;
+      }
+
+      handleIdrInput(totalIdr.toString());
     }
   };
 
@@ -192,15 +191,6 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
           </button>
         ))}
       </div>
-      {/* 
-      <Button
-        key={v}
-        onClick={() => handleQuickAdd(v)}
-        variant="secondary"
-        className="w-full px-0"
-      >
-        {v}%
-      </Button> */}
 
       <CustomNumberInput
         value={idrDisplay}
