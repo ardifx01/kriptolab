@@ -15,8 +15,13 @@ import { ITransaction, TransactionType } from "@/types";
 
 const TransactionHistory = () => {
   const { t } = useTranslation();
-  const { txBuyHistory, txDepositHistory, txSellHistory, txWithdrawalHistory } =
-    useTxHistory();
+  const {
+    txBuyHistory,
+    txDepositHistory,
+    txSellHistory,
+    txWithdrawalHistory,
+    txLoading,
+  } = useTxHistory();
   const { isMobile } = useWindowSize();
 
   const [selectedTxType, setSelectedTxType] = useState<TransactionType>(
@@ -102,7 +107,7 @@ const TransactionHistory = () => {
       },
     },
     {
-      key: "traded_amount",
+      key: selectedTxType === "SELL" ? "base_amount" : "traded_amount",
       label:
         selectedTxType === "DEPOSIT" || selectedTxType === "WITHDRAWAL"
           ? t("Amount")
@@ -120,7 +125,12 @@ const TransactionHistory = () => {
           >
             {rowData.type === "DEPOSIT" || rowData.type === "WITHDRAWAL"
               ? formatCurrencyValue(parseFloat(value || "0"), "IDR", true)
-              : value}
+              : value.toFixed(9)}{" "}
+            {rowData.type === "DEPOSIT" || rowData.type === "WITHDRAWAL"
+              ? ""
+              : rowData.type === "BUY"
+                ? rowData.traded_currency
+                : rowData.base_currency}
           </span>
         );
       },
@@ -198,7 +208,9 @@ const TransactionHistory = () => {
         />
         {currentTxData.length === 0 && (
           <div className="flex h-[200px] w-full items-center justify-center border-b border-borderColor">
-            <span className="mb-4">{t("No Data")}</span>
+            <span className="mb-4">
+              {t(txLoading ? "Loading..." : "No Data")}
+            </span>
           </div>
         )}
       </div>
