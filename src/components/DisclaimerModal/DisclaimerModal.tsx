@@ -22,7 +22,7 @@ const DisclaimerModal = () => {
   return (
     <Modal
       title={t("Disclaimer Notice")}
-      isOpen={firstLoad}
+      isOpen={firstLoad && firstLoad}
       onClose={checked ? closeFirstLoadModal : () => {}}
       className="max-w-[600px]"
       titleClassName="!justify-center"
