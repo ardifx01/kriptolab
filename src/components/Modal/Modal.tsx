@@ -15,6 +15,8 @@ interface ModalProps {
   children: ReactNode;
   title?: string;
   className?: string;
+  titleClassName?: string;
+  xButton?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -23,6 +25,8 @@ const Modal: React.FC<ModalProps> = ({
   children,
   title,
   className,
+  titleClassName,
+  xButton = true,
 }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -66,6 +70,7 @@ const Modal: React.FC<ModalProps> = ({
                   <div
                     className={classNames(
                       "flex h-[60px] items-center justify-between border-b-2 border-borderColor md:h-[72px]",
+                      titleClassName,
                     )}
                   >
                     <div className="flex items-center gap-x-1">
@@ -78,10 +83,12 @@ const Modal: React.FC<ModalProps> = ({
                       </span>
                     </div>
 
-                    <IoClose
-                      className="h-6 w-6 cursor-pointer text-gray-100 md:h-7 md:w-7"
-                      onClick={onClose}
-                    />
+                    {xButton && (
+                      <IoClose
+                        className="h-6 w-6 cursor-pointer text-gray-100 md:h-7 md:w-7"
+                        onClick={onClose}
+                      />
+                    )}
                   </div>
                 ) : (
                   <IoClose

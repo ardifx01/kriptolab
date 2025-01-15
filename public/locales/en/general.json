@@ -133,5 +133,9 @@
   "5M": "5M",
   "Logged out successfully": "Logged out successfully",
   "You are logged in using Google. Please edit your password in your Google account.": "You are logged in using Google. Please edit your password in your Google account.",
-  "Token Amount": "Token Amount"
+  "Token Amount": "Token Amount",
+  "Disclaimer Notice": "Disclaimer Notice",
+  "Disclaimer Notice Desc": "<span>KriptoLab</span> is a cryptocurrency trading simulation platform designed for educational purposes only. The data displayed is sourced from the <a>Indodax</a> API and is intended for practice in a risk-free environment. This platform does not provide financial advice or guarantee accuracy for real-world trading decisions. Use the information at your own discretion.",
+  "I understand and agree to the disclaimer above.": "I understand and agree to the disclaimer above.",
+  "Proceed": "Proceed"
 }
