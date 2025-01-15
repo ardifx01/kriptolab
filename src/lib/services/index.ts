@@ -1,3 +1,4 @@
+import { ISupport } from "@/components/Support/SupportModal";
 import {
   API_BUY,
   API_DEPOSIT,
@@ -9,6 +10,7 @@ import {
   API_REGISTER,
   API_RESET_PASSWORD,
   API_SELL,
+  API_SUPPORT,
   API_WITHDRAW,
 } from "@/constants";
 import {
@@ -95,4 +97,9 @@ export const getTokenDetailsService = async (ticker_id: string) => {
   return await UnauthenticatedAPI.get<ITokenDetails>(
     `${API_PAIRS}/${ticker_id}`,
   );
+};
+
+// SUPPORT ========================================
+export const supportService = async (data: ISupport) => {
+  return await AuthenticatedAPI.post(API_SUPPORT, data);
 };

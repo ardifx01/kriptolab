@@ -137,5 +137,11 @@
   "Disclaimer Notice": "Pemberitahuan Disclaimer",
   "Disclaimer Notice Desc": "<span>KriptoLab</span> adalah platform simulasi perdagangan cryptocurrency yang dirancang hanya untuk tujuan pendidikan. Data yang ditampilkan berasal dari API <a>Indodax</a> dan dimaksudkan untuk latihan dalam lingkungan tanpa risiko. Platform ini tidak memberikan saran keuangan atau menjamin akurasi untuk keputusan perdagangan di dunia nyata. Gunakan informasi ini atas kebijaksanaan Anda sendiri.",
   "I understand and agree to the disclaimer above.": "Saya mengerti dan menyetujui disclaimer di atas.",
-  "Proceed": "Lanjutkan"
+  "Proceed": "Lanjutkan",
+  "Support": "Bantuan",
+  "Message": "Pesan",
+  "Enter your message": "Masukkan pesan Anda",
+  "Message is required!": "Pesan diperlukan!",
+  "Send Request": "Kirim Permintaan",
+  "Support request sent successfully!": "Permintaan bantuan berhasil dikirim!"
 }

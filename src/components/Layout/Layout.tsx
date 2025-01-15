@@ -7,6 +7,8 @@ import classNames from "classnames";
 import useHandleScroll from "@/hooks/useHandleScroll";
 import useWindowSize from "@/hooks/useWindowSize";
 
+import SupportButton from "../Support/SupportButton";
+
 import Footer from "./Footer/Footer";
 import MobileNavbar from "./Navbar/MobileNavbar";
 import Navbar from "./Navbar/Navbar";
@@ -35,7 +37,7 @@ const Layout = ({
       <div className="h-full w-full">
         <div
           className={classNames(
-            "relative mx-auto grid min-h-screen",
+            "relative mx-auto grid min-h-screen w-full",
             // "auto" is for the main tag
             // add "max-content" to the "grid-rows" class below for each div if want to add more "static" elements
             "grid-rows-[max-content_auto_max-content]",
@@ -57,6 +59,7 @@ const Layout = ({
               {children}
             </main>
           </div>
+          <SupportButton />
           {!simple ? <Footer /> : <></>}
         </div>
       </div>

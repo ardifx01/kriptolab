@@ -5,6 +5,7 @@ import useModal from "@/hooks/useModal";
 
 import DepositModal from "../Deposit/Deposit";
 import DisclaimerModal from "../DisclaimerModal/DisclaimerModal";
+import SupportModal from "../Support/SupportModal";
 
 const ModalProvider = () => {
   const { depositModal, withdrawModal, closeDepositModal, closeWithdrawModal } =
@@ -15,6 +16,7 @@ const ModalProvider = () => {
       <DepositModal open={depositModal} onClose={closeDepositModal} />
       <WithdrawalModal open={withdrawModal} onClose={closeWithdrawModal} />
       <DisclaimerModal />
+      <SupportModal />
     </>
   );
 };

@@ -18,6 +18,7 @@ export const API_RESET_PASSWORD = `${API_URL}/auth/reset-password`;
 // USER
 export const API_PROFILE = `${API_URL}/user/profile`;
 export const API_EDIT_PASSWORD = `${API_URL}/user/password`;
+export const API_SUPPORT = `${API_URL}/user/support`;
 
 // INDODAX
 export const API_PAIRS = `${API_URL}/indodax/pairs`;
