@@ -6,14 +6,12 @@ interface GlobalSettingsState {
   valueSeparator: valueSeparatorType;
   jwttoken: string | null;
   watchlist: string[];
-  firstLoad: boolean;
 }
 
 const initialState: GlobalSettingsState = {
   valueSeparator: "comma",
   jwttoken: null,
   watchlist: [],
-  firstLoad: true,
 };
 
 export const globalSettingsSlice = createSlice({
@@ -29,13 +27,10 @@ export const globalSettingsSlice = createSlice({
     setWatchlist: (state, action: PayloadAction<string[]>) => {
       state.watchlist = action.payload;
     },
-    setFirstLoad: (state, action: PayloadAction<boolean>) => {
-      state.firstLoad = action.payload;
-    },
   },
 });
 
-export const { setSeparatorValue, setJwtToken, setWatchlist, setFirstLoad } =
+export const { setSeparatorValue, setJwtToken, setWatchlist } =
   globalSettingsSlice.actions;
 const globalSettingsReducer = globalSettingsSlice.reducer;
 

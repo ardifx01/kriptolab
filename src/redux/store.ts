@@ -5,6 +5,7 @@ import localforage from "localforage";
 import { persistReducer, persistStore } from "redux-persist";
 
 import cryptoTokenReducer from "./reducers/cryptoToken";
+import firstLoadReducer from "./reducers/firstLoad";
 import globalSettingsReducer from "./reducers/globalSettingsSlice";
 import modalReducer from "./reducers/modalSlice";
 import portfolioReducer from "./reducers/portfolioSlice";
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   portfolio: portfolioReducer,
   user: userReducer,
   modal: modalReducer,
+  firstLoad: firstLoadReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
