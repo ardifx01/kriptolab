@@ -15,10 +15,6 @@ const DisclaimerModal = () => {
 
   const [checked, setChecked] = useState(false);
 
-  const toggleCheck = () => {
-    setChecked((prev) => !prev);
-  };
-
   return (
     <Modal
       title={t("Disclaimer Notice")}
@@ -47,13 +43,16 @@ const DisclaimerModal = () => {
           />
         </div>
         <div
-          onClick={toggleCheck}
+          onClick={(e) => {
+            e.preventDefault();
+            setChecked((prev) => !prev);
+          }}
           className={classNames(
             "flex cursor-pointer items-center gap-2 rounded-lg border p-4 text-start",
             "border-borderColor/60 bg-background/30 hover:text-secondaryAccent",
           )}
         >
-          <CheckboxCustom onCheck={toggleCheck} checked={checked} />
+          <CheckboxCustom onCheck={(c) => setChecked(!c)} checked={checked} />
           {t("I understand and agree to the disclaimer above.")}
         </div>
         <Button
