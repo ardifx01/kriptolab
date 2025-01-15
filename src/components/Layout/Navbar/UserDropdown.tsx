@@ -43,14 +43,14 @@ const UserDropdown = () => {
     {
       items: [
         {
-          label: t("Portfolio"),
-          to: "/portfolio",
-          icon: <WalletIcon className="size-5" />,
-        },
-        {
           label: t("Profile"),
           to: "/profile",
           icon: <CircleUserRoundIcon className="size-5" />,
+        },
+        {
+          label: t("Portfolio"),
+          to: "/portfolio",
+          icon: <WalletIcon className="size-5" />,
         },
         {
           label: t("Transactions"),
