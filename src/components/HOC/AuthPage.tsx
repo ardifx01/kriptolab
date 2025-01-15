@@ -19,14 +19,7 @@ const AuthPage: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      if (
-        router.pathname === "/auth/login" ||
-        router.pathname === "/auth/register"
-      ) {
-        router.push("/portfolio");
-      } else {
-        router.push("/");
-      }
+      router.push("/market");
     } else {
       setIsLoading(false);
     }
