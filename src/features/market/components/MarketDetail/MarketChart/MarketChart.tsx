@@ -144,7 +144,7 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
       },
       rightPriceScale: {
         visible: true,
-        borderColor: colors.text,
+        borderColor: "rgba(255,255,255,0.1)",
       },
     });
 
