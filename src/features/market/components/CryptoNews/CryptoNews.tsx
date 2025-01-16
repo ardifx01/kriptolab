@@ -12,7 +12,7 @@ import { useCustomSWR } from "@/hooks/useCustomSWR";
 import { formatDate } from "@/lib/helpers";
 import { INews } from "@/types";
 
-const CryptoNews = () => {
+const CryptoNews = ({ id }: { id?: string }) => {
   const { i18n, t } = useTranslation();
   const { data, isLoading } = useCustomSWR<INews[]>(
     API_NEWS,
@@ -24,6 +24,7 @@ const CryptoNews = () => {
 
   return (
     <div
+      id={id}
       className={classNames(
         "flex w-full flex-col rounded-xl border border-borderColor bg-cardBackground/40 p-4 py-[19px] lg:max-h-[416px] lg:p-5",
         "rounded-t-none border-t-0 xl:rounded-t-xl xl:border-t",

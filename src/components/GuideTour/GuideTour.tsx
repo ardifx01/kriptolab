@@ -28,6 +28,7 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
       overlayColor: "rgba(11, 13, 20, 0.8)",
       primaryColor: "#6A60E8",
       textColor: "#fffffff2",
+      spotlightShadow: "0 0 15px rgba(106, 96, 232, 0.5)",
       width: 400,
       zIndex: 1000,
     },
@@ -43,12 +44,15 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
     },
     tooltipTitle: {
       color: "#fffffff2",
-      fontSize: "16px",
+      fontSize: "20px",
       fontWeight: "bold",
+      textAlign: "center",
     },
     tooltipContent: {
-      color: "#b5b7da",
-      fontSize: "14px",
+      color: "#fffffff2",
+      fontSize: "17px",
+      fontWeight: "semibold",
+      textAlign: "center",
     },
     buttonBack: {
       color: "#b5b7da",
@@ -68,8 +72,9 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
       backgroundColor: "#6A60E8",
       border: "2px solid #6A60E8",
       borderRadius: "50%",
-      width: "20px",
-      height: "20px",
+      width: "24px",
+      height: "24px",
+      animation: "pulse 1.5s infinite",
     },
     spotlight: {
       borderRadius: 12,
@@ -88,6 +93,9 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
       styles={joyrideStyles}
       callback={callback}
       locale={locale}
+      beaconComponent={(props) => (
+        <div {...props} className="react-joyride__beacon" />
+      )}
     />
   );
 };

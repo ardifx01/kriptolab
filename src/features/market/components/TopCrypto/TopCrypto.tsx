@@ -17,11 +17,13 @@ export interface TopCryptoProps {
     priceDetails?: ITokenPrice;
   }[];
   title: string;
+  id?: string;
 }
 
-const TopCrypto = ({ tokens, title }: TopCryptoProps) => {
+const TopCrypto = ({ tokens, title, id }: TopCryptoProps) => {
   return (
     <div
+      id={id}
       className={classNames(
         "w-full rounded-xl border border-borderColor bg-cardBackground/40 py-2 font-sora",
         "rounded-t-none border-t-0 lg:max-h-[416px] xl:rounded-t-xl xl:border-t xl:py-5",

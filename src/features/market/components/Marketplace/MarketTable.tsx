@@ -182,7 +182,10 @@ const MarketTable = ({ tokenList, isLoading, className }: MarketTableProps) => {
 
   return (
     <div className={className}>
-      <div className="overflow-hidden rounded-xl rounded-t-none border border-t-0 border-borderColor lg:rounded-t-xl lg:border-t">
+      <div
+        id="marketplace"
+        className="overflow-hidden rounded-xl rounded-t-none border border-t-0 border-borderColor lg:rounded-t-xl lg:border-t"
+      >
         <CustomTable
           columns={marketColumns}
           data={tableData ?? []}

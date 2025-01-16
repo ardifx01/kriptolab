@@ -45,21 +45,23 @@ const Marketplace = () => {
         <div
           className={classNames("flex w-full items-center gap-3 font-inter")}
         >
-          {marketData.map((menu) => (
-            <div
-              key={menu.title}
-              onClick={() => setSelectedMenu(menu.title)}
-              className={classNames(
-                "flex h-10 cursor-pointer items-center justify-center rounded-lg border-2 px-4 transition-all",
-                selectedMenu === menu.title
-                  ? "border-transparent bg-primaryAccent hover:brightness-110"
-                  : "border-borderColor bg-cardBackground hover:brightness-125",
-              )}
-            >
-              {t(menu.title)}
-            </div>
-          ))}
           <SearchBar />
+          <div id="filter-crypto" className="flex items-center gap-3">
+            {marketData.map((menu) => (
+              <div
+                key={menu.title}
+                onClick={() => setSelectedMenu(menu.title)}
+                className={classNames(
+                  "flex h-10 cursor-pointer items-center justify-center rounded-lg border-2 px-4 transition-all",
+                  selectedMenu === menu.title
+                    ? "border-transparent bg-primaryAccent hover:brightness-110"
+                    : "border-borderColor bg-cardBackground hover:brightness-125",
+                )}
+              >
+                {t(menu.title)}
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

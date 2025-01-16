@@ -70,7 +70,7 @@ const TokenSearchBar = () => {
         <div ref={searchContainerRef} className="relative">
           <div
             className={classNames(
-              "flex h-10 w-[400px] items-center gap-2 border px-4 py-2 text-sm",
+              "flex h-10 w-[350px] items-center gap-2 border px-4 py-2 text-sm xl:w-[400px]",
               "border-borderColor font-sora text-textSecondary",
               !searchWidget && "rounded-3xl bg-borderColor/40",
               searchWidget && "rounded-t-[1.25rem] border-b-0 bg-background",
