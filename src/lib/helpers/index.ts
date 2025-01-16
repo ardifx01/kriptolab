@@ -111,3 +111,19 @@ export const formatVolume = (value: string) => {
   }
   return numValue.toFixed(2);
 };
+
+export const formatValue = (value: number) => {
+  if (value >= 1) {
+    // For large numbers, use no fractions
+    return value.toLocaleString("id-ID", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  } else {
+    // For small numbers, use up to 9 decimal places
+    return value.toLocaleString("id-ID", {
+      minimumFractionDigits: 2, // Minimum 2 decimal places for small numbers
+      maximumFractionDigits: 9, // Maximum 9 decimal places
+    });
+  }
+};
