@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 
+import classNames from "classnames";
+
 import Shimmer from "@/components/Loader/Shimmer";
 import OpenExternalLink from "@/components/OpenExternalLink/OpenExternalLink";
 import { API_NEWS, BACKEND_URL } from "@/constants";
@@ -21,8 +23,15 @@ const CryptoNews = () => {
   );
 
   return (
-    <div className="flex w-full flex-col rounded-xl border border-borderColor bg-cardBackground/40 p-4 lg:max-h-[416px] lg:p-5">
-      <h3 className="font-sora font-semibold lg:text-lg">{t("News")}</h3>
+    <div
+      className={classNames(
+        "flex w-full flex-col rounded-xl border border-borderColor bg-cardBackground/40 p-4 lg:max-h-[416px] lg:p-5",
+        "rounded-t-none border-t-0 xl:rounded-t-xl xl:border-t",
+      )}
+    >
+      <h3 className="hidden font-sora font-semibold lg:text-lg xl:block">
+        {t("News")}
+      </h3>
       <div className="flex h-full flex-col justify-between gap-4 pt-1 lg:gap-3">
         {data &&
           data.length > 0 &&

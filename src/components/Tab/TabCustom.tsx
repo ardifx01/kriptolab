@@ -57,7 +57,7 @@ const TabCustom = ({
     >
       <TabList
         className={classNames(
-          "text-h6 leading-h6 relative h-16 border-b-2 border-borderColor bg-cardBackground",
+          "text-h6 leading-h6 relative h-14 border-b-2 border-borderColor bg-cardBackground lg:h-16",
           className,
         )}
       >
@@ -66,7 +66,7 @@ const TabCustom = ({
             <Tab
               key={t}
               className={classNames(
-                "h-16 outline-none",
+                "h-14 text-sm outline-none md:text-base lg:h-16",
                 tabItemClassName,
                 t === tabs[usedIndex] ? activeTabItemClassName : "",
               )}

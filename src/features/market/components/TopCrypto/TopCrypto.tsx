@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -21,12 +20,17 @@ export interface TopCryptoProps {
 }
 
 const TopCrypto = ({ tokens, title }: TopCryptoProps) => {
-  const { t } = useTranslation();
-
   return (
-    <div className="w-full rounded-xl border border-borderColor bg-cardBackground/40 py-4 font-sora lg:max-h-[416px] lg:py-5">
-      <h3 className="px-4 font-semibold lg:px-6 lg:text-lg">{t(title)}</h3>
-      <div className="mt-1 flex flex-col">
+    <div
+      className={classNames(
+        "w-full rounded-xl border border-borderColor bg-cardBackground/40 py-2 font-sora",
+        "rounded-t-none border-t-0 lg:max-h-[416px] xl:rounded-t-xl xl:border-t xl:py-5",
+      )}
+    >
+      <h3 className="hidden px-4 font-semibold lg:px-6 lg:text-lg xl:block">
+        {title}
+      </h3>
+      <div className="flex flex-col lg:mt-1">
         {tokens.length > 0 &&
           tokens.map((token, index) => (
             <Link

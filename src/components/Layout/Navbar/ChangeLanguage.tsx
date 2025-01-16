@@ -35,7 +35,7 @@ const ChangeLanguage = () => {
   return (
     <Menu>
       <MenuButton>
-        <div className="flex items-center gap-2 md:w-[55px] lg:mr-1">
+        <div className="flex items-center gap-2">
           <Image
             src={localizations[currentLang].image}
             alt={localizations[currentLang].title}
@@ -45,7 +45,7 @@ const ChangeLanguage = () => {
             priority={true}
             title={localizations[currentLang].alias}
           />
-          <span className="hidden font-sora lg:block">
+          <span className="hidden font-sora md:block">
             {localizations[currentLang].alias.toUpperCase()}
           </span>
         </div>

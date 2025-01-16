@@ -26,7 +26,7 @@ const Button = ({
       onClick={!disabled ? onClick : undefined}
       disabled={disabled}
       className={classNames(
-        "flex h-10 items-center justify-center rounded-lg border px-5 text-sm font-medium md:h-12 md:text-base",
+        "flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-medium lg:h-12 lg:px-5 lg:text-base",
         {
           // Primary variant styles
           "border-transparent bg-primaryAccent text-white hover:brightness-125":
