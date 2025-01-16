@@ -25,9 +25,10 @@ import Pagination from "./Pagination";
 export interface MarketTableProps {
   tokenList: ITokenDetails[];
   isLoading: boolean;
+  className?: string;
 }
 
-const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
+const MarketTable = ({ tokenList, isLoading, className }: MarketTableProps) => {
   const router = useRouter();
   const { isMobile } = useWindowSize();
 
@@ -67,9 +68,9 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
       key: "assetName",
       label: t("Token Name"),
       width: isMobile ? 200 : 280,
-      headerClassName: "text-left p-3",
+      headerClassName: "text-left px-3",
       customRender: (val, rowData: any) => (
-        <div className="flex items-center gap-3 p-3">
+        <div className="flex items-center gap-3 px-3">
           <Image
             src={rowData.pairDetails.url_logo || ""}
             alt={rowData.pairDetails.id || "Crypto"}
@@ -101,8 +102,8 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
       label: t("Price"),
       width: 180,
       type: "number",
-      headerClassName: "text-right p-4",
-      className: "flex h-[60px] items-center justify-end p-4",
+      headerClassName: "text-right px-4",
+      className: "flex h-[60px] items-center justify-end px-4",
       customRender: (value, rowData: any) =>
         formatCurrencyValue(
           parseFloat(value || "0"),
@@ -115,8 +116,8 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
       label: t("24h Volume"),
       width: isMobile ? 180 : 200,
       type: "number",
-      headerClassName: "text-right p-4",
-      className: "text-right p-4",
+      headerClassName: "text-right px-4",
+      className: "text-right px-4",
       customRender: (value) => formatVolume(value),
     },
     {
@@ -124,8 +125,8 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
       label: t("24h Change"),
       width: isMobile ? 158 : 178,
       type: "number",
-      headerClassName: "text-right p-4",
-      className: "text-right p-4",
+      headerClassName: "text-right px-4",
+      className: "text-right px-4",
       customRender: (value) => (
         <span
           className={classNames(
@@ -141,8 +142,8 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
       label: t("7d Change"),
       width: isMobile ? 160 : 180,
       type: "number",
-      headerClassName: "text-right p-4 pr-6",
-      className: "text-right p-4 pr-6",
+      headerClassName: "text-right px-4 pr-6",
+      className: "text-right px-4 pr-6",
       customRender: (value) => (
         <span
           className={classNames(
@@ -180,14 +181,15 @@ const MarketTable = ({ tokenList, isLoading }: MarketTableProps) => {
   }));
 
   return (
-    <div>
-      <div className="rounded-xl border border-borderColor">
+    <div className={className}>
+      <div className="overflow-hidden rounded-xl rounded-t-none border border-t-0 border-borderColor lg:rounded-t-xl lg:border-t">
         <CustomTable
           columns={marketColumns}
           data={tableData ?? []}
           wrapperClassName="border-none !rounded-none max-w-[calc(100vw-2rem)] lg:max-w-[calc(100vw-34px)]"
           rowKey="pair"
-          trHeaderClassName="text-sm lg:text-base"
+          headerHeight={isMobile ? 50 : 64}
+          trHeaderClassName="text-sm bg-transparent lg:bg-cardBackground border-b border-borderColor lg:border-none lg:text-base"
           bodyClassName="text-sm lg:text-base"
           rowHeight={isMobile ? 60 : 64}
           onRowClick={(row) => router.push(`/market/${row.pair}`)}

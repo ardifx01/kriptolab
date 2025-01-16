@@ -74,7 +74,7 @@ const TabCustom = ({
                 width: `${100 / tabs?.length}%`,
               }}
             >
-              <div className="mb-0.5">{t}</div>
+              <div className="mb-[3px]">{t}</div>
             </Tab>
           );
         })}

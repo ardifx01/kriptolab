@@ -25,7 +25,7 @@ const CryptoNews = () => {
   return (
     <div
       className={classNames(
-        "flex w-full flex-col rounded-xl border border-borderColor bg-cardBackground/40 p-4 lg:max-h-[416px] lg:p-5",
+        "flex w-full flex-col rounded-xl border border-borderColor bg-cardBackground/40 p-4 py-[19px] lg:max-h-[416px] lg:p-5",
         "rounded-t-none border-t-0 xl:rounded-t-xl xl:border-t",
       )}
     >

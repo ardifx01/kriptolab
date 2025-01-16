@@ -26,6 +26,9 @@ const MarketPage = () => {
 
   return (
     <Layout title="Market">
+      <h2 className="mb-4 ml-0.5 w-full text-2xl font-medium sm:text-3xl lg:hidden">
+        {t("Explore Market")}
+      </h2>
       {!isTablet ? (
         <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
           <TopCrypto
@@ -36,7 +39,7 @@ const MarketPage = () => {
           <CryptoNews />
         </div>
       ) : (
-        <div>
+        <div className="hidden lg:block">
           <TabCustom
             className="overflow-hidden rounded-t-xl border border-b-0 border-borderColor"
             tabs={layers.map((v) => v.title)}
@@ -64,30 +67,3 @@ const MarketPage = () => {
 };
 
 export default MarketPage;
-
-// <div {...swipeHandlers} className="relative">
-//   {/* Current Layer Content */}
-//   <div className="transition-all duration-300 ease-in-out">
-//     {layers[layerIndex].component}
-//   </div>
-
-//   {/* Pagination Dots */}
-//   <div className="mt-5 flex items-center justify-center gap-x-[30px] md:hidden">
-//     {layers.map((_, id) => {
-//       const isActive = layerIndex === id;
-//       return (
-//         <div
-//           key={id}
-//           onClick={() => setLayerIndex(id)}
-//           className={classNames(
-//             "size-3 cursor-pointer rounded-full transition-colors",
-//             {
-//               "bg-primaryAccent": isActive,
-//               "bg-secondaryAccent": !isActive,
-//             },
-//           )}
-//         />
-//       );
-//     })}
-//   </div>
-// </div>

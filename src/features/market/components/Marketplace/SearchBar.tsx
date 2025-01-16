@@ -26,7 +26,7 @@ const SearchBar = () => {
     <div
       onClick={handleExpand}
       className={classNames(
-        "flex h-10 items-center rounded-lg border px-3 font-inter transition-all duration-300 lg:border-2",
+        "hidden h-10 items-center rounded-lg border px-3 font-inter transition-all duration-300 lg:flex lg:border-2",
         "cursor-text bg-cardBackground text-textSecondary",
         expand
           ? "w-44 border-primaryAccent lg:w-64"

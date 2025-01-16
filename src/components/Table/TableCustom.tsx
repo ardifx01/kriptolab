@@ -42,7 +42,7 @@ const CustomTable = <T extends Record<string, any>>({
             <thead>
               <tr
                 className={classNames(
-                  "font-medium text-gray-300",
+                  "bg-cardBackground font-medium text-gray-300",
                   trHeaderClassName,
                 )}
                 style={{ height: headerHeight }}
@@ -54,10 +54,7 @@ const CustomTable = <T extends Record<string, any>>({
                       label={label}
                       style={{ minWidth: width, fontWeight: 500 }}
                       {...rest}
-                      className={classNames(
-                        "bg-cardBackground first:rounded-tl-xl last:rounded-tr-xl",
-                        headerClassName,
-                      )}
+                      className={classNames(headerClassName)}
                     />
                   ),
                 )}
