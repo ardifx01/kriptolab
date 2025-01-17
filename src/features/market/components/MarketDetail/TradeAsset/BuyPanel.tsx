@@ -183,6 +183,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   return (
     <div className="grid w-full gap-y-4 px-4 py-5">
       <CustomNumberInput
+        id="input-token"
         value={tokenDisplay}
         onChange={(v) => handleTokenInput(v)}
         onBlur={handleTokenBlur}
@@ -190,7 +191,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
         className="p-3"
         suffix={token.pairDetails.traded_currency_unit}
       />
-      <div className="mb-1 flex w-full gap-3">
+      <div id="quick-add" className="mb-1 flex w-full gap-3">
         {quickAddPercentage.map((v) => (
           <button
             key={v}
@@ -207,6 +208,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       </div>
 
       <CustomNumberInput
+        id="input-idr"
         value={idrDisplay}
         onChange={(v) => handleIdrInput(v)}
         onBlur={handleIDRBlur}
@@ -215,11 +217,11 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
         suffix="IDR"
       />
 
-      <p className="text-start text-sm text-textSecondary">
+      <p id="balance" className="w-fit text-start text-sm text-textSecondary">
         {t("Balance")}: Rp.{idrBalance.toLocaleString()}
       </p>
 
-      {idrBalance < 10000 && isLoggedIn ? (
+      {idrBalance < 10000 && isLoggedIn && (
         <Button
           className="w-full lg:h-12"
           onClick={() => {
@@ -230,7 +232,9 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
         >
           Deposit
         </Button>
-      ) : (
+      )}
+
+      {!isLoggedIn && (
         <Link href="/auth/login">
           <Button className="w-full lg:h-12">Deposit</Button>
         </Link>

@@ -73,7 +73,7 @@ const MarketDetailTable = ({ token }: Props) => {
   }, [errorTxHistory, isLoggedIn, mytxhistory]);
 
   return (
-    <div>
+    <div id="market-table">
       {isMobile && (
         <>
           <Menu>

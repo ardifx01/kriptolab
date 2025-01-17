@@ -1,7 +1,7 @@
-export const scrollToTop = () => {
+export const scrollToTop = (offset: number = 300) => {
   setTimeout(function () {
     window.scrollTo({
-      top: 300,
+      top: offset,
       left: 0,
       behavior: "smooth",
     });

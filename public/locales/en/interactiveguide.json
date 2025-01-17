@@ -1,18 +1,31 @@
 {
   "marketGuide": {
-    "welcome": "Welcome to the Market page! Let's get started.",
-    "trending": "Discover the top 5 trending coins.",
-    "gainers": "Explore the top 5 gainers in the market.",
-    "news": "Stay updated with the latest crypto news.",
-    "marketplace": "You can see the list of available tokens and select one to start trading.",
-    "searchCrypto": "Quickly search for tokens by name or symbol.",
-    "filterCrypto": "Filter tokens: Trending, Gainers, Losers, Watchlist.",
-    "tokenStar": "Click the star icon to add tokens to your watchlist.",
-    "allSet": "You're all set! Start exploring now.",
-    "filterTrending": "Filter by the most popular coins trending right now.",
-    "filterGainers": "Filter tokens with the highest price increases.",
-    "filterLosers": "Filter tokens with the largest price drops.",
-    "watchlist": "View your watchlisted tokens here.",
-    "tokenSearch": "Click the search icon to search for tokens."
+    "welcome": "Welcome to the Market page! Let's get started",
+    "trending": "Discover the top 5 trending coins",
+    "gainers": "Explore the top 5 gainers in the market",
+    "news": "Stay updated with the latest crypto news",
+    "marketplace": "You can see the list of available tokens and select one to start trading",
+    "searchCrypto": "Quickly search for tokens by name or symbol",
+    "filterCrypto": "Filter tokens: Trending, Gainers, Losers, Watchlist",
+    "tokenStar": "Click the star icon to add tokens to your watchlist",
+    "allSet": "You're all set! Start exploring now",
+    "filterTrending": "Filter by the most popular coins trending right now",
+    "filterGainers": "Filter tokens with the highest price increases",
+    "filterLosers": "Filter tokens with the largest price drops",
+    "watchlist": "View your watchlisted tokens here",
+    "tokenSearch": "Click the search icon to search for tokens"
+  },
+  "tradingGuide": {
+    "welcome": "Welcome to the trading page! Let’s get started on your trading journey",
+    "marketInfo": "Here, you’ll find all the essential details about the token you’re viewing",
+    "tradeAsset": "This is your trading hub! Use this section to buy or sell the token seamlessly",
+    "inputToken": "Enter the amount of tokens you’d like to purchase",
+    "inputIDR": "Enter IDR amount. The system will calculate the corresponding token amount for you",
+    "quickAdd": "Quickly add percentage of balance for fast trades",
+    "balance": "Check your available balance here",
+    "chartContainer": "Explore the token’s price movements with this interactive chart. Analyze trends to make informed decisions",
+    "marketLegend": "Legend displays Pair name, MA50, MA200 for trend analysis",
+    "marketTable": "Review the trading history from Indodax and your personal trades here",
+    "allSet": "You’re all set! Dive in and start trading with confidence. Happy trading! 🚀"
   }
 }

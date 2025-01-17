@@ -62,6 +62,7 @@ const MarketDetailInfo = ({ token }: Props) => {
 
   return (
     <div
+      id="market-info"
       className={classNames(
         "w-full overflow-hidden rounded-xl shadow-lg transition-all hover:shadow-xl",
         "border border-borderColor bg-gradient-to-br from-cardBackground to-cardBackground/40",

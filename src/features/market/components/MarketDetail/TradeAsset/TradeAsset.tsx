@@ -26,7 +26,10 @@ const TradeAsset = ({ token }: Props) => {
   if (!token) return <>Loading..</>;
 
   return (
-    <div className="min-h-[300px] w-full rounded-xl border border-borderColor">
+    <div
+      id="trade-asset"
+      className="min-h-[300px] w-full rounded-xl border border-borderColor"
+    >
       <TabCustom
         tabs={TRADE_TABS.map((v) => t(v.label))}
         onChange={(i) => setTradeTabs(TRADE_TABS[i].value)}

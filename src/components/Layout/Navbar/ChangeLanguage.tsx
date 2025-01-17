@@ -39,7 +39,7 @@ const ChangeLanguage = () => {
           <Image
             src={localizations[currentLang].image}
             alt={localizations[currentLang].title}
-            className="h-5 w-5 cursor-pointer lg:h-6 lg:w-6"
+            className="h-6 w-6 cursor-pointer"
             width={32}
             height={32}
             priority={true}

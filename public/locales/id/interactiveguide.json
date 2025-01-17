@@ -1,18 +1,31 @@
 {
   "marketGuide": {
-    "welcome": "Selamat datang di halaman Market! Mari kita mulai.",
-    "trending": "Temukan 5 koin paling populer saat ini.",
-    "gainers": "Jelajahi 5 koin dengan kenaikan harga tertinggi.",
-    "news": "Dapatkan update terbaru seputar berita crypto.",
-    "marketplace": "Anda dapat melihat daftar token yang tersedia dan memilih satu untuk mulai trading.",
-    "searchCrypto": "Cari token dengan cepat berdasarkan nama atau simbol.",
-    "filterCrypto": "Filter token: Trending, Gainers, Losers, Watchlist.",
-    "tokenStar": "Klik ikon bintang untuk menambahkan token ke watchlist Anda.",
-    "allSet": "Anda siap! Mulai jelajahi sekarang.",
-    "filterTrending": "Filter berdasarkan koin paling populer saat ini.",
-    "filterGainers": "Filter token dengan kenaikan harga tertinggi.",
-    "filterLosers": "Filter token dengan penurunan harga terbesar.",
-    "watchlist": "Lihat token yang ada di watchlist Anda di sini.",
-    "tokenSearch": "Klik ikon pencarian untuk mencari token."
+    "welcome": "Selamat datang di halaman Market! Mari kita mulai",
+    "trending": "Temukan 5 koin paling populer saat ini",
+    "gainers": "Jelajahi 5 koin dengan kenaikan harga tertinggi",
+    "news": "Dapatkan update terbaru seputar berita crypto",
+    "marketplace": "Anda dapat melihat daftar token yang tersedia dan memilih satu untuk mulai trading",
+    "searchCrypto": "Cari token dengan cepat berdasarkan nama atau simbol",
+    "filterCrypto": "Filter token: Trending, Gainers, Losers, Watchlist",
+    "tokenStar": "Klik ikon bintang untuk menambahkan token ke watchlist Anda",
+    "allSet": "Anda siap! Mulai jelajahi sekarang",
+    "filterTrending": "Filter berdasarkan koin paling populer saat ini",
+    "filterGainers": "Filter token dengan kenaikan harga tertinggi",
+    "filterLosers": "Filter token dengan penurunan harga terbesar",
+    "watchlist": "Lihat token yang ada di watchlist Anda di sini",
+    "tokenSearch": "Klik ikon pencarian untuk mencari token"
+  },
+  "tradingGuide": {
+    "welcome": "Selamat datang di halaman trading! Mari mulai perjalanan trading Anda",
+    "marketInfo": "Di sini, Anda akan menemukan semua detail penting tentang token yang Anda lihat",
+    "tradeAsset": "Ini adalah pusat trading Anda! Gunakan bagian ini untuk membeli atau menjual token dengan lancar",
+    "inputToken": "Masukkan jumlah token yang ingin Anda beli",
+    "inputIDR": "Masukkan jumlah IDR. Sistem akan menghitung jumlah token secara otomatis untuk Anda",
+    "quickAdd": "Tambahkan persentase saldo dengan cepat untuk trading cepat",
+    "balance": "Periksa saldo yang tersedia di sini",
+    "chartContainer": "Jelajahi pergerakan harga token dengan grafik interaktif ini. Analisis tren untuk membuat keputusan yang tepat",
+    "marketLegend": "Legenda menampilkan Nama Pasangan, MA50, MA200 untuk analisis tren",
+    "marketTable": "Tinjau riwayat trading dari Indodax dan trading pribadi Anda di sini",
+    "allSet": "Anda siap! Mulailah trading dengan percaya diri. Selamat trading! 🚀"
   }
 }

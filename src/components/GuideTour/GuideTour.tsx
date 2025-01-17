@@ -23,9 +23,9 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
 
   const joyrideStyles: Partial<Styles> = {
     options: {
-      arrowColor: "#12141e",
+      arrowColor: "#1f2236",
       backgroundColor: "#12141e",
-      overlayColor: "rgba(11, 13, 20, 0.8)",
+      overlayColor: "rgba(11, 13, 20, 0.9)",
       primaryColor: "#6A60E8",
       textColor: "#fffffff2",
       spotlightShadow: "0 0 15px rgba(106, 96, 232, 0.5)",
@@ -38,9 +38,10 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
       color: "#fffffff2",
       fontSize: "14px",
       padding: "16px",
+      border: "2px solid #1f2236",
     },
     tooltipContainer: {
-      textAlign: "left" as const,
+      textAlign: "left",
     },
     tooltipTitle: {
       color: "#fffffff2",
@@ -50,8 +51,10 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
     },
     tooltipContent: {
       color: "#fffffff2",
-      fontSize: "17px",
-      fontWeight: "semibold",
+      fontSize: "16px",
+      padding: "12px",
+      marginTop: "12px",
+      fontWeight: "normal",
       textAlign: "center",
     },
     buttonBack: {
@@ -63,6 +66,7 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
       color: "#fffffff2",
       fontSize: "14px",
       borderRadius: 4,
+      outline: "none",
     },
     buttonSkip: {
       color: "#fc4a71",

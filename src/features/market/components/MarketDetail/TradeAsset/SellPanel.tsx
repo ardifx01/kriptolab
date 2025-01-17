@@ -143,6 +143,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
   return (
     <div className="grid gap-y-4 px-4 py-5">
       <CustomNumberInput
+        id={"input-token"}
         value={tokenDisplay}
         onChange={(v) => handleTokenInput(v)}
         onBlur={handleTokenBlur}
@@ -150,7 +151,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
         className="p-3"
         suffix={tokenSymbol}
       />
-      <div className="mb-1 flex gap-3">
+      <div id="quick-add" className="mb-1 flex gap-3">
         {quickAddPercentage.map((v) => (
           <button
             key={v}
@@ -167,6 +168,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       </div>
 
       <CustomNumberInput
+        id={"input-idr"}
         value={idrDisplay}
         onChange={(v) => handleIdrInput(v)}
         onBlur={handleIDRBlur}
@@ -175,7 +177,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
         suffix="IDR"
       />
 
-      <p className="text-start text-sm text-textSecondary">
+      <p id="balance" className="text-start text-sm text-textSecondary">
         {t("Balance")}: {assetBalance.toLocaleString()} {tokenSymbol}
       </p>
 

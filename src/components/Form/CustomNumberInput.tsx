@@ -12,6 +12,7 @@ interface CustomNumberInputProps {
   onChange: (value: string) => void;
   onBlur?: () => void;
   suffix?: string;
+  id?: string;
 }
 
 const CustomNumberInput: React.FC<CustomNumberInputProps> = ({
@@ -23,12 +24,14 @@ const CustomNumberInput: React.FC<CustomNumberInputProps> = ({
   onChange,
   onBlur,
   suffix,
+  id,
 }) => {
   return (
     <div className="flex flex-col">
       {label && <label className="mb-2 block text-start">{label}</label>}
       <div className="relative w-full text-sm text-textSecondary lg:text-base">
         <input
+          id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onBlur={onBlur}
