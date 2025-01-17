@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import Link from "next/link";
+
 import classNames from "classnames";
 
 import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
 import { showToast } from "@/components/Toast/CustomToast";
+import useAuth from "@/features/auth/hooks/useAuth";
+import useModal from "@/hooks/useModal";
 import useNumberInput from "@/hooks/useNumberInput";
 import usePortfolio from "@/hooks/usePortfolio";
 import { buyService } from "@/lib/services";
@@ -16,6 +20,8 @@ import ConfirmationModal from "./ConfirmationModal";
 const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   const { t } = useTranslation();
   const { idrBalance, refreshBalance } = usePortfolio();
+  const { openDepositModal } = useModal();
+  const { isLoggedIn } = useAuth();
 
   // TOKEN INPUT
   const {
@@ -213,13 +219,32 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
         {t("Balance")}: Rp.{idrBalance.toLocaleString()}
       </p>
 
-      <Button
-        disabled={buttonState.disabled}
-        className="lg:h-12"
-        onClick={() => setOpenConfirmation(true)}
-      >
-        {buttonState.text}
-      </Button>
+      {idrBalance < 10000 && isLoggedIn ? (
+        <Button
+          className="w-full lg:h-12"
+          onClick={() => {
+            if (idrBalance < 10000) {
+              openDepositModal();
+            }
+          }}
+        >
+          Deposit
+        </Button>
+      ) : (
+        <Link href="/auth/login">
+          <Button className="w-full lg:h-12">Deposit</Button>
+        </Link>
+      )}
+
+      {idrBalance >= 10000 && isLoggedIn && (
+        <Button
+          disabled={buttonState.disabled}
+          className="w-full lg:h-12"
+          onClick={() => setOpenConfirmation(true)}
+        >
+          {buttonState.text}
+        </Button>
+      )}
 
       <ConfirmationModal
         isOpen={openConfirmation}
