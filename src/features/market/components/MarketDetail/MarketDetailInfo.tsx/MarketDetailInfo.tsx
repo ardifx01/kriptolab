@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { FaDollarSign } from "react-icons/fa6";
+import { GoStar, GoStarFill } from "react-icons/go";
 import { IoTrendingDown, IoTrendingUp } from "react-icons/io5";
 import { LuBarChart3 } from "react-icons/lu";
 
@@ -8,6 +9,7 @@ import Image from "next/image";
 
 import classNames from "classnames";
 
+import useWatchlist from "@/features/market/hooks/useWatchlist";
 import { calculatePercentageChange, formatVolume } from "@/lib/helpers";
 import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
 import { ITokenDetails } from "@/types";
@@ -18,12 +20,14 @@ interface Props {
 
 const MarketDetailInfo = ({ token }: Props) => {
   const { t } = useTranslation();
+  const { updateWatchlist, watchlist } = useWatchlist();
 
   const tokenPair = token?.pairDetails;
   const tokenPrice = token?.priceDetails;
   const currentPrice = parseFloat(tokenPrice?.last || "0");
   const prevPrice = parseFloat(tokenPrice?.price_24h || "0");
   const priceChange = calculatePercentageChange(currentPrice, prevPrice);
+  const isWatchlisted = watchlist.includes(tokenPair?.ticker_id ?? "");
 
   const InfoboxData = [
     {
@@ -63,32 +67,44 @@ const MarketDetailInfo = ({ token }: Props) => {
         "border border-borderColor bg-gradient-to-br from-cardBackground to-cardBackground/40",
       )}
     >
-      <div
-        className={classNames(
-          "flex h-16 items-center gap-3 rounded-t-xl border-b-2 p-4 backdrop-blur-sm",
-          "border-borderColor bg-cardBackground/80",
-        )}
-      >
-        <div className="relative h-9 w-9 overflow-hidden rounded-full">
-          <Image
-            src={tokenPair?.url_logo || ""}
-            alt={tokenPrice?.name || "Crypto"}
-            className={classNames(
-              "h-full w-full object-cover",
-              (tokenPair?.traded_currency === "omg" ||
-                tokenPair?.traded_currency === "btt") &&
-                "bg-white",
-            )}
-            width={36}
-            height={36}
-            loading="lazy"
-          />
+      <div className="flex items-center justify-between gap-3 border-b-2 border-borderColor">
+        <div
+          className={classNames(
+            "flex h-16 items-center gap-3 p-4 backdrop-blur-sm",
+          )}
+        >
+          <div className="relative h-9 w-9 overflow-hidden rounded-full">
+            <Image
+              src={tokenPair?.url_logo || ""}
+              alt={tokenPrice?.name || "Crypto"}
+              className={classNames(
+                "h-full w-full object-cover",
+                (tokenPair?.traded_currency === "omg" ||
+                  tokenPair?.traded_currency === "btt") &&
+                  "bg-white",
+              )}
+              width={36}
+              height={36}
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-sora font-medium">{tokenPrice?.name}</span>
+            <span className="text-xs text-textSecondary">
+              {tokenPair?.description}
+            </span>
+          </div>
         </div>
-        <div className="flex flex-col">
-          <span className="font-sora font-medium">{tokenPrice?.name}</span>
-          <span className="text-xs text-textSecondary">
-            {tokenPair?.description}
-          </span>
+
+        <div
+          className="cursor-pointer pr-4"
+          onClick={() => updateWatchlist(tokenPair?.ticker_id ?? "")}
+        >
+          {isWatchlisted ? (
+            <GoStarFill className="size-5 text-warning" />
+          ) : (
+            <GoStar className="size-5 hover:text-warning" />
+          )}
         </div>
       </div>
 

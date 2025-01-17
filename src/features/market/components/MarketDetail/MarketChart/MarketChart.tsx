@@ -336,9 +336,9 @@ const MarketDetailChart: React.FC<MarketDetailChartProps> = ({ token }) => {
         </div>
       )}
 
-      <div className="absolute left-4 top-4 z-10 flex items-center gap-4 rounded-lg border border-borderColor bg-background/80 p-2 text-sm backdrop-blur">
+      <div className="absolute left-4 top-4 z-10 flex items-center gap-4 rounded-lg border border-borderColor bg-background/80 p-2 text-xs backdrop-blur sm:text-sm">
         <div className="flex items-center gap-2">
-          <span className="text-textPrimary">
+          <span className="font-medium text-textPrimary">
             {token.pairDetails.description}
           </span>
         </div>
