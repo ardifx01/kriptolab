@@ -126,16 +126,23 @@ const PortfolioAssets = () => {
         />
       </div>
 
-      <CustomTable
-        columns={assetColumns}
-        data={filteredData || []}
-        rowKey={"name"}
-        wrapperClassName="max-w-[calc(100vw-2rem)] md:max-w-none"
-        className="w-full"
-        onRowClick={(row) =>
-          router.push(`/market/${row.symbol.toLowerCase()}_idr`)
-        }
-      />
+      <div className="overflow-hidden rounded-lg border border-b-0 border-borderColor">
+        <CustomTable
+          columns={assetColumns}
+          data={filteredData || []}
+          rowKey={"name"}
+          wrapperClassName="border-b border-t-0 border-x-0 !rounded-none max-w-[calc(100vw-2rem)] md:max-w-none"
+          className="w-full"
+          onRowClick={(row) =>
+            router.push(`/market/${row.symbol.toLowerCase()}_idr`)
+          }
+        />
+        {filteredData.length === 0 && (
+          <div className="flex h-[200px] w-full items-center justify-center border-b border-borderColor">
+            <span className="mb-4">{t("No Token Data")}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
