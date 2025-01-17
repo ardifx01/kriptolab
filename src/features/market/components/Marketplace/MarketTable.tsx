@@ -44,11 +44,12 @@ const MarketTable = ({ tokenList, isLoading, className }: MarketTableProps) => {
       width: isMobile ? 40 : 50,
       customRender: (_, rowData) => (
         <div
+          id="token-star"
           onClick={(e) => {
             e.stopPropagation();
             updateWatchlist(rowData.pair);
           }}
-          className="flex items-center justify-center pl-3"
+          className="ml-3 flex items-center justify-center"
         >
           {rowData.isWatchlisted ? (
             <GoStarFill className="text-warning" />

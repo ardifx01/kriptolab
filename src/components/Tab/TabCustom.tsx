@@ -42,11 +42,11 @@ const TabCustom = ({
 }: TabCustomProps) => {
   const [index, setIndex] = useState(defaultTabIndex);
 
-  const usedIndex = currentIndex === undefined ? index : currentIndex;
+  const selectedIndex = currentIndex === undefined ? index : currentIndex;
 
   return (
     <TabGroup
-      selectedIndex={usedIndex}
+      selectedIndex={selectedIndex}
       defaultIndex={defaultTabIndex}
       onChange={(i) => {
         if (currentIndex === undefined) {
@@ -65,16 +65,17 @@ const TabCustom = ({
           return (
             <Tab
               key={t}
+              id={t}
               className={classNames(
                 "h-14 text-sm outline-none md:text-base lg:h-16",
                 tabItemClassName,
-                t === tabs[usedIndex] ? activeTabItemClassName : "",
+                t === tabs[selectedIndex] ? activeTabItemClassName : "",
               )}
               style={{
                 width: `${100 / tabs?.length}%`,
               }}
             >
-              <div className="mb-[3px]">{t}</div>
+              <div className="mb-[3px] capitalize">{t}</div>
             </Tab>
           );
         })}
@@ -84,7 +85,7 @@ const TabCustom = ({
           )}
           style={{
             width: `${100 / tabs?.length}%`,
-            left: `${usedIndex * (100 / tabs?.length)}%`,
+            left: `${selectedIndex * (100 / tabs?.length)}%`,
           }}
         />
       </TabList>

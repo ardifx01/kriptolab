@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Step } from "react-joyride";
+import { CallBackProps, Step } from "react-joyride";
 
 import { TabPanel } from "@headlessui/react";
 
@@ -11,76 +11,166 @@ import CryptoNews from "@/features/market/components/CryptoNews/CryptoNews";
 import Marketplace from "@/features/market/components/Marketplace/Marketplace";
 import TopCrypto from "@/features/market/components/TopCrypto/TopCrypto";
 import useTokenData from "@/features/market/hooks/useTokenData";
+import useInteractiveGuide from "@/hooks/useInteractiveGuide";
 import useWindowSize from "@/hooks/useWindowSize";
 
 const MarketPage = () => {
   const { trendingCrypto, topGainers } = useTokenData();
-  const { isTablet } = useWindowSize();
-  const { t } = useTranslation();
+  const { isMobile, isTablet, width } = useWindowSize();
+  const { t } = useTranslation("interactiveguide");
+  const { firstLoad, marketGuide, completeGuide } = useInteractiveGuide();
 
   const [tabIndex, setTabIndex] = useState(0);
 
   const tabs = [
     { title: "Trending", id: "tab-trending" },
     { title: "Gainers", id: "tab-gainers" },
-    { title: t("News"), id: "tab-news" },
+    { title: "News", id: "tab-news" },
   ];
 
   // DESKTOP STEPS
   const desktopSteps: Step[] = [
     {
       target: "body",
-      content: "Welcome to the Market page! Let's get started.",
+      content: t("marketGuide.welcome"),
       disableBeacon: true,
       placement: "center",
     },
     {
       target: "#trending",
-      content: "Discover the top 5 trending coins.",
+      content: t("marketGuide.trending"),
       disableScrolling: true,
       placement: "top",
     },
     {
       target: "#gainers",
-      content: "Explore the top 5 gainers in the market.",
+      content: t("marketGuide.gainers"),
       disableScrolling: true,
       placement: "top",
     },
     {
       target: "#news",
-      content: "Stay updated with the latest crypto news.",
+      content: t("marketGuide.news"),
       disableScrolling: true,
       placement: "top",
     },
     {
       target: "#marketplace",
-      content:
-        "You can see the list of available tokens and select one to start trading.",
+      content: t("marketGuide.marketplace"),
       placement: "top",
+      disableScrolling: true,
     },
     {
       target: "#search-crypto",
-      content: "Quickly search for tokens by name or symbol.",
+      content: t("marketGuide.searchCrypto"),
       disableScrolling: true,
       placement: "bottom",
     },
     {
       target: "#filter-crypto",
-      content: "Filter tokens: Trending, Gainers, Losers, Watchlist.",
+      content: t("marketGuide.filterCrypto"),
       disableScrolling: true,
       placement: "bottom",
     },
     {
+      target: "#token-star",
+      content: t("marketGuide.tokenStar"),
+      placement: "top",
+      disableScrolling: true,
+    },
+    {
       target: "body",
-      content: "You're all set! Start exploring now.",
+      content: t("marketGuide.allSet"),
       placement: "center",
       disableBeacon: true,
     },
   ];
 
+  // MOBILE STEPS
+  const mobileSteps: Step[] = [
+    {
+      target: "body",
+      content: t("marketGuide.welcome"),
+      disableBeacon: true,
+      placement: "center",
+    },
+    {
+      target: "#marketplace",
+      content: t("marketGuide.marketplace"),
+      placement: "auto",
+    },
+    {
+      target: "#Trending",
+      content: t("marketGuide.filterTrending"),
+      disableScrolling: true,
+      placement: "auto",
+    },
+    {
+      target: "#Gainers",
+      content: t("marketGuide.filterGainers"),
+      disableScrolling: true,
+      placement: "auto",
+    },
+    {
+      target: "#Losers",
+      content: t("marketGuide.filterLosers"),
+      disableScrolling: true,
+      placement: "auto",
+    },
+    {
+      target: "#token-star",
+      content: t("marketGuide.tokenStar"),
+      placement: "auto",
+      disableScrolling: true,
+    },
+    {
+      target: "#Watchlist",
+      content: t("marketGuide.watchlist"),
+      placement: "auto",
+      disableScrolling: true,
+    },
+    {
+      target: "#token-search",
+      content: t("marketGuide.tokenSearch"),
+      placement: "auto",
+      disableScrolling: true,
+    },
+    {
+      target: "body",
+      content: t("marketGuide.allSet"),
+      placement: "center",
+      disableBeacon: true,
+    },
+  ];
+
+  const callback = (data: CallBackProps) => {
+    if (width > 1024 && width < 1280) {
+      if (data.index === 1) {
+        setTabIndex(0);
+      } else if (data.index === 2) {
+        setTabIndex(1);
+      } else if (data.index === 3) {
+        setTabIndex(2);
+      }
+    }
+
+    if (data.action === "skip" || data.status === "finished") {
+      completeGuide("marketGuide", isMobile ? "mobile" : "desktop");
+    }
+  };
+
   return (
     <>
-      <GuideTour run={true} steps={desktopSteps} />
+      <GuideTour
+        run={
+          isMobile
+            ? marketGuide.mobile && !firstLoad
+            : !firstLoad && marketGuide.desktop
+        }
+        steps={isMobile ? mobileSteps : desktopSteps}
+        callback={callback}
+      />
+
       <Layout title="Market">
         <h2 className="mb-4 ml-0.5 w-full text-2xl font-medium sm:text-3xl lg:hidden">
           {t("Explore Market")}
@@ -103,7 +193,7 @@ const MarketPage = () => {
           <div className="hidden lg:block">
             <TabCustom
               className="overflow-hidden rounded-t-xl border border-b-0 border-borderColor"
-              tabs={tabs.map((v) => v.title)}
+              tabs={tabs.map((v) => v.title.toLowerCase())}
               onChange={(i) => setTabIndex(i)}
               currentIndex={tabIndex}
             >

@@ -113,8 +113,9 @@ const TokenSearchBar = () => {
       )}
 
       {isMobile && (
-        <Fragment>
+        <div>
           <LuSearch
+            id="token-search"
             className="h-6 w-6 text-textSecondary"
             onClick={() => setSearchDrawer(true)}
           />
@@ -148,7 +149,7 @@ const TokenSearchBar = () => {
               ))}
             </div>
           </Drawer>
-        </Fragment>
+        </div>
       )}
     </>
   );

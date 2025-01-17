@@ -23,6 +23,7 @@ const useInteractiveGuide = () => {
     transactionsGuide,
     profileGuide,
   } = useSelector((state: RootState) => state.interactiveGuide);
+  const { firstLoad } = useSelector((state: RootState) => state.firstLoad);
 
   const dispatch = useDispatch();
 
@@ -81,6 +82,7 @@ const useInteractiveGuide = () => {
   };
 
   return {
+    firstLoad,
     landingGuide,
     loginGuide,
     registerGuide,
