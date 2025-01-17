@@ -7,6 +7,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import cryptoTokenReducer from "./reducers/cryptoToken";
 import firstLoadReducer from "./reducers/firstLoad";
 import globalSettingsReducer from "./reducers/globalSettingsSlice";
+import interactiveGuideReducer from "./reducers/interactiveGuide";
 import modalReducer from "./reducers/modalSlice";
 import portfolioReducer from "./reducers/portfolioSlice";
 import userReducer from "./reducers/userSlice";
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   modal: modalReducer,
   firstLoad: firstLoadReducer,
+  interactiveGuide: interactiveGuideReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

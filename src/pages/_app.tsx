@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -20,6 +21,7 @@ import "@/styles/globals.scss";
 
 function App({ Component, pageProps }: AppProps) {
   const { checkIfJWTTokenExpired } = useAuth();
+  const { ready } = useTranslation();
 
   // Sync language with local storage
   const locale =
@@ -32,6 +34,8 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     checkIfJWTTokenExpired();
   }, [checkIfJWTTokenExpired]);
+
+  if (!ready) return null;
 
   return (
     <PersistGate loading={null} persistor={persistor}>

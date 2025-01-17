@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaCheck } from "react-icons/fa6";
-import { IoChevronDown } from "react-icons/io5";
 
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import classNames from "classnames";
 
+import TabCustom from "@/components/Tab/TabCustom";
 import useWindowSize from "@/hooks/useWindowSize";
 import { ITokenDetails, MarketMenuType } from "@/types";
 
@@ -39,68 +37,51 @@ const Marketplace = () => {
   const currentMarketData =
     marketData.find((item) => item.title === selectedMenu)?.data || [];
 
+  const currentIndex = marketData.findIndex((v) => v.title === selectedMenu);
+
   return (
-    <div className="mt-8 flex w-full flex-col gap-5">
-      <div className={classNames("flex w-full items-center gap-3 font-inter")}>
-        {/* DESKTOP */}
-        {!isMobile &&
-          marketData.map((menu) => (
-            <div
-              key={menu.title}
-              onClick={() => setSelectedMenu(menu.title)}
-              className={classNames(
-                "flex h-10 cursor-pointer items-center justify-center rounded-lg border-2 px-4 transition-all",
-                selectedMenu === menu.title
-                  ? "border-transparent bg-primaryAccent hover:brightness-110"
-                  : "border-borderColor bg-cardBackground hover:brightness-125",
-              )}
-            >
-              {t(menu.title)}
-            </div>
-          ))}
+    <div className="w-full lg:mt-8">
+      {!isMobile && (
+        <div
+          className={classNames("flex w-full items-center gap-3 font-inter")}
+        >
+          <SearchBar />
+          <div id="filter-crypto" className="flex items-center gap-3">
+            {marketData.map((menu) => (
+              <div
+                key={menu.title}
+                onClick={() => setSelectedMenu(menu.title)}
+                className={classNames(
+                  "flex h-10 cursor-pointer items-center justify-center rounded-lg border-2 px-4 transition-all",
+                  selectedMenu === menu.title
+                    ? "border-transparent bg-primaryAccent hover:brightness-110"
+                    : "border-borderColor bg-cardBackground hover:brightness-125",
+                )}
+              >
+                {t(menu.title)}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
-        {/* MOBILE */}
-        {isMobile && (
-          <Menu>
-            <MenuButton
-              className={classNames(
-                "flex h-10 items-center gap-1.5 rounded-lg border text-sm",
-                "border-borderColor bg-cardBackground px-4 lg:border-2 lg:px-5",
-              )}
-            >
-              {selectedMenu}
-              <IoChevronDown />
-            </MenuButton>
-            <MenuItems
-              anchor="bottom start"
-              transition
-              className={classNames(
-                "mt-2 flex min-w-[150px] flex-col gap-3 rounded-lg p-4",
-                "border border-borderColor bg-cardBackground text-sm",
-                "origin-top transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0",
-              )}
-            >
-              {marketData.map((menu) => (
-                <MenuItem
-                  key={menu.title}
-                  onClick={() => setSelectedMenu(menu.title)}
-                  as={"div"}
-                  className={"flex items-center justify-between gap-1"}
-                >
-                  {t(menu.title)}
-                  {selectedMenu === menu.title && <FaCheck />}
-                </MenuItem>
-              ))}
-            </MenuItems>
-          </Menu>
-        )}
-
-        <SearchBar />
-      </div>
+      {isMobile && (
+        <div>
+          <TabCustom
+            className="overflow-hidden rounded-t-xl border border-b-0 border-borderColor"
+            tabs={marketData.map((v) => v.title)}
+            onChange={(i) => setSelectedMenu(marketData[i].title)}
+            currentIndex={currentIndex}
+          >
+            <></>
+          </TabCustom>
+        </div>
+      )}
 
       <MarketTable
         tokenList={filteredTokens(currentMarketData, searchToken)}
         isLoading={isLoading}
+        className="lg:mt-5"
       />
     </div>
   );

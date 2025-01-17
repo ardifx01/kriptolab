@@ -64,7 +64,7 @@ const Navbar = ({}: NavbarProps) => {
                 {t("Login")}
               </Button>
             </Link>
-            <Link href={"/auth/register"} className="hidden xl:block">
+            <Link href={"/auth/register"} className="hidden lg:block">
               <Button variant="primary" className="min-w-[110px]">
                 {t("Register")}
               </Button>

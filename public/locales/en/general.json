@@ -143,5 +143,10 @@
   "Enter your message": "Enter your message",
   "Message is required!": "Message is required!",
   "Send Request": "Send Request",
-  "Support request sent successfully!": "Support request sent successfully!"
+  "Support request sent successfully!": "Support request sent successfully!",
+  "Finish": "Finish",
+  "Back": "Back",
+  "Close": "Close",
+  "Skip": "Skip",
+  "Explore Market": "Explore Market"
 }

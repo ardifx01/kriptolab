@@ -1,0 +1,18 @@
+{
+  "marketGuide": {
+    "welcome": "Welcome to the Market page! Let's get started.",
+    "trending": "Discover the top 5 trending coins.",
+    "gainers": "Explore the top 5 gainers in the market.",
+    "news": "Stay updated with the latest crypto news.",
+    "marketplace": "You can see the list of available tokens and select one to start trading.",
+    "searchCrypto": "Quickly search for tokens by name or symbol.",
+    "filterCrypto": "Filter tokens: Trending, Gainers, Losers, Watchlist.",
+    "tokenStar": "Click the star icon to add tokens to your watchlist.",
+    "allSet": "You're all set! Start exploring now.",
+    "filterTrending": "Filter by the most popular coins trending right now.",
+    "filterGainers": "Filter tokens with the highest price increases.",
+    "filterLosers": "Filter tokens with the largest price drops.",
+    "watchlist": "View your watchlisted tokens here.",
+    "tokenSearch": "Click the search icon to search for tokens."
+  }
+}

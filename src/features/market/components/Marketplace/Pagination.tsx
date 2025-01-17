@@ -48,7 +48,7 @@ const Pagination: React.FC<PaginationProps> = ({
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="mt-6 flex flex-wrap gap-2 md:justify-center md:gap-4">
+    <div className="mt-6 flex flex-wrap justify-center gap-2 md:gap-4">
       <Button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -59,7 +59,7 @@ const Pagination: React.FC<PaginationProps> = ({
         typeof page === "number" ? (
           <Button
             className={classNames(
-              "flex h-10 w-10 items-center justify-center sm:w-auto",
+              "flex items-center justify-center sm:w-auto",
               currentPage !== page && "bg-transparent",
             )}
             variant={currentPage === page ? "primary" : "secondary"}

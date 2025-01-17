@@ -143,5 +143,10 @@
   "Enter your message": "Masukkan pesan Anda",
   "Message is required!": "Pesan diperlukan!",
   "Send Request": "Kirim Permintaan",
-  "Support request sent successfully!": "Permintaan bantuan berhasil dikirim!"
+  "Support request sent successfully!": "Permintaan bantuan berhasil dikirim!",
+  "Finish": "Selesai",
+  "Back": "Kembali",
+  "Close": "Tutup",
+  "Skip": "Lewati",
+  "Explore Market": "Eksplor Market"
 }
