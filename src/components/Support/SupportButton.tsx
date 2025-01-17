@@ -14,7 +14,7 @@ const SupportButton = () => {
       className={classNames(
         "fixed bottom-3 right-3 flex items-center gap-[6px] rounded-lg border px-3 py-2 text-sm",
         "border-borderColor bg-cardBackground/80 transition-all duration-75 hover:bg-primaryAccent/80",
-        "md:bottom-5 md:right-5 md:px-4 md:text-base",
+        "z-30 md:bottom-5 md:right-5 md:px-4 md:text-base",
       )}
     >
       <span>Support</span>
