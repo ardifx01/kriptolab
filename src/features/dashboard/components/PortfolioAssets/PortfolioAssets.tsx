@@ -108,6 +108,7 @@ const PortfolioAssets = () => {
   return (
     <div className="space-y-4">
       <div
+        id="portfolio-search"
         className={classNames(
           "flex h-10 w-64 items-center rounded-lg border px-3 font-inter transition-all duration-300 lg:h-12 lg:w-96 lg:border-2",
           "cursor-text border-borderColor bg-cardBackground/60 text-textSecondary",
@@ -126,7 +127,10 @@ const PortfolioAssets = () => {
         />
       </div>
 
-      <div className="overflow-hidden rounded-lg border border-b-0 border-borderColor">
+      <div
+        id="asset-table"
+        className="overflow-hidden rounded-lg border border-b-0 border-borderColor"
+      >
         <CustomTable
           columns={assetColumns}
           data={filteredData || []}

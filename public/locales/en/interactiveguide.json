@@ -27,5 +27,17 @@
     "marketLegend": "Legend displays Pair name, MA50, MA200 for trend analysis",
     "marketTable": "Review the trading history from Indodax and your personal trades here",
     "allSet": "You’re all set! Dive in and start trading with confidence. Happy trading! 🚀"
+  },
+  "portfolioGuide": {
+    "welcome": "Welcome to your crypto trading simulation! Let’s get started with a quick tour",
+    "idrBalance": "This is your virtual IDR balance. Use it to practice trading with simulated funds",
+    "depositButton": "Practice depositing virtual funds here. Try different strategies!",
+    "withdrawButton": "Simulate withdrawing funds. Learn how to manage your virtual earnings",
+    "assetBalance": "This shows your total virtual assets. Track your portfolio’s performance",
+    "portoRangeFilter": "Filter your portfolio history by time range. Analyze your trading results",
+    "portfolioChart": "Your portfolio chart. Visualize your simulated trading progress",
+    "assetTable": "View all your virtual crypto holdings here. Manage and refine your strategy",
+    "portfolioSearch": "Search for specific crypto assets. Keep your portfolio organized",
+    "allSet": "You’re all set! Start practicing and mastering crypto trading in this simulation"
   }
 }

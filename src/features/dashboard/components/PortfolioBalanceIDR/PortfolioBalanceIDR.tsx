@@ -13,14 +13,22 @@ const PortfolioBalanceIDR = () => {
   return (
     <div className="max-w-xl rounded-lg border-2 border-borderColor bg-cardBackground p-4 md:p-5">
       <h3 className="text-lg md:text-xl">{t("Balance")}</h3>
-      <p className="mb-4 mt-2 text-2xl font-semibold md:text-3xl">
+      <p
+        id="idr-balance"
+        className="mb-4 mt-2 w-fit text-2xl font-semibold md:text-3xl"
+      >
         Rp {formattedBalance}
       </p>
       <div className="flex gap-5">
-        <Button className="w-[130px]" onClick={openDepositModal}>
+        <Button
+          id="deposit-button"
+          className="w-[130px]"
+          onClick={openDepositModal}
+        >
           Deposit
         </Button>
         <Button
+          id="withdraw-button"
           variant="secondary"
           className="w-[130px]"
           onClick={openWithdrawModal}

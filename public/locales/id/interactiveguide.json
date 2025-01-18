@@ -27,5 +27,17 @@
     "marketLegend": "Legenda menampilkan Nama Pasangan, MA50, MA200 untuk analisis tren",
     "marketTable": "Tinjau riwayat trading dari Indodax dan trading pribadi Anda di sini",
     "allSet": "Anda siap! Mulailah trading dengan percaya diri. Selamat trading! 🚀"
+  },
+  "portfolioGuide": {
+    "welcome": "Selamat datang di simulasi trading crypto Anda! Mari mulai dengan tur singkat",
+    "idrBalance": "Ini adalah saldo IDR virtual Anda. Gunakan untuk berlatih trading dengan dana simulasi",
+    "depositButton": "Berlatih menyetor dana virtual di sini. Coba strategi yang berbeda!",
+    "withdrawButton": "Simulasikan penarikan dana. Pelajari cara mengelola penghasilan virtual Anda",
+    "assetBalance": "Ini menunjukkan total aset virtual Anda. Pantau kinerja portofolio Anda",
+    "portoRangeFilter": "Filter riwayat portofolio berdasarkan rentang waktu. Analisis hasil trading Anda",
+    "portfolioChart": "Grafik portofolio Anda. Visualisasikan kemajuan trading simulasi Anda",
+    "assetTable": "Lihat semua aset crypto virtual Anda di sini. Kelola dan sempurnakan strategi Anda",
+    "portfolioSearch": "Cari aset crypto tertentu. Jaga portofolio Anda tetap teratur",
+    "allSet": "Anda siap! Mulailah berlatih dan kuasai trading crypto dalam simulasi ini"
   }
 }

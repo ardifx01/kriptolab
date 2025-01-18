@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: (() => void) | ((e: any) => void);
   variant?: "primary" | "secondary";
   type?: "button" | "submit" | "reset";
+  id?: string;
 }
 
 const Button = ({
@@ -19,9 +20,11 @@ const Button = ({
   disabled = false,
   variant = "primary",
   type = "button",
+  id,
 }: ButtonProps) => {
   return (
     <button
+      id={id}
       type={type}
       onClick={!disabled ? onClick : undefined}
       disabled={disabled}

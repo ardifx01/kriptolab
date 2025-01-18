@@ -22,7 +22,10 @@ const PortfolioChart = () => {
   return (
     <section className="rounded-lg border-2 border-borderColor bg-cardBackground p-4 md:p-5">
       <h3 className="text-lg md:text-xl">{t("Total Assets")}</h3>
-      <p className="mb-4 mt-2 text-2xl font-semibold md:text-3xl">
+      <p
+        id="asset-balance"
+        className="mb-4 mt-2 w-fit text-2xl font-semibold md:text-3xl"
+      >
         Rp{" "}
         {balance.toLocaleString("id-ID", {
           minimumFractionDigits: 0,
@@ -30,7 +33,7 @@ const PortfolioChart = () => {
         })}
       </p>
 
-      <div className="flex gap-3">
+      <div id="porto-range-filter" className="flex w-fit gap-3">
         {historyRange.map((option) => (
           <Button
             variant={option === selectedRange ? "primary" : "secondary"}
@@ -48,6 +51,7 @@ const PortfolioChart = () => {
 
       {chartData[selectedRange].length !== 0 ? (
         <ResponsiveContainer
+          id={"portfolio-chart"}
           width={"100%"}
           height={isMobile ? 200 : 400}
           className={"mt-2 md:my-4"}
