@@ -179,12 +179,12 @@ const MarketPage = () => {
           <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
             <TopCrypto
               id="trending"
-              title={t("Trending Coins")}
+              title={t("Trending Coins", { ns: "general" })}
               tokens={trendingCrypto.slice(0, 5)}
             />
             <TopCrypto
               id="gainers"
-              title={t("Top Gainers")}
+              title={t("Top Gainers", { ns: "general" })}
               tokens={topGainers.slice(0, 5)}
             />
             <CryptoNews id="news" />
