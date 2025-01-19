@@ -132,11 +132,11 @@ const LandingMarketTable = () => {
   }));
 
   return (
-    <section className="mt-12 rounded-xl border border-borderColor md:mt-[80px]">
+    <section className="mt-12 w-full overflow-hidden rounded-xl border border-borderColor md:mt-[80px]">
       <CustomTable
         columns={marketColumns}
         data={tableData ?? []}
-        wrapperClassName="border-none !rounded-none max-w-[calc(100vw-2rem)] md:max-w-none"
+        wrapperClassName="border-none !rounded-none max-w-[calc(100vw-2rem)] lg:max-w-[calc(100vw-34px)]"
         rowKey="pair"
         rowHeight={64}
         onRowClick={(row) => router.push(`/market/${row.pair}`)}

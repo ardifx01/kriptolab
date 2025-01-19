@@ -8,6 +8,7 @@ import classNames from "classnames";
 
 import Button from "@/components/Button/Button";
 import useAuth from "@/features/auth/hooks/useAuth";
+import useModal from "@/hooks/useModal";
 
 import TokenSearchBar from "./TokenSearchBar/TokenSearchBar";
 import ChangeLanguage from "./ChangeLanguage";
@@ -21,6 +22,7 @@ export interface NavbarProps {
 const Navbar = ({}: NavbarProps) => {
   const { isLoggedIn } = useAuth();
   const { t } = useTranslation();
+  const { openSupportModal } = useModal();
 
   return (
     <nav
@@ -49,6 +51,13 @@ const Navbar = ({}: NavbarProps) => {
           <Link href={"/tutorial"} className="hover:text-white">
             Tutorial
           </Link>
+
+          <div
+            onClick={openSupportModal}
+            className="cursor-pointer hover:text-white"
+          >
+            {t("Support")}
+          </div>
         </div>
       </div>
 

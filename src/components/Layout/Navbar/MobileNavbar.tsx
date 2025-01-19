@@ -11,6 +11,7 @@ import { GithubIcon } from "@/assets/icons";
 import Button from "@/components/Button/Button";
 import Drawer from "@/components/Drawer/Drawer";
 import useAuth from "@/features/auth/hooks/useAuth";
+import useModal from "@/hooks/useModal";
 import openPage from "@/lib/helpers/openPage";
 
 import TokenSearchBar from "./TokenSearchBar/TokenSearchBar";
@@ -21,6 +22,7 @@ import UserDropdown from "./UserDropdown";
 const MobileNavbar = ({}: NavbarProps) => {
   const { isLoggedIn } = useAuth();
   const { t } = useTranslation();
+  const { openSupportModal } = useModal();
 
   const [menu, setMenu] = useState(false);
 
@@ -79,25 +81,21 @@ const MobileNavbar = ({}: NavbarProps) => {
               src={"/images/logo/kriptolab-full.svg"}
               width={200}
               height={200}
-              className="mb-5 h-20 w-40"
+              className="mb-2 h-20 w-40"
             />
           </Link>
-          <div className="flex flex-col gap-14 pt-2 text-lg font-semibold text-textSecondary">
-            <Link
-              href={"/market"}
-              // onClick={() => setMenu(false)}
-              className="hover:text-primaryAccent"
+          <div className="flex flex-col gap-8 pt-2 text-lg font-semibold text-textSecondary">
+            <Link href={"/"}>Home</Link>
+            <Link href={"/market"}>Market</Link>
+            <Link href={"/tutorial"}>Tutorial</Link>
+            <div
+              onClick={() => {
+                setMenu(false);
+                openSupportModal();
+              }}
             >
-              Market
-            </Link>
-
-            <Link
-              href={"/tutorial"}
-              // onClick={() => setMenu(false)}
-              className="hover:text-primaryAccent"
-            >
-              Tutorial
-            </Link>
+              {t("Support")}
+            </div>
           </div>
 
           <div className="absolute bottom-10 flex items-center gap-6 text-white">
