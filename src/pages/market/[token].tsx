@@ -14,6 +14,7 @@ import MarketDetailTable from "@/features/market/components/MarketDetail/MarketD
 import TradeAsset from "@/features/market/components/MarketDetail/TradeAsset/TradeAsset";
 import useTokenData from "@/features/market/hooks/useTokenData";
 import useInteractiveGuide from "@/hooks/useInteractiveGuide";
+import useWindowSize from "@/hooks/useWindowSize";
 import { formatCurrencyValue } from "@/lib/helpers/formatCurrencyValue";
 import { scrollToTop } from "@/lib/helpers/scrollTop";
 import { getPairsService, getTokenDetailsService } from "@/lib/services";
@@ -48,6 +49,7 @@ const TokenDetailPage = ({ staticData }: { staticData: ITokenDetails }) => {
   const { getTokenById } = useTokenData();
   const { t } = useTranslation("interactiveguide");
   const { tradingGuide, completeGuide, firstLoad } = useInteractiveGuide();
+  const { isMobile } = useWindowSize();
 
   // TOKEN DETAILS
   const getTokenDetails = useCallback((): ITokenDetails | undefined => {
@@ -86,6 +88,7 @@ const TokenDetailPage = ({ staticData }: { staticData: ITokenDetails }) => {
       target: "#trade-asset",
       content: t("tradingGuide.tradeAsset"),
       placement: "auto",
+      disableScrolling: !isMobile,
     },
     {
       target: "#input-token",
@@ -115,11 +118,13 @@ const TokenDetailPage = ({ staticData }: { staticData: ITokenDetails }) => {
       target: "#chart-container",
       content: t("tradingGuide.chartContainer"),
       placement: "auto",
+      disableScrolling: !isMobile,
     },
     {
       target: "#market-legend",
       content: t("tradingGuide.marketLegend"),
       placement: "auto",
+      disableScrolling: true,
     },
     {
       target: "#market-table",
