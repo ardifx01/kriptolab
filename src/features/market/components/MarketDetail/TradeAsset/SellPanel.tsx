@@ -85,9 +85,9 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
       });
 
       if (response) {
+        await refreshBalance();
         handleTokenChange("");
         handleIDRChange("");
-        await refreshBalance();
         showToast.success(`${t("Sell")} ${tokenValue} ${tokenSymbol} success!`);
       }
     } catch (error) {

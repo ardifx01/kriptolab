@@ -121,9 +121,9 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
       });
 
       if (response) {
+        await refreshBalance();
         handleTokenChange("");
         handleIDRChange("");
-        await refreshBalance();
         showToast.success(`Buy ${tokenValue} ${tokenSymbol} success!`);
       }
     } catch (error) {
