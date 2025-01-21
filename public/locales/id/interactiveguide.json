@@ -29,9 +29,9 @@
     "allSet": "Anda siap! Mulailah trading dengan percaya diri. Selamat trading! 🚀"
   },
   "portfolioGuide": {
-    "welcome": "Selamat datang di simulasi trading crypto Anda! Mari mulai dengan tur singkat",
+    "welcome": "Selamat datang! Mari mulai dengan tur singkat",
     "idrBalance": "Ini adalah saldo IDR virtual Anda. Gunakan untuk berlatih trading dengan dana simulasi",
-    "depositButton": "Berlatih menyetor dana virtual di sini. Coba strategi yang berbeda!",
+    "depositButton": "Anda dapat mencoba melakukan deposit dana virtual di sini",
     "withdrawButton": "Simulasikan penarikan dana. Pelajari cara mengelola penghasilan virtual Anda",
     "assetBalance": "Ini menunjukkan total aset virtual Anda. Pantau kinerja portofolio Anda",
     "portoRangeFilter": "Filter riwayat portofolio berdasarkan rentang waktu. Analisis hasil trading Anda",
@@ -48,5 +48,14 @@
   "Quick Add Button": "Tombol Quick Add Persentase",
   "Your Balance": "Saldo Anda",
   "Analyze Market Trends": "Analisisa Tren Pasar",
-  "Trading History": "Riwayat Trading"
+  "Trading History": "Riwayat Trading",
+  "Welcome to your Portfolio!": "Selamat datang di Portofolio Anda!",
+  "IDR Balance": "Saldo IDR",
+  "Deposit": "Deposit",
+  "Withdrawal": "Penarikan",
+  "Total Crypto Balance": "Total Saldo Crypto",
+  "Time Range Filter": "Rentang Waktu",
+  "Your Asset History": "Riwayat Aset Anda",
+  "Your Crypto Assets": "Aset Crypto Anda",
+  "Search Your Assets": "Cari Aset Anda"
 }

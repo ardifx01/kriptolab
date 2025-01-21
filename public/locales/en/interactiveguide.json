@@ -31,7 +31,7 @@
   "portfolioGuide": {
     "welcome": "Welcome to your crypto trading simulation! Let’s get started with a quick tour",
     "idrBalance": "This is your virtual IDR balance. Use it to practice trading with simulated funds",
-    "depositButton": "Practice depositing virtual funds here. Try different strategies!",
+    "depositButton": "You can depositing your virtual funds here",
     "withdrawButton": "Simulate withdrawing funds. Learn how to manage your virtual earnings",
     "assetBalance": "This shows your total virtual assets. Track your portfolio’s performance",
     "portoRangeFilter": "Filter your portfolio history by time range. Analyze your trading results",
@@ -48,5 +48,14 @@
   "Quick Add Button": "Quick Add Button",
   "Your Balance": "Your Balance",
   "Analyze Market Trends": "Analyze Market Trends",
-  "Trading History": "Trading History"
+  "Trading History": "Trading History",
+  "Welcome to your Portfolio!": "Welcome to your Portfolio!",
+  "IDR Balance": "IDR Balance",
+  "Deposit": "Deposit",
+  "Withdrawal": "Withdrawal",
+  "Total Crypto Balance": "Total Crypto Balance",
+  "Time Range Filter": "Time Range Filter",
+  "Your Asset History": "Your Asset History",
+  "Your Crypto Assets": "Your Crypto Assets",
+  "Search Your Assets": "Search Your Assets"
 }

@@ -19,59 +19,63 @@ const PortfolioPage = () => {
   const portfolioSteps: Step[] = [
     {
       target: "body",
+      title: tour("Welcome to your Portfolio!"),
       content: tour("portfolioGuide.welcome"),
       disableBeacon: true,
       placement: "center",
     },
     {
       target: "#idr-balance",
+      title: tour("IDR Balance"),
       content: tour("portfolioGuide.idrBalance"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#deposit-button",
+      title: tour("Deposit"),
       content: tour("portfolioGuide.depositButton"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#withdraw-button",
+      title: tour("Withdrawal"),
       content: tour("portfolioGuide.withdrawButton"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#asset-balance",
+      title: tour("Total Crypto Balance"),
       content: tour("portfolioGuide.assetBalance"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#porto-range-filter",
+      title: tour("Time Range Filter"),
       content: tour("portfolioGuide.portoRangeFilter"),
       placement: "auto",
     },
     {
       target: "#portfolio-chart",
+      title: tour("Your Asset History"),
       content: tour("portfolioGuide.portfolioChart"),
       placement: "auto",
     },
     {
       target: "#asset-table",
+      title: tour("Your Crypto Assets"),
       content: tour("portfolioGuide.assetTable"),
       placement: "auto",
     },
     {
       target: "#portfolio-search",
+      title: tour("Search Your Assets"),
       content: tour("portfolioGuide.portfolioSearch"),
       placement: "auto",
       disableScrolling: true,
-    },
-    {
-      target: "body",
-      content: tour("portfolioGuide.allSet"),
-      placement: "center",
     },
   ];
   const joyrideCallback = (data: CallBackProps) => {

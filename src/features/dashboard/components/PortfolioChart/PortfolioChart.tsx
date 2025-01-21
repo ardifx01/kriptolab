@@ -97,7 +97,10 @@ const PortfolioChart = () => {
           </AreaChart>
         </ResponsiveContainer>
       ) : (
-        <div className="my-4 flex h-[200px] items-center justify-center text-gray-500 md:h-[400px]">
+        <div
+          id="portfolio-chart"
+          className="my-4 flex h-[200px] items-center justify-center text-gray-500 md:h-[400px]"
+        >
           <p className="text-center md:pb-10">
             {t("No data available for the selected time range")}
           </p>
