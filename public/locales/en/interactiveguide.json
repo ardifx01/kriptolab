@@ -1,12 +1,12 @@
 {
   "marketGuide": {
-    "welcome": "Welcome to the Market page! Let's get started",
-    "trending": "Discover the top 5 trending coins",
-    "gainers": "Explore the top 5 gainers in the market",
+    "welcome": "Welcome! Let's get started",
+    "trending": "Discover the top 5 trending coins based on trading volume",
+    "gainers": "Explore the top 5 gainers in the market based on price increase",
     "news": "Stay updated with the latest crypto news",
     "marketplace": "You can see the list of available tokens and select one to start trading",
     "searchCrypto": "Quickly search for tokens by name or symbol",
-    "filterCrypto": "Filter tokens: Trending, Gainers, Losers, Watchlist",
+    "filterCrypto": "Filter tokens with: Trending based on Trading Volume, Gainers based on Price Increase, Losers based on Price Decrease and Watchlist is your favorite tokens",
     "tokenStar": "Click the star icon to add tokens to your watchlist",
     "allSet": "You're all set! Start exploring now",
     "filterTrending": "Filter by the most popular coins trending right now",
@@ -57,5 +57,15 @@
   "Time Range Filter": "Time Range Filter",
   "Your Asset History": "Your Asset History",
   "Your Crypto Assets": "Your Crypto Assets",
-  "Search Your Assets": "Search Your Assets"
+  "Search Your Assets": "Search Your Assets",
+  "Welcome to Market Page!": "Welcome to Market Page!",
+  "Highest Trading Volume": "Highest Trading Volume",
+  "Highest Price Increase": "Highest Price Increase",
+  "Latest News": "Latest News",
+  "List of All Tokens": "List of All Tokens",
+  "Add to Watchlist": "Add to Watchlist",
+  "Search for Specific Token": "Search for Specific Token",
+  "Filter Tokens": "Filter Tokens",
+  "Watchlisted Tokens": "Watchlisted Tokens",
+  "Highest Price Decrease": "Highest Price Decrease"
 }

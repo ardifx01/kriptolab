@@ -32,57 +32,59 @@ const MarketPage = () => {
   const desktopSteps: Step[] = [
     {
       target: "body",
+      title: t("Welcome to Market Page!"),
       content: t("marketGuide.welcome"),
       disableBeacon: true,
       placement: "center",
     },
     {
       target: "#trending",
+      title: t("Highest Trading Volume"),
       content: t("marketGuide.trending"),
       disableScrolling: true,
       placement: "top",
     },
     {
       target: "#gainers",
+      title: t("Highest Price Increase"),
       content: t("marketGuide.gainers"),
       disableScrolling: true,
       placement: "top",
     },
     {
       target: "#news",
+      title: t("Latest News"),
       content: t("marketGuide.news"),
       disableScrolling: true,
       placement: "top",
     },
     {
       target: "#marketplace",
+      title: t("List of All Tokens"),
       content: t("marketGuide.marketplace"),
       placement: "top",
       disableScrolling: true,
     },
     {
+      target: "#token-star",
+      title: t("Add to Watchlist"),
+      content: t("marketGuide.tokenStar"),
+      placement: "top",
+      disableScrolling: true,
+    },
+    {
       target: "#search-crypto",
+      title: t("Search for Specific Token"),
       content: t("marketGuide.searchCrypto"),
       disableScrolling: true,
       placement: "bottom",
     },
     {
       target: "#filter-crypto",
+      title: t("Filter Tokens"),
       content: t("marketGuide.filterCrypto"),
       disableScrolling: true,
       placement: "bottom",
-    },
-    {
-      target: "#token-star",
-      content: t("marketGuide.tokenStar"),
-      placement: "top",
-      disableScrolling: true,
-    },
-    {
-      target: "body",
-      content: t("marketGuide.allSet"),
-      placement: "center",
-      disableBeacon: true,
     },
   ];
 
@@ -90,56 +92,58 @@ const MarketPage = () => {
   const mobileSteps: Step[] = [
     {
       target: "body",
+      title: t("Welcome to Market Page!"),
       content: t("marketGuide.welcome"),
       disableBeacon: true,
       placement: "center",
     },
     {
       target: "#marketplace",
+      title: t("List of All Tokens"),
       content: t("marketGuide.marketplace"),
       placement: "auto",
     },
     {
       target: "#Trending",
+      title: t("Highest Trading Volume"),
       content: t("marketGuide.filterTrending"),
       disableScrolling: true,
       placement: "auto",
     },
     {
       target: "#Gainers",
+      title: t("Highest Price Increase"),
       content: t("marketGuide.filterGainers"),
       disableScrolling: true,
       placement: "auto",
     },
     {
       target: "#Losers",
+      title: t("Highest Price Decrease"),
       content: t("marketGuide.filterLosers"),
       disableScrolling: true,
       placement: "auto",
     },
     {
       target: "#token-star",
+      title: t("Add to Watchlist"),
       content: t("marketGuide.tokenStar"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#Watchlist",
+      title: t("Watchlisted Tokens"),
       content: t("marketGuide.watchlist"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#token-search",
+      title: t("Search for Specific Token"),
       content: t("marketGuide.tokenSearch"),
       placement: "auto",
       disableScrolling: true,
-    },
-    {
-      target: "body",
-      content: t("marketGuide.allSet"),
-      placement: "center",
-      disableBeacon: true,
     },
   ];
 

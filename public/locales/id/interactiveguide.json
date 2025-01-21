@@ -1,12 +1,12 @@
 {
   "marketGuide": {
-    "welcome": "Selamat datang di halaman Market! Mari kita mulai",
-    "trending": "Temukan 5 koin paling populer saat ini",
-    "gainers": "Jelajahi 5 koin dengan kenaikan harga tertinggi",
+    "welcome": "Selamat datang! Mari kita mulai",
+    "trending": "Temukan 5 koin paling populer saat ini berdasarkan volume trading",
+    "gainers": "Jelajahi 5 koin dengan kenaikan harga tertinggi berdasarkan persentase kenaikan harga",
     "news": "Dapatkan update terbaru seputar berita crypto",
     "marketplace": "Anda dapat melihat daftar token yang tersedia dan memilih satu untuk mulai trading",
     "searchCrypto": "Cari token dengan cepat berdasarkan nama atau simbol",
-    "filterCrypto": "Filter token: Trending, Gainers, Losers, Watchlist",
+    "filterCrypto": "Filter token dengan: Trending berdasarkan Volume Trading, Gainers berdasarkan Kenaikan Harga, Losers berdasarkan Penurunan Harga dan Watchlist adalah token favorit Anda",
     "tokenStar": "Klik ikon bintang untuk menambahkan token ke watchlist Anda",
     "allSet": "Anda siap! Mulai jelajahi sekarang",
     "filterTrending": "Filter berdasarkan koin paling populer saat ini",
@@ -57,5 +57,15 @@
   "Time Range Filter": "Rentang Waktu",
   "Your Asset History": "Riwayat Aset Anda",
   "Your Crypto Assets": "Aset Crypto Anda",
-  "Search Your Assets": "Cari Aset Anda"
+  "Search Your Assets": "Cari Aset Anda",
+  "Welcome to Market Page!": "Selamat datang di Halaman Market!",
+  "Highest Trading Volume": "Volume Trading Tertinggi",
+  "Highest Price Increase": "Kenaikan Harga Tertinggi",
+  "Latest News": "Berita Terbaru",
+  "List of All Tokens": "Daftar Semua Token",
+  "Add to Watchlist": "Tambahkan ke Watchlist",
+  "Search for Specific Token": "Cari Token Tertentu",
+  "Filter Tokens": "Filter Token",
+  "Watchlisted Tokens": "Token di Watchlist",
+  "Highest Price Decrease": "Penurunan Harga Tertinggi"
 }
