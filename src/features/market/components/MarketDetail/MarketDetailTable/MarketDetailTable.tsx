@@ -33,8 +33,8 @@ interface Props {
 }
 
 const MARKET_TABS: { label: string; value: MarketDetailTableType }[] = [
-  { label: "Transactions", value: "transactions" },
   { label: "My Trades", value: "my-trades" },
+  { label: "Transactions", value: "transactions" },
   { label: "News", value: "news" },
 ];
 
@@ -110,14 +110,14 @@ const MarketDetailTable = ({ token }: Props) => {
           </Menu>
           <div className="relative h-[300px] max-h-[300px] overflow-hidden overflow-y-auto rounded-xl border border-borderColor">
             {currentIndex === 0 && (
-              <TransactionsPanel
-                trades={trades ?? []}
+              <MyTradesPanel
+                trades={myTrades ?? []}
                 symbol={tokenSymbol || ""}
               />
             )}
             {currentIndex === 1 && (
-              <MyTradesPanel
-                trades={myTrades ?? []}
+              <TransactionsPanel
+                trades={trades ?? []}
                 symbol={tokenSymbol || ""}
               />
             )}
@@ -138,14 +138,14 @@ const MarketDetailTable = ({ token }: Props) => {
           >
             <div className="relative h-[400px] max-h-[400px] overflow-y-auto">
               <TabPanel>
-                <TransactionsPanel
-                  trades={trades ?? []}
+                <MyTradesPanel
+                  trades={myTrades ?? []}
                   symbol={tokenSymbol || ""}
                 />
               </TabPanel>
               <TabPanel>
-                <MyTradesPanel
-                  trades={myTrades ?? []}
+                <TransactionsPanel
+                  trades={trades ?? []}
                   symbol={tokenSymbol || ""}
                 />
               </TabPanel>

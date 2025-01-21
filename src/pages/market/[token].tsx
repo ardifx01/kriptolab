@@ -74,67 +74,65 @@ const TokenDetailPage = ({ staticData }: { staticData: ITokenDetails }) => {
   const tradingSteps: Step[] = [
     {
       target: "body",
+      title: t("Welcome to Trading Page!"),
       content: t("tradingGuide.welcome"),
       placement: "center",
       disableBeacon: true,
     },
     {
       target: "#market-info",
+      title: t("Token Information"),
       content: t("tradingGuide.marketInfo"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#trade-asset",
+      title: t("Buy or Sell Token"),
       content: t("tradingGuide.tradeAsset"),
       placement: "auto",
       disableScrolling: !isMobile,
     },
     {
       target: "#input-token",
+      title: t("Set Token Amount"),
       content: t("tradingGuide.inputToken"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#input-idr",
+      title: t("Set IDR Amount"),
       content: t("tradingGuide.inputIDR"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#quick-add",
+      title: t("Quick Add Button"),
       content: t("tradingGuide.quickAdd"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#balance",
+      title: t("Your Balance"),
       content: t("tradingGuide.balance"),
       placement: "auto",
       disableScrolling: true,
     },
     {
       target: "#chart-container",
+      title: t("Analyze Market Trends"),
       content: t("tradingGuide.chartContainer"),
       placement: "auto",
       disableScrolling: !isMobile,
     },
     {
-      target: "#market-legend",
-      content: t("tradingGuide.marketLegend"),
-      placement: "auto",
-      disableScrolling: true,
-    },
-    {
       target: "#market-table",
+      title: t("Trading History"),
       content: t("tradingGuide.marketTable"),
       placement: "auto",
-    },
-    {
-      target: "body",
-      content: t("tradingGuide.allSet"),
-      placement: "center",
     },
   ];
 

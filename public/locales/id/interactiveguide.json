@@ -16,7 +16,7 @@
     "tokenSearch": "Klik ikon pencarian untuk mencari token"
   },
   "tradingGuide": {
-    "welcome": "Selamat datang di halaman trading! Mari mulai perjalanan trading Anda",
+    "welcome": "Selamat datang! Mari mulai perjalanan trading Anda",
     "marketInfo": "Di sini, Anda akan menemukan semua detail penting tentang token yang Anda lihat",
     "tradeAsset": "Ini adalah pusat trading Anda! Gunakan bagian ini untuk membeli atau menjual token dengan lancar",
     "inputToken": "Masukkan jumlah token yang ingin Anda beli",
@@ -25,7 +25,7 @@
     "balance": "Periksa saldo yang tersedia di sini",
     "chartContainer": "Jelajahi pergerakan harga token dengan grafik interaktif ini. Analisis tren untuk membuat keputusan yang tepat",
     "marketLegend": "Legenda menampilkan Nama Pasangan, MA50, MA200 untuk analisis tren",
-    "marketTable": "Tinjau riwayat trading dari Indodax dan trading pribadi Anda di sini",
+    "marketTable": "Tinjau riwayat trading Anda di sini dan juga riwayat trading dari pasar Indodax real-time",
     "allSet": "Anda siap! Mulailah trading dengan percaya diri. Selamat trading! 🚀"
   },
   "portfolioGuide": {
@@ -39,5 +39,14 @@
     "assetTable": "Lihat semua aset crypto virtual Anda di sini. Kelola dan sempurnakan strategi Anda",
     "portfolioSearch": "Cari aset crypto tertentu. Jaga portofolio Anda tetap teratur",
     "allSet": "Anda siap! Mulailah berlatih dan kuasai trading crypto dalam simulasi ini"
-  }
+  },
+  "Welcome to Trading Page!": "Selamat datang di Halaman Trading!",
+  "Token Information": "Informasi Token",
+  "Buy or Sell Token": "Beli atau Jual Token",
+  "Set Token Amount": "Masukkan Jumlah Token",
+  "Set IDR Amount": "Masukkan Jumlah IDR",
+  "Quick Add Button": "Tombol Quick Add Persentase",
+  "Your Balance": "Saldo Anda",
+  "Analyze Market Trends": "Analisisa Tren Pasar",
+  "Trading History": "Riwayat Trading"
 }

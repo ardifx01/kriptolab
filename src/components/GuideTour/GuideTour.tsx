@@ -37,25 +37,28 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
       borderRadius: 8,
       color: "#fffffff2",
       fontSize: "14px",
-      padding: "16px",
+      padding: "0",
       border: "2px solid #1f2236",
     },
     tooltipContainer: {
       textAlign: "left",
     },
     tooltipTitle: {
-      color: "#fffffff2",
-      fontSize: "20px",
-      fontWeight: "bold",
-      textAlign: "center",
+      color: "#fffffff",
+      fontSize: "16px",
+      fontWeight: "500",
+      padding: "16px",
+      borderBottom: "2px solid #1f2236",
     },
     tooltipContent: {
       color: "#fffffff2",
-      fontSize: "16px",
-      padding: "12px",
-      marginTop: "12px",
+      fontSize: "14px",
+      padding: "16px",
       fontWeight: "normal",
-      textAlign: "center",
+    },
+    tooltipFooter: {
+      padding: "0px 16px 16px 16px",
+      marginTop: "0",
     },
     buttonBack: {
       color: "#b5b7da",
@@ -71,6 +74,10 @@ const GuideTour: React.FC<GuideTourProps> = ({ steps, run, callback }) => {
     buttonSkip: {
       color: "#fc4a71",
       fontSize: "14px",
+      padding: "0px",
+    },
+    buttonClose: {
+      top: 6,
     },
     beacon: {
       backgroundColor: "#6A60E8",

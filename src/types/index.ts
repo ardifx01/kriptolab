@@ -147,7 +147,7 @@ export type MarketMenuType =
   | "Gainers"
   | "Losers";
 
-export type MarketDetailTableType = "transactions" | "my-trades" | "news";
+export type MarketDetailTableType = "my-trades" | "transactions" | "news";
 
 export interface IAssetBalance {
   symbol: string;

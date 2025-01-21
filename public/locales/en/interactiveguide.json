@@ -25,7 +25,7 @@
     "balance": "Check your available balance here",
     "chartContainer": "Explore the token’s price movements with this interactive chart. Analyze trends to make informed decisions",
     "marketLegend": "Legend displays Pair name, MA50, MA200 for trend analysis",
-    "marketTable": "Review the trading history from Indodax and your personal trades here",
+    "marketTable": "Review the trading history from your personal trades and trades from real-time Indodax market",
     "allSet": "You’re all set! Dive in and start trading with confidence. Happy trading! 🚀"
   },
   "portfolioGuide": {
@@ -39,5 +39,14 @@
     "assetTable": "View all your virtual crypto holdings here. Manage and refine your strategy",
     "portfolioSearch": "Search for specific crypto assets. Keep your portfolio organized",
     "allSet": "You’re all set! Start practicing and mastering crypto trading in this simulation"
-  }
+  },
+  "Welcome to Trading Page!": "Welcome to Trading Page!",
+  "Token Information": "Token Information",
+  "Buy or Sell Token": "Buy or Sell Token",
+  "Set Token Amount": "Set Token Amount",
+  "Set IDR Amount": "Set IDR Amount",
+  "Quick Add Button": "Quick Add Button",
+  "Your Balance": "Your Balance",
+  "Analyze Market Trends": "Analyze Market Trends",
+  "Trading History": "Trading History"
 }
