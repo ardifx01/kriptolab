@@ -117,6 +117,7 @@ const MyTradesPanel = ({
           rowHeight={46}
           headerHeight={46}
           className="w-full"
+          bodyClassName="border-b border-borderColor"
           wrapperClassName="border-none !rounded-none max-w-[calc(100vw-2rem)] md:max-w-none"
           includeThead={isMobile}
         />
