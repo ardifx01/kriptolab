@@ -73,9 +73,7 @@ const usePortfolio = () => {
     formattedAssetIdrValue,
     errorAssetIdrValue,
     getAssetBalance,
-    isLoading: () => {
-      return isLoading || isLoadingAssetIdrValue;
-    },
+    isLoading: isLoading || isLoadingAssetIdrValue,
     refreshBalance: async () => {
       await refreshBalance();
       await refreshAssetIdrValue();

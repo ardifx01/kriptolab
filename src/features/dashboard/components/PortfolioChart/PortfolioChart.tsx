@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { Area, AreaChart, ResponsiveContainer, Tooltip } from "recharts";
 
 import Button from "@/components/Button/Button";
+import Shimmer from "@/components/Loader/Shimmer";
 import usePortfolio from "@/hooks/usePortfolio";
 import useWindowSize from "@/hooks/useWindowSize";
 import { historyRange } from "@/types";
@@ -12,8 +13,13 @@ import { historyRange } from "@/types";
 import usePortoHistory from "../../hooks/usePortoHistory";
 
 const PortfolioChart = () => {
-  const { formattedAssetIdrValue } = usePortfolio();
-  const { chartData, handleRangeChange, selectedRange } = usePortoHistory();
+  const { formattedAssetIdrValue, isLoading } = usePortfolio();
+  const {
+    chartData,
+    handleRangeChange,
+    selectedRange,
+    isLoading: chartLoading,
+  } = usePortoHistory();
   const { isMobile } = useWindowSize();
   const { t } = useTranslation();
 
@@ -22,9 +28,14 @@ const PortfolioChart = () => {
       <h3 className="text-lg md:text-xl">{t("Total Assets")}</h3>
       <p
         id="asset-balance"
-        className="mb-4 mt-2 w-fit text-2xl font-semibold md:text-3xl"
+        className="mb-4 mt-2 flex w-fit items-center gap-2 text-2xl font-semibold md:text-3xl"
       >
-        Rp {formattedAssetIdrValue}
+        <span>Rp </span>
+        {isLoading ? (
+          <Shimmer className="mt-[2px] h-7 w-48 rounded-[4px]" />
+        ) : (
+          formattedAssetIdrValue
+        )}
       </p>
 
       <div id="porto-range-filter" className="flex w-fit gap-3">
@@ -90,7 +101,9 @@ const PortfolioChart = () => {
           className="my-4 flex h-[200px] items-center justify-center text-gray-500 md:h-[400px]"
         >
           <p className="text-center md:pb-10">
-            {t("No data available for the selected time range")}
+            {chartLoading
+              ? "Loading..."
+              : t("No data available for the selected time range")}
           </p>
         </div>
       )}

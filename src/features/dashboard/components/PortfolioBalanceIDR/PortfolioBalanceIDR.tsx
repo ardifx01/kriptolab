@@ -2,11 +2,12 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import Button from "@/components/Button/Button";
+import Shimmer from "@/components/Loader/Shimmer";
 import useModal from "@/hooks/useModal";
 import usePortfolio from "@/hooks/usePortfolio";
 
 const PortfolioBalanceIDR = () => {
-  const { formattedBalance } = usePortfolio();
+  const { formattedBalance, isLoading } = usePortfolio();
   const { openDepositModal, openWithdrawModal } = useModal();
   const { t } = useTranslation();
 
@@ -15,9 +16,14 @@ const PortfolioBalanceIDR = () => {
       <h3 className="text-lg md:text-xl">{t("Balance")}</h3>
       <p
         id="idr-balance"
-        className="mb-4 mt-2 w-fit text-2xl font-semibold md:text-3xl"
+        className="mb-4 mt-2 flex w-fit items-center gap-2 text-2xl font-semibold md:text-3xl"
       >
-        Rp {formattedBalance}
+        <span>Rp </span>
+        {isLoading ? (
+          <Shimmer className="mt-[2px] h-7 w-48 rounded-[4px]" />
+        ) : (
+          formattedBalance
+        )}
       </p>
       <div className="flex gap-5">
         <Button
