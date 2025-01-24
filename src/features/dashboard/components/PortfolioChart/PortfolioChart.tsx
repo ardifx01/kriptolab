@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 import classNames from "classnames";
@@ -17,8 +17,6 @@ const PortfolioChart = () => {
   const { isMobile } = useWindowSize();
   const { t } = useTranslation();
 
-  const [balance, setBalance] = useState(formattedAssetIdrValue || 0);
-
   return (
     <section className="rounded-lg border-2 border-borderColor bg-cardBackground p-4 md:p-5">
       <h3 className="text-lg md:text-xl">{t("Total Assets")}</h3>
@@ -26,11 +24,7 @@ const PortfolioChart = () => {
         id="asset-balance"
         className="mb-4 mt-2 w-fit text-2xl font-semibold md:text-3xl"
       >
-        Rp{" "}
-        {balance.toLocaleString("id-ID", {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        })}
+        Rp {formattedAssetIdrValue}
       </p>
 
       <div id="porto-range-filter" className="flex w-fit gap-3">
@@ -59,17 +53,11 @@ const PortfolioChart = () => {
           <AreaChart data={chartData[selectedRange]}>
             <Tooltip
               content={({ active, payload }) => {
-                if (!payload?.length) return;
+                if (!payload?.length || !active) return;
 
                 const value = payload[0].value;
                 const timestamp = payload[0].payload.timestamp;
 
-                if (active && value) {
-                  setBalance(Number(value));
-                } else {
-                  const zero = 0;
-                  setBalance(zero);
-                }
                 return (
                   <div className="rounded-lg border-2 border-borderColor bg-cardBackground p-3 px-4 text-sm md:text-base">
                     <p className="text-white">
