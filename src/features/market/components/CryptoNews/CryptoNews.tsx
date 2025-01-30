@@ -1,19 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import Image from "next/image";
-
 import classNames from "classnames";
 
 import Shimmer from "@/components/Loader/Shimmer";
-import OpenExternalLink from "@/components/OpenExternalLink/OpenExternalLink";
-import { API_NEWS, BACKEND_URL } from "@/constants";
+import { API_NEWS } from "@/constants";
 import { useCustomSWR } from "@/hooks/useCustomSWR";
-import { formatDate } from "@/lib/helpers";
 import { INews } from "@/types";
 
+import NewsItem from "./NewsItem";
+
 const CryptoNews = ({ id }: { id?: string }) => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { data, isLoading } = useCustomSWR<INews[]>(
     API_NEWS,
     "unauthenticated",
@@ -37,41 +35,9 @@ const CryptoNews = ({ id }: { id?: string }) => {
         {data &&
           data.length > 0 &&
           !isLoading &&
-          data.slice(0, 3).map((news, index) => (
-            <OpenExternalLink
-              key={index}
-              className="group flex cursor-pointer gap-2"
-              link={news.link}
-            >
-              <Image
-                src={
-                  news.image
-                    ? `${BACKEND_URL}${news.image}`
-                    : "/images/news-default.jpeg"
-                }
-                alt={news.title || "Crypto News"}
-                width={100}
-                height={66}
-                className="h-full w-24 rounded-lg group-hover:brightness-110"
-              />
-              <div className="flex w-full flex-col gap-1">
-                <h3 className="text max-h-10 overflow-hidden text-ellipsis text-sm group-hover:text-secondaryAccent lg:max-w-[270px]">
-                  {news.title}
-                </h3>
-
-                <div className="flex flex-col text-xs text-gray-400 lg:flex-row lg:items-center lg:gap-[6px] lg:text-sm">
-                  <p>{news.author}</p>
-                  <div className="mt-0.5 hidden size-1 rounded-full bg-gray-400 lg:block"></div>
-                  <p className="text-[11px] lg:text-sm">
-                    {formatDate(
-                      news.date || "",
-                      i18n.language === "id" ? "id-ID" : "en-GB",
-                    )}
-                  </p>
-                </div>
-              </div>
-            </OpenExternalLink>
-          ))}
+          data
+            .slice(0, 3)
+            .map((news, index) => <NewsItem key={index} news={news} />)}
         {!data &&
           isLoading &&
           [0, 1, 2].map((d) => (
