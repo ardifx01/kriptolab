@@ -9,6 +9,7 @@ import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
 import { showToast } from "@/components/Toast/CustomToast";
 import useAuth from "@/features/auth/hooks/useAuth";
+import useTxUser from "@/features/market/hooks/useTxUser";
 import useModal from "@/hooks/useModal";
 import useNumberInput from "@/hooks/useNumberInput";
 import usePortfolio from "@/hooks/usePortfolio";
@@ -22,6 +23,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
   const { idrBalance, refreshBalance } = usePortfolio();
   const { openDepositModal } = useModal();
   const { isLoggedIn } = useAuth();
+  const { refreshTxUser } = useTxUser(token);
 
   // TOKEN INPUT
   const {
@@ -124,6 +126,7 @@ const BuyPanel = ({ token }: { token: ITokenDetails }) => {
         await refreshBalance();
         handleTokenChange("");
         handleIDRChange("");
+        refreshTxUser();
         showToast.success(`Buy ${tokenValue} ${tokenSymbol} success!`);
       }
     } catch (error) {

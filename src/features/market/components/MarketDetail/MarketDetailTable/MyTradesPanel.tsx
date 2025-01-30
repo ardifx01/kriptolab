@@ -13,9 +13,11 @@ import { ITransaction } from "@/types";
 const MyTradesPanel = ({
   trades,
   symbol,
+  isLoading,
 }: {
   trades: ITransaction[];
   symbol: string;
+  isLoading: boolean;
 }) => {
   const { i18n, t } = useTranslation();
   const { isMobile } = useWindowSize();
@@ -123,7 +125,7 @@ const MyTradesPanel = ({
         />
       ) : (
         <div className="flex h-80 items-center justify-center text-lg text-textSecondary">
-          {t("No data")}
+          {isLoading ? t("Loading...") : t("No data")}
         </div>
       )}
     </div>

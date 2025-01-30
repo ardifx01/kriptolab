@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaCheck } from "react-icons/fa6";
 import { IoChevronDown } from "react-icons/io5";
@@ -13,16 +13,11 @@ import {
 import classNames from "classnames";
 
 import TabCustom from "@/components/Tab/TabCustom";
-import { API_TOKEN_TRANSACTION_HISTORY, INDODAX_URL } from "@/constants";
-import useAuth from "@/features/auth/hooks/useAuth";
+import { INDODAX_URL } from "@/constants";
+import useTxUser from "@/features/market/hooks/useTxUser";
 import { useCustomSWR } from "@/hooks/useCustomSWR";
 import useWindowSize from "@/hooks/useWindowSize";
-import {
-  ITokenDetails,
-  ITradeHistory,
-  ITransaction,
-  MarketDetailTableType,
-} from "@/types";
+import { ITokenDetails, ITradeHistory, MarketDetailTableType } from "@/types";
 
 import MyTradesPanel from "./MyTradesPanel";
 import NewsPanel from "./NewsPanel";
@@ -41,12 +36,11 @@ const MARKET_TABS: { label: string; value: MarketDetailTableType }[] = [
 const MarketDetailTable = ({ token }: Props) => {
   const { t } = useTranslation();
   const { isMobile } = useWindowSize();
-  const { isLoggedIn } = useAuth();
+  const { myTrades, isLoading } = useTxUser(token);
 
   const [marketTabs, setMarketTabs] = useState(MARKET_TABS[0].value);
 
   const currentIndex = MARKET_TABS.findIndex((v) => v.value === marketTabs);
-  const API_URL = `${API_TOKEN_TRANSACTION_HISTORY}?pair_id=${token?.priceDetails?.pair_id}`;
 
   const tokenSymbol = token?.pairDetails.traded_currency_unit;
 
@@ -60,17 +54,6 @@ const MarketDetailTable = ({ token }: Props) => {
       revalidateIfStale: true,
     },
   );
-
-  // USER TRADES HISTORY
-  const { data: mytxhistory, error: errorTxHistory } = useCustomSWR<
-    ITransaction[]
-  >(isLoggedIn ? API_URL : null, "authenticated");
-
-  const myTrades = useMemo(() => {
-    if (!mytxhistory || errorTxHistory || !isLoggedIn) return [];
-
-    return mytxhistory;
-  }, [errorTxHistory, isLoggedIn, mytxhistory]);
 
   return (
     <div id="market-table">
@@ -113,6 +96,7 @@ const MarketDetailTable = ({ token }: Props) => {
               <MyTradesPanel
                 trades={myTrades ?? []}
                 symbol={tokenSymbol || ""}
+                isLoading={isLoading}
               />
             )}
             {currentIndex === 1 && (
@@ -141,6 +125,7 @@ const MarketDetailTable = ({ token }: Props) => {
                 <MyTradesPanel
                   trades={myTrades ?? []}
                   symbol={tokenSymbol || ""}
+                  isLoading={isLoading}
                 />
               </TabPanel>
               <TabPanel>

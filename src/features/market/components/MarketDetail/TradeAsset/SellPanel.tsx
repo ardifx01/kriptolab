@@ -6,6 +6,7 @@ import classNames from "classnames";
 import Button from "@/components/Button/Button";
 import CustomNumberInput from "@/components/Form/CustomNumberInput";
 import { showToast } from "@/components/Toast/CustomToast";
+import useTxUser from "@/features/market/hooks/useTxUser";
 import useNumberInput from "@/hooks/useNumberInput";
 import usePortfolio from "@/hooks/usePortfolio";
 import { sellService } from "@/lib/services";
@@ -15,6 +16,7 @@ import ConfirmationModal from "./ConfirmationModal";
 
 const SellPanel = ({ token }: { token: ITokenDetails }) => {
   const { t } = useTranslation();
+  const { refreshTxUser } = useTxUser(token);
 
   // TOKEN INPUT
   const {
@@ -88,6 +90,7 @@ const SellPanel = ({ token }: { token: ITokenDetails }) => {
         await refreshBalance();
         handleTokenChange("");
         handleIDRChange("");
+        refreshTxUser();
         showToast.success(`${t("Sell")} ${tokenValue} ${tokenSymbol} success!`);
       }
     } catch (error) {
