@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 
@@ -7,6 +8,8 @@ import { formatDate } from "@/lib/helpers";
 import { INews } from "@/types";
 
 const NewsItem = ({ news }: { news: INews }) => {
+  const { i18n } = useTranslation();
+
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
@@ -40,7 +43,10 @@ const NewsItem = ({ news }: { news: INews }) => {
           <p>{news.author}</p>
           <div className="mt-0.5 hidden size-1 rounded-full bg-gray-400 sm:block"></div>
           <p className="text-[11px] sm:text-sm">
-            {formatDate(news.date || "", "id-ID")}
+            {formatDate(
+              news.date || "",
+              i18n.language === "id" ? "id-ID" : "en-GB",
+            )}
           </p>
         </div>
       </div>
