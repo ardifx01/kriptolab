@@ -53,15 +53,15 @@ const PortfolioPage = () => {
       disableScrolling: true,
     },
     {
-      target: "#porto-range-filter",
-      title: tour("Time Range Filter"),
-      content: tour("portfolioGuide.portoRangeFilter"),
-      placement: "auto",
-    },
-    {
       target: "#portfolio-chart",
       title: tour("Your Asset History"),
       content: tour("portfolioGuide.portfolioChart"),
+      placement: "auto",
+    },
+    {
+      target: "#porto-range-filter",
+      title: tour("Time Range Filter"),
+      content: tour("portfolioGuide.portoRangeFilter"),
       placement: "auto",
     },
     {
