@@ -23,7 +23,7 @@ export const useInfiniteOHLCData = (tokenId: string, timeframe: string) => {
     isLoading,
     mutate,
   } = useCustomSWR<ITokenOHLC[]>(fetchUrl, "unauthenticated", {
-    refreshInterval: 1000 * 15,
+    refreshInterval: 1000 * 5,
     revalidateOnFocus: true,
     revalidateIfStale: true,
   });
